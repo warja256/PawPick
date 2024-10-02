@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PawPick</title>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+       <header>
+            <a href="./account.html"><img src="./acc2.png"></a>
+            <a href="./main.html"><h1>PawPick</h1></a>
+       </header> 
+       <main>
+            <form method="" enctype="multipart/form-data" action="">
+                <h2>Чтобы добавить карточку животного, пожалуйста, заполните все поля!</h2>
+                <div>
+                    <p>Добавьте фото животного</p>
+                    <input type="file" id="photo" name="photo" accept="image/png, image/jpeg"/>
+                </div>
+                <div>
+                    <p>Имя</p>
+                    <input type="text" id="name">
+                </div>
+                <div>
+                    <p>Тип животного</p>
+                    <label for="cat">Кошка</label>
+                    <input type="radio" id="cat" name="type">
+                    <label for="dog">Собака</label>
+                    <input type="radio" id="dog" name="type">
+                </div>
+                <div>
+                    <p>Пол</p>
+                    <label for="girl">Девочка</label>
+                    <input type="radio" id="girl" name="sex">
+                    <label for="boy">Мальчик</label>
+                    <input type="radio" id="boy" name="sex">
+                </div>
+
+                <div>
+                    <p>Характер</p>
+                    <label for="calm">Спокойный</label>
+                    <input type="radio" id="calm" name="personality">
+                    <label for="active">Активный</label>
+                    <input type="radio" id="active" name="personality">
+                </div>
+
+                <div>
+                    <p>Размер</p>
+                    <label for="small">Маленький</label>
+                    <input type="radio" id="small" name="size">
+                    <label for="medium">Средний</label>
+                    <input type="radio" id="medium" name="size">
+                    <label for="large">Большой</label>
+                    <input type="radio" id="large" name="size">
+                </div>
+
+                <div>
+                    <p>Введите количество полных лет</p>
+                    <input type="number" id="'age">
+                </div>
+
+                <div>
+                    <p>Шерсть</p>
+                    <label for="short">Короткая</label>
+                    <input type="radio" id="short" name="fur">
+                    <label for="long">Длинная</label>
+                    <input type="radio" id="long" name="fur">
+                </div>
+
+                <div>
+                    <p>Окрас</p>
+                    <label for="white">Белый</label>
+                    <input type="checkbox" id="white" name="color">
+                    <label for="yellow">Желтый</label>
+                    <input type="checkbox" id="yellow" name="color">
+                    <label for="black">Черный</label>
+                    <input type="checkbox" id="black" name="color">
+                    <label for="orange">Рыжий</label>
+                    <input type="checkbox" id="orange" name="color">
+                    <label for="brown">Коричневый</label>
+                    <input type="checkbox" id="brown" name="color">
+                    <label for="gray">Серый</label>
+                    <input type="checkbox" id="gray" name="color">
+                </div>
+
+                <div>
+                    <p>Дополнительно</p>
+                    <label for="family">Для семьи с детьми</label>
+                    <input type="checkbox" id="family" name="adt">
+                    <label for="animals">Ладит с другими животными</label>
+                    <input type="checkbox" id="animals" name="adt">
+                    <label for="vaccines">Есть прививки</label>
+                    <input type="checkbox" id="vaccines" name="adt">
+                    <label for="boarding">На передержке</label>
+                    <input type="checkbox" id="boarding" name="adt">
+                </div>
+
+                <div>
+                    <label for="comment">Добавьте описание</label>
+                    <textarea id="comment"></textarea>
+                </div>
+                <input type="submit" value="Добавить" class="submit">
+            </form>
+       </main>
+    </body>
+</html>
