@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'onboarding/onboarding.dart';
 import 'auth/sign_in.dart';
+import 'theme/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const FirstLaunchScreen(),
+      theme: AppTheme.lightTheme,
     );
   }
 }
@@ -23,9 +25,7 @@ class FirstLaunchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Simulating the check for first launch.
-    bool isFirstLaunch =
-        true; // You can replace this with actual logic for first launch.
+    bool isFirstLaunch = true;
 
     if (isFirstLaunch) {
       return const OnboardingScreen();

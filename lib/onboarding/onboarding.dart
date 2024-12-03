@@ -4,6 +4,7 @@ import 'onboarding2.dart';
 import 'onboarding3.dart';
 import '../auth/sign_in.dart';
 import '../registration/registration_1.dart';
+import '../theme/theme.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -63,7 +64,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     width: 8.0,
                     decoration: BoxDecoration(
                       color: currentPage == index
-                          ? const Color(0xFFEEB738)
+                          ? Theme.of(context).primaryColor
                           : Colors.grey.withOpacity(0.5),
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -83,7 +84,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFEEB738),
+                    backgroundColor: Theme.of(context).primaryColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
@@ -107,17 +108,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     MaterialPageRoute(builder: (context) => const AuthScreen()),
                   );
                 },
-                child: const Text.rich(
+                child: Text.rich(
                   TextSpan(
                     children: [
                       TextSpan(
                         text: "Есть аккаунт? ",
-                        style: TextStyle(color: Color(0xFF323755)),
+                        style: TextStyle(
+                            color:
+                                Theme.of(context).textTheme.labelMedium?.color),
                       ),
                       TextSpan(
                         text: "Войти",
                         style: TextStyle(
-                          color: Color(0xFFEEB738),
+                          color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

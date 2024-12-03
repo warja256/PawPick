@@ -14,24 +14,24 @@ class Onboarding1 extends StatelessWidget {
           fit: BoxFit.contain,
         ),
         const SizedBox(height: 44),
-        const Text(
+        Text(
           "Найдите своего питомца",
           style: TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
-            color: Color(0xFFEEB738),
+            color: Theme.of(context).primaryColor,
             height: 1.5,
           ),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 10),
-        const Padding(
+        Padding(
           padding: EdgeInsets.symmetric(horizontal: 40),
           child: Text(
             "Листайте карточки и находите животных из приютов, которые ждут встречи с вами.",
             style: TextStyle(
               fontSize: 14.0,
-              color: Color(0xFF323755),
+              color: Theme.of(context).textTheme.labelMedium?.color,
               height: 1.5,
             ),
             textAlign: TextAlign.center,
