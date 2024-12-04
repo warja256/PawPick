@@ -26,7 +26,7 @@ class Onboarding3 extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Text(
             "Добавляйте животных в избранное, жертвуйте на их содержание и поддерживайте приюты.",
             style: TextStyle(

@@ -25,6 +25,11 @@ flutter:
     - 'assets/dog2.png'
     - 'assets/dog3.png'
     - 'assets/dog1.png'
+    - 'assets/btn_back.png'
+    - assets/filters_pics/cat_icon_white.png
+    - assets/filters_pics/cat_icon_yellow.png
+    - assets/filters_pics/dog_icon_white.png
+    - assets/filters_pics/dog_icon_yellow.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

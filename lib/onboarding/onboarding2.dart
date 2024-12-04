@@ -26,7 +26,7 @@ class Onboarding2 extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Text(
             "Выберите возраст, размер и другие параметры, чтобы быстрее найти идеального питомца.",
             style: TextStyle(
