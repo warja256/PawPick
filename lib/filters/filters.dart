@@ -17,6 +17,16 @@ class _FiltersState extends State<Filters> {
   FontWeight textWeightDog = FontWeight.normal;
   String imgCatPath = 'assets/filters_pics/cat_icon_yellow.png';
   String imgDogPath = 'assets/filters_pics/dog_icon_yellow.png';
+
+  Color buttonColorMale = Colors.white;
+  Color buttonColorFemale = Colors.white;
+  Color textColorMale = const Color(0xFF000000);
+  Color textColorDogFemale = const Color(0xFF000000);
+  FontWeight textWeightMale = FontWeight.normal;
+  FontWeight textWeightFemale = FontWeight.normal;
+  String imgMalePath = 'assets/filters_pics/male_icon_yellow.png';
+  String imgFemalePath = 'assets/filters_pics/female_icon_yellow.png';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -203,6 +213,148 @@ class _FiltersState extends State<Filters> {
                                   fontSize: 14,
                                   height: 1.5,
                                   fontWeight: textWeightDog,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 40, right: 40),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Пол питомца",
+                      style: TextStyle(
+                        color: Color(0xFF000000),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        height: 1.5,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              // Меняем цвет кнопки и текста при нажатии
+                              buttonColorMale = buttonColorMale == Colors.white
+                                  ? Theme.of(context).primaryColor
+                                  : Colors.white;
+                              textColorMale =
+                                  textColorMale == const Color(0xFF000000)
+                                      ? Colors.white
+                                      : const Color(0xFF000000);
+                              textWeightMale =
+                                  textWeightMale == FontWeight.normal
+                                      ? FontWeight.bold
+                                      : FontWeight.normal;
+                              imgMalePath = imgMalePath ==
+                                      'assets/filters_pics/male_icon_yellow.png'
+                                  ? 'assets/filters_pics/male_icon_white.png'
+                                  : 'assets/filters_pics/male_icon_yellow.png';
+                            });
+                          },
+                          style: ButtonStyle(
+                            backgroundColor:
+                                WidgetStateProperty.all(buttonColorMale),
+                            fixedSize:
+                                WidgetStateProperty.all(const Size(140, 45)),
+                            side: WidgetStateProperty.all(const BorderSide(
+                              color: Color(0x0f575CEE), // Цвет границы
+                              width: 1, // Толщина границы
+                            )),
+                            shape:
+                                WidgetStateProperty.all(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  15), // Радиус скругления
+                            )),
+                          ),
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                imgMalePath,
+                                height: 20,
+                                width: 18,
+                                fit: BoxFit.contain,
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                'Мальчик',
+                                style: TextStyle(
+                                  color: textColorMale,
+                                  fontSize: 14,
+                                  height: 1.5,
+                                  fontWeight: textWeightMale,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              // Меняем цвет кнопки и текста при нажатии
+                              buttonColorFemale =
+                                  buttonColorFemale == Colors.white
+                                      ? Theme.of(context).primaryColor
+                                      : Colors.white;
+                              textColorDogFemale =
+                                  textColorDogFemale == const Color(0xFF000000)
+                                      ? Colors.white
+                                      : const Color(0xFF000000);
+                              textWeightFemale =
+                                  textWeightFemale == FontWeight.normal
+                                      ? FontWeight.bold
+                                      : FontWeight.normal;
+                              imgFemalePath = imgFemalePath ==
+                                      'assets/filters_pics/female_icon_yellow.png'
+                                  ? 'assets/filters_pics/female_icon_white.png'
+                                  : 'assets/filters_pics/female_icon_yellow.png';
+                            });
+                          },
+                          style: ButtonStyle(
+                            backgroundColor:
+                                WidgetStateProperty.all(buttonColorFemale),
+                            fixedSize:
+                                WidgetStateProperty.all(const Size(140, 45)),
+                            side: WidgetStateProperty.all(const BorderSide(
+                              color: Color(0x0f575CEE), // Цвет границы
+                              width: 1, // Толщина границы
+                            )),
+                            shape:
+                                WidgetStateProperty.all(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  15), // Радиус скругления
+                            )),
+                          ),
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                imgFemalePath,
+                                height: 20,
+                                width: 18,
+                                fit: BoxFit.contain,
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                'Девочка',
+                                style: TextStyle(
+                                  color: textColorDogFemale,
+                                  fontSize: 14,
+                                  height: 1.5,
+                                  fontWeight: textWeightFemale,
                                 ),
                               ),
                             ],
