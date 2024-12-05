@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/onboarding/onboarding.dart';
 import 'auth/sign_in.dart';
 import 'theme/theme.dart';
 import 'filters/filters.dart';
@@ -28,7 +29,7 @@ class FirstLaunchScreen extends StatelessWidget {
     bool isFirstLaunch = true;
 
     if (isFirstLaunch) {
-      return const Filters();
+      return const OnboardingScreen();
     } else {
       return const AuthScreen();
     }

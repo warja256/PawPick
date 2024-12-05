@@ -27,6 +27,28 @@ class _FiltersState extends State<Filters> {
   String imgMalePath = 'assets/filters_pics/male_icon_yellow.png';
   String imgFemalePath = 'assets/filters_pics/female_icon_yellow.png';
 
+  Color buttonColorCalm = Colors.white;
+  Color buttonColorActive = Colors.white;
+  Color textColorCalm = const Color(0xFF000000);
+  Color textColorActive = const Color(0xFF000000);
+  FontWeight textWeightCalm = FontWeight.normal;
+  FontWeight textWeightActive = FontWeight.normal;
+  String imgCalmPath = 'assets/filters_pics/calm_icon_yellow.png';
+  String imgActivePath = 'assets/filters_pics/active_icon_yellow.png';
+
+  Color buttonColorSmall = Colors.white;
+  Color buttonColorMedium = Colors.white;
+  Color buttonColorLarge = Colors.white;
+  Color textColorSmall = const Color(0xFF000000);
+  Color textColorMedium = const Color(0xFF000000);
+  Color textColorLarge = const Color(0xFF000000);
+  FontWeight textWeightSmall = FontWeight.normal;
+  FontWeight textWeightMedium = FontWeight.normal;
+  FontWeight textWeightLarge = FontWeight.normal;
+  String imgSmallPath = 'assets/filters_pics/small_icon_yellow.png';
+  String imgMediumPath = 'assets/filters_pics/medium_icon_yellow.png';
+  String imgLargePath = 'assets/filters_pics/large_icon_yellow.png';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,7 +181,7 @@ class _FiltersState extends State<Filters> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15,
                         ),
                         ElevatedButton(
@@ -223,7 +245,7 @@ class _FiltersState extends State<Filters> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
@@ -299,7 +321,7 @@ class _FiltersState extends State<Filters> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15,
                         ),
                         ElevatedButton(
@@ -360,6 +382,391 @@ class _FiltersState extends State<Filters> {
                             ],
                           ),
                         ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 40, right: 40),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Характер",
+                      style: TextStyle(
+                        color: Color(0xFF000000),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        height: 1.5,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                // Меняем цвет кнопки и текста при нажатии
+                                buttonColorCalm =
+                                    buttonColorCalm == Colors.white
+                                        ? Theme.of(context).primaryColor
+                                        : Colors.white;
+                                textColorCalm =
+                                    textColorCalm == const Color(0xFF000000)
+                                        ? Colors.white
+                                        : const Color(0xFF000000);
+                                textWeightCalm =
+                                    textWeightCalm == FontWeight.normal
+                                        ? FontWeight.bold
+                                        : FontWeight.normal;
+                                imgCalmPath = imgCalmPath ==
+                                        'assets/filters_pics/calm_icon_yellow.png'
+                                    ? 'assets/filters_pics/calm_icon_white.png'
+                                    : 'assets/filters_pics/calm_icon_yellow.png';
+                              });
+                            },
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  WidgetStateProperty.all(buttonColorCalm),
+                              padding: WidgetStateProperty.all(EdgeInsets.zero),
+                              fixedSize:
+                                  WidgetStateProperty.all(const Size(140, 45)),
+                              side: WidgetStateProperty.all(const BorderSide(
+                                color: Color(0x0f575CEE), // Цвет границы
+                                width: 1, // Толщина границы
+                              )),
+                              shape: WidgetStateProperty.all(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    15), // Радиус скругления
+                              )),
+                            ),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 12, right: 16),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    imgCalmPath,
+                                    height: 20,
+                                    width: 18,
+                                    fit: BoxFit.contain,
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Expanded(
+                                    child: Text(
+                                      'Спокойный',
+                                      style: TextStyle(
+                                        color: textColorCalm,
+                                        fontSize: 14,
+                                        height: 1.5,
+                                        fontWeight: textWeightCalm,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                // Меняем цвет кнопки и текста при нажатии
+                                buttonColorActive =
+                                    buttonColorActive == Colors.white
+                                        ? Theme.of(context).primaryColor
+                                        : Colors.white;
+                                textColorActive =
+                                    textColorActive == const Color(0xFF000000)
+                                        ? Colors.white
+                                        : const Color(0xFF000000);
+                                textWeightActive =
+                                    textWeightActive == FontWeight.normal
+                                        ? FontWeight.bold
+                                        : FontWeight.normal;
+                                imgActivePath = imgActivePath ==
+                                        'assets/filters_pics/active_icon_yellow.png'
+                                    ? 'assets/filters_pics/active_icon_white.png'
+                                    : 'assets/filters_pics/active_icon_yellow.png';
+                              });
+                            },
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  WidgetStateProperty.all(buttonColorActive),
+                              padding: WidgetStateProperty.all(EdgeInsets.zero),
+                              fixedSize:
+                                  WidgetStateProperty.all(const Size(140, 45)),
+                              side: WidgetStateProperty.all(const BorderSide(
+                                color: Color(0x0f575CEE), // Цвет границы
+                                width: 1, // Толщина границы
+                              )),
+                              shape: WidgetStateProperty.all(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    15), // Радиус скругления
+                              )),
+                            ),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 12, right: 16),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    imgActivePath,
+                                    height: 28,
+                                    width: 17,
+                                    fit: BoxFit.contain,
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Expanded(
+                                    child: Text(
+                                      'Активный',
+                                      style: TextStyle(
+                                        color: textColorActive,
+                                        fontSize: 14,
+                                        height: 1.5,
+                                        fontWeight: textWeightActive,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 40, right: 40),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Характер",
+                      style: TextStyle(
+                        color: Color(0xFF000000),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        height: 1.5,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                // Меняем цвет кнопки и текста при нажатии
+                                buttonColorSmall =
+                                    buttonColorSmall == Colors.white
+                                        ? Theme.of(context).primaryColor
+                                        : Colors.white;
+                                textColorSmall =
+                                    textColorSmall == const Color(0xFF000000)
+                                        ? Colors.white
+                                        : const Color(0xFF000000);
+                                textWeightSmall =
+                                    textWeightSmall == FontWeight.normal
+                                        ? FontWeight.bold
+                                        : FontWeight.normal;
+                                imgSmallPath = imgSmallPath ==
+                                        'assets/filters_pics/small_icon_yellow.png'
+                                    ? 'assets/filters_pics/small_icon_white.png'
+                                    : 'assets/filters_pics/small_icon_yellow.png';
+                              });
+                            },
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  WidgetStateProperty.all(buttonColorSmall),
+                              padding: WidgetStateProperty.all(EdgeInsets.zero),
+                              fixedSize:
+                                  WidgetStateProperty.all(const Size(89, 45)),
+                              side: WidgetStateProperty.all(const BorderSide(
+                                color: Color(0x0f575CEE), // Цвет границы
+                                width: 1, // Толщина границы
+                              )),
+                              shape: WidgetStateProperty.all(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    15), // Радиус скругления
+                              )),
+                            ),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 22, right: 17),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    imgSmallPath,
+                                    height: 23,
+                                    width: 19,
+                                    fit: BoxFit.contain,
+                                  ),
+                                  const SizedBox(width: 5),
+                                  Expanded(
+                                    child: Text(
+                                      'S',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: textColorSmall,
+                                        fontSize: 14,
+                                        height: 1.5,
+                                        fontWeight: textWeightSmall,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )),
+                        const SizedBox(
+                          width: 14,
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                // Меняем цвет кнопки и текста при нажатии
+                                buttonColorMedium =
+                                    buttonColorMedium == Colors.white
+                                        ? Theme.of(context).primaryColor
+                                        : Colors.white;
+                                textColorMedium =
+                                    textColorMedium == const Color(0xFF000000)
+                                        ? Colors.white
+                                        : const Color(0xFF000000);
+                                textWeightMedium =
+                                    textWeightMedium == FontWeight.normal
+                                        ? FontWeight.bold
+                                        : FontWeight.normal;
+                                imgMediumPath = imgMediumPath ==
+                                        'assets/filters_pics/medium_icon_yellow.png'
+                                    ? 'assets/filters_pics/medium_icon_white.png'
+                                    : 'assets/filters_pics/medium_icon_yellow.png';
+                              });
+                            },
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  WidgetStateProperty.all(buttonColorMedium),
+                              padding: WidgetStateProperty.all(EdgeInsets.zero),
+                              fixedSize:
+                                  WidgetStateProperty.all(const Size(89, 45)),
+                              side: WidgetStateProperty.all(const BorderSide(
+                                color: Color(0x0f575CEE), // Цвет границы
+                                width: 1, // Толщина границы
+                              )),
+                              shape: WidgetStateProperty.all(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    15), // Радиус скругления
+                              )),
+                            ),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 18, right: 17),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    imgMediumPath,
+                                    height: 32,
+                                    width: 26,
+                                    fit: BoxFit.contain,
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Expanded(
+                                    child: Text(
+                                      'M',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: textColorMedium,
+                                        fontSize: 14,
+                                        height: 1.5,
+                                        fontWeight: textWeightMedium,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )),
+                        const SizedBox(
+                          width: 14,
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                // Меняем цвет кнопки и текста при нажатии
+                                buttonColorLarge =
+                                    buttonColorLarge == Colors.white
+                                        ? Theme.of(context).primaryColor
+                                        : Colors.white;
+                                textColorLarge =
+                                    textColorLarge == const Color(0xFF000000)
+                                        ? Colors.white
+                                        : const Color(0xFF000000);
+                                textWeightLarge =
+                                    textWeightLarge == FontWeight.normal
+                                        ? FontWeight.bold
+                                        : FontWeight.normal;
+                                imgLargePath = imgLargePath ==
+                                        'assets/filters_pics/large_icon_yellow.png'
+                                    ? 'assets/filters_pics/large_icon_white.png'
+                                    : 'assets/filters_pics/large_icon_yellow.png';
+                              });
+                            },
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  WidgetStateProperty.all(buttonColorLarge),
+                              padding: WidgetStateProperty.all(EdgeInsets.zero),
+                              fixedSize:
+                                  WidgetStateProperty.all(const Size(89, 45)),
+                              side: WidgetStateProperty.all(const BorderSide(
+                                color: Color(0x0f575CEE), // Цвет границы
+                                width: 1, // Толщина границы
+                              )),
+                              shape: WidgetStateProperty.all(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    15), // Радиус скругления
+                              )),
+                            ),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 16, right: 17),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    imgLargePath,
+                                    height: 41,
+                                    width: 33,
+                                    fit: BoxFit.contain,
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Expanded(
+                                    child: Text(
+                                      'L',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: textColorLarge,
+                                        fontSize: 14,
+                                        height: 1.5,
+                                        fontWeight: textWeightLarge,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )),
                       ],
                     ),
                   ],

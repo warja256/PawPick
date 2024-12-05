@@ -37,6 +37,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           },
           child: Column(
             children: [
+              SizedBox(
+                height: 36,
+              ),
               Expanded(
                 child: PageView(
                   controller: _pageController,
@@ -127,7 +130,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 64),
+              const SizedBox(height: 34),
             ],
           ),
         ),

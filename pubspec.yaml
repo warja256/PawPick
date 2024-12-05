@@ -38,6 +38,15 @@ flutter:
 
     - assets/filters_pics/calm_icon_white.png
     - assets/filters_pics/calm_icon_yellow.png
+    - assets/filters_pics/active_icon_white.png
+    - assets/filters_pics/active_icon_yellow.png
+
+    - assets/filters_pics/small_icon_white.png
+    - assets/filters_pics/small_icon_yellow.png
+    - assets/filters_pics/medium_icon_white.png
+    - assets/filters_pics/medium_icon_yellow.png
+    - assets/filters_pics/large_icon_white.png
+    - assets/filters_pics/large_icon_yellow.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
