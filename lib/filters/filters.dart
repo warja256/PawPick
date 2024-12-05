@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/filters/filters_next.dart';
 
 class Filters extends StatefulWidget {
   const Filters({super.key});
@@ -48,6 +49,25 @@ class _FiltersState extends State<Filters> {
   String imgSmallPath = 'assets/filters_pics/small_icon_yellow.png';
   String imgMediumPath = 'assets/filters_pics/medium_icon_yellow.png';
   String imgLargePath = 'assets/filters_pics/large_icon_yellow.png';
+
+  Color buttonColorYoung = Colors.white;
+  Color buttonColorAdult = Colors.white;
+  Color buttonColorOld = Colors.white;
+  Color textColorYoung = const Color(0xFF000000);
+  Color textColorAdult = const Color(0xFF000000);
+  Color textColorOld = const Color(0xFF000000);
+  FontWeight textWeightYoung = FontWeight.normal;
+  FontWeight textWeightAdult = FontWeight.normal;
+  FontWeight textWeightOld = FontWeight.normal;
+
+  String imgYoungPath = 'assets/filters_pics/young_icon_black.png';
+  Color btnYoung = Colors.white;
+
+  String imgAdultPath = 'assets/filters_pics/adult_icon_black.png';
+  Color btnAdult = Colors.white;
+
+  String imgOldPath = 'assets/filters_pics/old_icon_black.png';
+  Color btnOld = Colors.white;
 
   @override
   Widget build(BuildContext context) {
@@ -553,7 +573,7 @@ class _FiltersState extends State<Filters> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "Характер",
+                      "Размер",
                       style: TextStyle(
                         color: Color(0xFF000000),
                         fontWeight: FontWeight.bold,
@@ -770,6 +790,193 @@ class _FiltersState extends State<Filters> {
                       ],
                     ),
                   ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 40, right: 40),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Возраст",
+                      style: TextStyle(
+                        color: Color(0xFF000000),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        height: 1.5,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                btnYoung = btnYoung == Colors.white
+                                    ? Theme.of(context).primaryColor
+                                    : Colors.white;
+                                imgYoungPath = imgYoungPath ==
+                                        'assets/filters_pics/young_icon_white.png'
+                                    ? 'assets/filters_pics/young_icon_black.png'
+                                    : 'assets/filters_pics/young_icon_white.png';
+                              });
+                            },
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  WidgetStateProperty.all(btnYoung),
+                              padding: WidgetStateProperty.all(EdgeInsets.zero),
+                              fixedSize:
+                                  WidgetStateProperty.all(const Size(89, 45)),
+                              side: WidgetStateProperty.all(const BorderSide(
+                                color: Color(0x0f575CEE), // Цвет границы
+                                width: 1, // Толщина границы
+                              )),
+                              shape: WidgetStateProperty.all(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    15), // Радиус скругления
+                              )),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 0, right: 0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    imgYoungPath,
+                                    height: 28,
+                                    width: 56,
+                                    fit: BoxFit.contain,
+                                  ),
+                                ],
+                              ),
+                            )),
+                        const SizedBox(
+                          width: 14,
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                btnAdult = btnAdult == Colors.white
+                                    ? Theme.of(context).primaryColor
+                                    : Colors.white;
+                                imgAdultPath = imgAdultPath ==
+                                        'assets/filters_pics/adult_icon_white.png'
+                                    ? 'assets/filters_pics/adult_icon_black.png'
+                                    : 'assets/filters_pics/adult_icon_white.png';
+                              });
+                            },
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  WidgetStateProperty.all(btnAdult),
+                              padding: WidgetStateProperty.all(EdgeInsets.zero),
+                              fixedSize:
+                                  WidgetStateProperty.all(const Size(89, 45)),
+                              side: WidgetStateProperty.all(const BorderSide(
+                                color: Color(0x0f575CEE), // Цвет границы
+                                width: 1, // Толщина границы
+                              )),
+                              shape: WidgetStateProperty.all(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    15), // Радиус скругления
+                              )),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 0, right: 0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    imgAdultPath,
+                                    height: 28,
+                                    width: 56,
+                                    fit: BoxFit.contain,
+                                  ),
+                                ],
+                              ),
+                            )),
+                        const SizedBox(
+                          width: 14,
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                btnOld = btnOld == Colors.white
+                                    ? Theme.of(context).primaryColor
+                                    : Colors.white;
+                                imgOldPath = imgOldPath ==
+                                        'assets/filters_pics/old_icon_white.png'
+                                    ? 'assets/filters_pics/old_icon_black.png'
+                                    : 'assets/filters_pics/old_icon_white.png';
+                              });
+                            },
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(btnOld),
+                              padding: WidgetStateProperty.all(EdgeInsets.zero),
+                              fixedSize:
+                                  WidgetStateProperty.all(const Size(89, 45)),
+                              side: WidgetStateProperty.all(const BorderSide(
+                                color: Color(0x0f575CEE), // Цвет границы
+                                width: 1, // Толщина границы
+                              )),
+                              shape: WidgetStateProperty.all(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    15), // Радиус скругления
+                              )),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 0, right: 0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    imgOldPath,
+                                    height: 27,
+                                    width: 56,
+                                    fit: BoxFit.contain,
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 49,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 40, right: 40),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FiltersNext(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).primaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    minimumSize: const Size(double.infinity, 56),
+                  ),
+                  child: const Text(
+                    "Продолжить",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      height: 1.5,
+                    ),
+                  ),
                 ),
               )
             ],
