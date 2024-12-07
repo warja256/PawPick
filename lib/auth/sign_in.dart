@@ -5,6 +5,7 @@ import 'package:paw_pick/auth/change_password.dart';
 
 //добавить проверку полей
 //добавить валидацию неправильных данных
+//уменьшить отступ забыли пароль
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -176,7 +177,7 @@ class AuthScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 200),
+                const SizedBox(height: 130),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 110, vertical: 20),
                   child: TextButton(
