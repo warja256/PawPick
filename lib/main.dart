@@ -29,7 +29,7 @@ class FirstLaunchScreen extends StatelessWidget {
     bool isFirstLaunch = true;
 
     if (isFirstLaunch) {
-      return const OnboardingScreen();
+      return const Filters();
     } else {
       return const AuthScreen();
     }
