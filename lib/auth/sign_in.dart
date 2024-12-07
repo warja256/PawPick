@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../registration/registration_1.dart';
 import 'package:paw_pick/filters/filters.dart';
+import 'package:paw_pick/auth/change_password.dart';
 
 //добавить проверку полей
 //добавить валидацию неправильных данных
@@ -132,7 +133,7 @@ class AuthScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const RegistrationScreen()),//переход на страницу восстановления
+                        MaterialPageRoute(builder: (context) => const ChangePasswordScreen()),
                       );
                     },
                     child: Text(

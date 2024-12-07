@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/onboarding/onboarding.dart';
+import 'package:paw_pick/registration/registration_1.dart';
 import 'auth/sign_in.dart';
 import 'theme/theme.dart';
 import 'filters/filters.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const FirstLaunchScreen(),
+      home: const Filters(),
       theme: AppTheme.lightTheme,
     );
   }
