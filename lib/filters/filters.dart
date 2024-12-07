@@ -85,21 +85,50 @@ class _FiltersState extends State<Filters> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Image.asset(
-                      'assets/btn_back.png',
-                      height: 52,
-                      width: 52,
-                      fit: BoxFit.contain,
-                    ),
-                    Text(
-                      "Пропустить",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).primaryColor,
-                        height: 1.5,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) =>
+                                    const Placeholder(),
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/btn_back.png',
+                        height: 52,
+                        width: 52,
+                        fit: BoxFit.contain,
                       ),
                     ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Placeholder(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        "Пропустить",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).primaryColor,
+                          height: 1.5,
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -564,7 +593,7 @@ class _FiltersState extends State<Filters> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
@@ -792,7 +821,7 @@ class _FiltersState extends State<Filters> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Padding(
@@ -947,17 +976,25 @@ class _FiltersState extends State<Filters> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 49,
               ),
               Padding(
-                padding: EdgeInsets.only(left: 40, right: 40),
+                padding: const EdgeInsets.only(left: 40, right: 40),
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const FiltersNext(),
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            const FiltersNext(),
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          return FadeTransition(
+                            opacity: animation,
+                            child: child,
+                          );
+                        },
                       ),
                     );
                   },

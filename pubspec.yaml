@@ -54,6 +54,10 @@ flutter:
     - assets/filters_pics/adult_icon_black.png
     - assets/filters_pics/old_icon_white.png
     - assets/filters_pics/old_icon_black.png
+    - assets/filters_pics/filters_next/short_icon_white.png
+    - assets/filters_pics/filters_next/short_icon_yellow.png
+    - assets/filters_pics/filters_next/long_icon_white.png
+    - assets/filters_pics/filters_next/long_icon_yellow.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
