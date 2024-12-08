@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/filters/filters.dart';
 
+//добавить валидацию полей нового пароля если надо?
+
 class NewPassword extends StatelessWidget {
   const NewPassword({super.key});
 

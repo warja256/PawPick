@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:paw_pick/auth/new_password.dart';
 import 'dart:async';
 
+//убрать кнопку запуска таймера в предыдущий экран
+//обработка введенного кода?
+//добавить таймер на отправить еще раз?
+
 class CodeInput extends StatefulWidget {
   const CodeInput({super.key});
   
@@ -48,20 +52,112 @@ class _ChangePasswordScreenState extends State<CodeInput> {
       appBar: AppBar(
         title: const Text('Восстановление пароля с таймером'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              formatTime(_start),
-              style: const TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _isRunning ? null : startTimer,
-              child: const Text('Start Timer'),
-            ),
-            Padding(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 20),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                    "PAWPICK",
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      height: 1.5,
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                    )
+                  ),            
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  "Восстановление пароля",
+                  style: TextStyle(
+                    color: Color(0xFF000000),
+                    height: 1.5,
+                    fontSize: 34.0,
+                    fontWeight: FontWeight.bold,
+                  )
+                ),            
+              ),
+              const SizedBox(height: 35),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  "Введите код, отправленный на указанный вами номер телефона/адрес электронной почты",
+                  style: TextStyle(
+                    color: Color(0xFF000000),
+                    height: 1.5,
+                    fontSize: 14.0,
+                  )
+                ),            
+              ),
+              const SizedBox(height: 50),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+                alignment: Alignment.center,
+                child: Text(
+                  formatTime(_start),
+                  style: const TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+                ), 
+              ),
+              const SizedBox(height: 20),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+                alignment: Alignment.center,
+                child: ElevatedButton(
+                  onPressed: _isRunning ? null : startTimer,
+                  child: const Text('Start Timer'),
+                ),
+              ),
+              const SizedBox(height: 50),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Введите полученный код',
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Container(
+                      width: 335,
+                      height: 56,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: '',
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                            borderSide: const BorderSide(color: Colors.grey),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                            borderSide: const BorderSide(color: Colors.grey),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                            borderSide: BorderSide(color: Theme.of(context).primaryColor),
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                        ),
+                        keyboardType: TextInputType.text,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 5),
+              Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                 child: ElevatedButton(
@@ -91,7 +187,27 @@ class _ChangePasswordScreenState extends State<CodeInput> {
                   ),
                 ),
               ),
-          ],
+              const SizedBox(height: 5),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 110),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const CodeInput()),
+                    );
+                  },
+                  child: Text(
+                    "Отправить код еще раз",
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ]
+          ),
         ),
       ),
     );
