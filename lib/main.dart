@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/filters/filter_settings.dart';
 import 'package:paw_pick/onboarding/onboarding.dart';
 import 'package:paw_pick/registration/registration_1.dart';
 import 'auth/sign_in.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const Filters(),
+      home: const OnboardingScreen(),
       theme: AppTheme.lightTheme,
     );
   }
@@ -30,7 +31,7 @@ class FirstLaunchScreen extends StatelessWidget {
     bool isFirstLaunch = true;
 
     if (isFirstLaunch) {
-      return const Filters();
+      return const OnboardingScreen();
     } else {
       return const AuthScreen();
     }
