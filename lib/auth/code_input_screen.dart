@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/auth/new_password.dart';
 import 'dart:async';
 
 class CodeInput extends StatefulWidget {
@@ -15,7 +16,7 @@ class _ChangePasswordScreenState extends State<CodeInput> {
 
   void startTimer() {
     _isRunning = true;
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_start < 1) {
         setState(() {
           _timer.cancel();
@@ -45,7 +46,7 @@ class _ChangePasswordScreenState extends State<CodeInput> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Восстановление пароля с таймером'),
+        title: const Text('Восстановление пароля с таймером'),
       ),
       body: Center(
         child: Column(
@@ -53,13 +54,43 @@ class _ChangePasswordScreenState extends State<CodeInput> {
           children: [
             Text(
               formatTime(_start),
-              style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _isRunning ? null : startTimer,
-              child: Text('Start Timer'),
+              child: const Text('Start Timer'),
             ),
+            Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NewPassword(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).primaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    minimumSize: const Size(double.infinity, 56),
+                  ),
+                  child: const Text(
+                    "Создать новый пароль",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      height: 1.5,
+                    ),
+                  ),
+                ),
+              ),
           ],
         ),
       ),
