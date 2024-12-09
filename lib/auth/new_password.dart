@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import '../registration/registration_1.dart';
 import 'package:paw_pick/profile/profile.dart';
-import 'package:paw_pick/auth/change_password.dart';
 
-//добавить проверку полей
-//добавить валидацию неправильных данных
+//добавить валидацию полей нового пароля если надо?
 //адаптив
 
-class AuthScreen extends StatelessWidget {
-  const AuthScreen({super.key});
+class NewPassword extends StatelessWidget {
+  const NewPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +16,7 @@ class AuthScreen extends StatelessWidget {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const SizedBox(height: 70),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
               alignment: Alignment.centerLeft,
               child: Text("PAWPICK",
                   style: TextStyle(
@@ -32,7 +29,7 @@ class AuthScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               alignment: Alignment.centerLeft,
-              child: const Text("Войдите в свой аккаунт",
+              child: const Text("Восстановление пароля",
                   style: TextStyle(
                     color: Color(0xFF000000),
                     height: 1.5,
@@ -47,7 +44,7 @@ class AuthScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Телефон или почта',
+                    'Новый пароль',
                     style: TextStyle(
                       fontSize: 12.0,
                       color: Colors.black,
@@ -89,7 +86,7 @@ class AuthScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Пароль',
+                    'Подтвердите пароль',
                     style: TextStyle(
                       fontSize: 12.0,
                       color: Colors.black,
@@ -125,28 +122,7 @@ class AuthScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 5),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ChangePasswordScreen()),
-                  );
-                },
-                child: Text(
-                  "Забыли пароль?",
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 5),
+            const SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: ElevatedButton(
@@ -174,46 +150,6 @@ class AuthScreen extends StatelessWidget {
                     height: 1.5,
                   ),
                 ),
-              ),
-            ),
-            const SizedBox(height: 193),
-            //  ПОМЕНЯТЬ КАК ТУТ НА ВСЕХ ФАЙЛАХ
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const RegistrationScreen()),
-                      );
-                    },
-                    child: Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: "Нет аккаунта? ",
-                            style: TextStyle(
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .labelMedium
-                                    ?.color),
-                          ),
-                          TextSpan(
-                            text: "Создать",
-                            style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
               ),
             ),
           ]),

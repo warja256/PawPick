@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import '../registration/registration_1.dart';
-import 'package:paw_pick/profile/profile.dart';
-import 'package:paw_pick/auth/change_password.dart';
+import 'package:paw_pick/auth/sign_in.dart';
+import 'package:paw_pick/auth/code_input_screen.dart';
 
-//добавить проверку полей
-//добавить валидацию неправильных данных
+//валидация полей
 //адаптив
 
-class AuthScreen extends StatelessWidget {
-  const AuthScreen({super.key});
+class ChangePasswordScreen extends StatelessWidget {
+  const ChangePasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +16,37 @@ class AuthScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const SizedBox(height: 70),
+            const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const AuthScreen(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
+                child: Image.asset(
+                  'assets/btn_back.png',
+                  height: 52,
+                  width: 52,
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
               alignment: Alignment.centerLeft,
               child: Text("PAWPICK",
                   style: TextStyle(
@@ -32,7 +59,7 @@ class AuthScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               alignment: Alignment.centerLeft,
-              child: const Text("Войдите в свой аккаунт",
+              child: const Text("Восстановление пароля",
                   style: TextStyle(
                     color: Color(0xFF000000),
                     height: 1.5,
@@ -40,7 +67,19 @@ class AuthScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   )),
             ),
-            const SizedBox(height: 70),
+            const SizedBox(height: 35),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              alignment: Alignment.centerLeft,
+              child: const Text(
+                  "Укажите номер телефона или адрес электронной почты, используемые при создании вашего аккаунта",
+                  style: TextStyle(
+                    color: Color(0xFF000000),
+                    height: 1.5,
+                    fontSize: 14.0,
+                  )),
+            ),
+            const SizedBox(height: 50),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Column(
@@ -83,69 +122,6 @@ class AuthScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Пароль',
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Container(
-                    width: 335,
-                    height: 56,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: '',
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 0),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          borderSide: const BorderSide(color: Colors.grey),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          borderSide: const BorderSide(color: Colors.grey),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          borderSide:
-                              BorderSide(color: Theme.of(context).primaryColor),
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-                      ),
-                      keyboardType: TextInputType.text,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 5),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ChangePasswordScreen()),
-                  );
-                },
-                child: Text(
-                  "Забыли пароль?",
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
             const SizedBox(height: 5),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -154,7 +130,7 @@ class AuthScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ProfileScreen(),
+                      builder: (context) => const CodeInput(),
                     ),
                   );
                 },
@@ -166,7 +142,7 @@ class AuthScreen extends StatelessWidget {
                   minimumSize: const Size(double.infinity, 56),
                 ),
                 child: const Text(
-                  "Войти",
+                  "Запросить код",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -177,7 +153,6 @@ class AuthScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 193),
-            //  ПОМЕНЯТЬ КАК ТУТ НА ВСЕХ ФАЙЛАХ
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Row(

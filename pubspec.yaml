@@ -31,6 +31,37 @@ flutter:
     - assets/filters_pics/dog_icon_white.png
     - assets/filters_pics/dog_icon_yellow.png
 
+    - assets/filters_pics/male_icon_white.png
+    - assets/filters_pics/male_icon_yellow.png
+    - assets/filters_pics/female_icon_white.png
+    - assets/filters_pics/female_icon_yellow.png
+
+    - assets/filters_pics/calm_icon_white.png
+    - assets/filters_pics/calm_icon_yellow.png
+    - assets/filters_pics/active_icon_white.png
+    - assets/filters_pics/active_icon_yellow.png
+
+    - assets/filters_pics/small_icon_white.png
+    - assets/filters_pics/small_icon_yellow.png
+    - assets/filters_pics/medium_icon_white.png
+    - assets/filters_pics/medium_icon_yellow.png
+    - assets/filters_pics/large_icon_white.png
+    - assets/filters_pics/large_icon_yellow.png
+
+    - assets/filters_pics/young_icon_white.png
+    - assets/filters_pics/young_icon_black.png
+    - assets/filters_pics/adult_icon_white.png
+    - assets/filters_pics/adult_icon_black.png
+    - assets/filters_pics/old_icon_white.png
+    - assets/filters_pics/old_icon_black.png
+    - assets/filters_pics/filters_next/short_icon_white.png
+    - assets/filters_pics/filters_next/short_icon_yellow.png
+    - assets/filters_pics/filters_next/long_icon_white.png
+    - assets/filters_pics/filters_next/long_icon_yellow.png
+
+    - assets/form/home_for_pets.png
+    
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
