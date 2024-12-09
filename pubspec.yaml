@@ -62,6 +62,9 @@ flutter:
     - assets/form/home_for_pets.png
 
     - assets/ai_pics/robot_2.png
+    - assets/ai_pics/pet_1.png
+    - assets/ai_pics/dog_2.png
+    - assets/ai_pics/arrow-right.png
 
     - assets/profile/photo.png
     

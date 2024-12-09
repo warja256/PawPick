@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/ai_assistant/onboarding_ai_1.dart';
 
+//нижняя панель с меню
 //кастомный диалог для модального окна выхода из профиля
 //переход на аи
-//добавить фото профиля
 //поля с данными поменять
 //адаптив
 
@@ -137,7 +138,7 @@ class ProfileScreen extends StatelessWidget {
                           );
                         },
                         style: TextButton.styleFrom(
-                          padding: EdgeInsets.zero, // Убираем внутренние отступы
+                          padding: EdgeInsets.zero,
                         ),
                         child: Text(
                           'Изменить профиль',
@@ -176,7 +177,7 @@ class ProfileScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const ProfileScreen(),
+                              builder: (context) => const AiFirstOnboarding(),
                             ),
                           );
                         },
