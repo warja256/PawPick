@@ -4,7 +4,7 @@ import 'package:paw_pick/auth/sign_in.dart';
 import 'package:paw_pick/auth/code_input_screen.dart';
 
 //валидация полей
-//перенести запуск таймера на кнопку запросить код
+//адаптив
 
 class ChangePasswordScreen extends StatelessWidget {
   const ChangePasswordScreen({super.key});
@@ -57,7 +57,7 @@ class ChangePasswordScreen extends StatelessWidget {
                   )),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               alignment: Alignment.centerLeft,
               child: const Text("Восстановление пароля",
                   style: TextStyle(
@@ -69,7 +69,7 @@ class ChangePasswordScreen extends StatelessWidget {
             ),
             const SizedBox(height: 35),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               alignment: Alignment.centerLeft,
               child: const Text(
                   "Укажите номер телефона или адрес электронной почты, используемые при создании вашего аккаунта",
@@ -124,7 +124,7 @@ class ChangePasswordScreen extends StatelessWidget {
             ),
             const SizedBox(height: 5),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -152,10 +152,10 @@ class ChangePasswordScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 160),
+            const SizedBox(height: 200),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 110, vertical: 20),
+                  const EdgeInsets.symmetric(horizontal: 110),
               child: TextButton(
                 onPressed: () {
                   Navigator.push(

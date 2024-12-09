@@ -2,56 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:paw_pick/auth/new_password.dart';
 import 'dart:async';
 
-//убрать кнопку запуска таймера в предыдущий экран
 //обработка введенного кода?
-//добавить таймер на отправить еще раз?
+//адаптив
 
-class CodeInput extends StatefulWidget {
+class CodeInput extends StatelessWidget {
   const CodeInput({super.key});
-
-  @override
-  State<CodeInput> createState() => _ChangePasswordScreenState();
-}
-
-class _ChangePasswordScreenState extends State<CodeInput> {
-  int _start = 60;
-  late Timer _timer;
-  bool _isRunning = false;
-
-  void startTimer() {
-    _isRunning = true;
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (_start < 1) {
-        setState(() {
-          _timer.cancel();
-          _isRunning = false;
-        });
-      } else {
-        setState(() {
-          _start--;
-        });
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
-  }
-
-  String formatTime(int seconds) {
-    int minutes = (seconds / 60).truncate();
-    int remainingSeconds = seconds % 60;
-    return '$minutes:${remainingSeconds.toString().padLeft(2, '0')}';
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Восстановление пароля с таймером'),
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child:
@@ -90,25 +49,6 @@ class _ChangePasswordScreenState extends State<CodeInput> {
                     height: 1.5,
                     fontSize: 14.0,
                   )),
-            ),
-            const SizedBox(height: 50),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
-              alignment: Alignment.center,
-              child: Text(
-                formatTime(_start),
-                style:
-                    const TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const SizedBox(height: 20),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
-              alignment: Alignment.center,
-              child: ElevatedButton(
-                onPressed: _isRunning ? null : startTimer,
-                child: const Text('Start Timer'),
-              ),
             ),
             const SizedBox(height: 50),
             Padding(

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:paw_pick/filters/filters.dart';
+import 'package:paw_pick/profile/profile.dart';
 
 //добавить валидацию полей нового пароля если надо?
+//адаптив
 
 class NewPassword extends StatelessWidget {
   const NewPassword({super.key});
@@ -26,7 +27,7 @@ class NewPassword extends StatelessWidget {
                   )),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               alignment: Alignment.centerLeft,
               child: const Text("Восстановление пароля",
                   style: TextStyle(
@@ -121,15 +122,15 @@ class NewPassword extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 5),
+            const SizedBox(height: 30),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Filters(),
+                      builder: (context) => const ProfileScreen(),
                     ),
                   );
                 },

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import '../registration/registration_1.dart';
-import 'package:paw_pick/filters/filters.dart';
+import 'package:paw_pick/profile/profile.dart';
 import 'package:paw_pick/auth/change_password.dart';
 
 //добавить проверку полей
 //добавить валидацию неправильных данных
-//уменьшить отступ забыли пароль
+//адаптив
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -30,7 +30,7 @@ class AuthScreen extends StatelessWidget {
                   )),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               alignment: Alignment.centerLeft,
               child: const Text("Войдите в свой аккаунт",
                   style: TextStyle(
@@ -148,13 +148,13 @@ class AuthScreen extends StatelessWidget {
             ),
             const SizedBox(height: 5),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Filters(),
+                      builder: (context) => const ProfileScreen(),
                     ),
                   );
                 },
@@ -176,10 +176,10 @@ class AuthScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 130),
+            const SizedBox(height: 170),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 110, vertical: 20),
+                  const EdgeInsets.symmetric(horizontal: 110),
               child: TextButton(
                 onPressed: () {
                   Navigator.push(
