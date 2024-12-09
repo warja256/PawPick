@@ -154,43 +154,42 @@ class ChangePasswordScreen extends StatelessWidget {
             ),
             const SizedBox(height: 193),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 110),
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const RegistrationScreen()),
-                        );
-                      },
-                      child: Text.rich(
-                        TextSpan(
-                          children: [
-                            TextSpan(
-                              text: "Нет аккаунта? ",
-                              style: TextStyle(
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .labelMedium
-                                      ?.color),
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const RegistrationScreen()),
+                      );
+                    },
+                    child: Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "Нет аккаунта? ",
+                            style: TextStyle(
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .labelMedium
+                                    ?.color),
+                          ),
+                          TextSpan(
+                            text: "Создать",
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontWeight: FontWeight.bold,
                             ),
-                            TextSpan(
-                              text: "Создать",
-                              style: TextStyle(
-                                color: Theme.of(context).primaryColor,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
+              ),
             ),
           ]),
         ),

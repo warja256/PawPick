@@ -15,7 +15,7 @@ class _WhereAtState extends State<WhereAt> {
           child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
                 left: 40,
                 right: 38,
                 top: 16), // Минимальный top, SafeArea добавит остальное
@@ -70,6 +70,18 @@ class _WhereAtState extends State<WhereAt> {
           ),
           const SizedBox(
             height: 32,
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 40),
+            child: Text(
+              'Откуда вы?',
+              style: TextStyle(
+                fontSize: 34,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                height: 1.5,
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 40, right: 40),
