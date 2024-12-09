@@ -7,6 +7,7 @@ import 'package:paw_pick/registration/registration_1.dart';
 import 'auth/sign_in.dart';
 import 'theme/theme.dart';
 import 'filters/filters.dart';
+import 'registration/registration_1.dart';
 
 void main() {
   runApp(const MyApp());
