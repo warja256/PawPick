@@ -60,6 +60,10 @@ flutter:
     - assets/filters_pics/filters_next/long_icon_yellow.png
 
     - assets/form/home_for_pets.png
+
+    - assets/ai_pics/robot_2.png
+
+    - assets/profile/photo.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
