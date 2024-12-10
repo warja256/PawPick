@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:paw_pick/profile/profile.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
 
 //добавить валидацию полей нового пароля если надо?
 //адаптив
@@ -130,7 +130,7 @@ class NewPassword extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ProfileScreen(),
+                      builder: (context) => HomePage(),
                     ),
                   );
                 },

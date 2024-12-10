@@ -67,6 +67,10 @@ flutter:
     - assets/ai_pics/arrow-right.png
 
     - assets/profile/photo.png
+
+    - assets/menu/cards.png
+    - assets/menu/favs.png
+    - assets/menu/profile.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

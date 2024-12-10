@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
 import '../registration/registration_1.dart';
-import 'package:paw_pick/profile/profile.dart';
 import 'package:paw_pick/auth/change_password.dart';
 
 //добавить проверку полей
@@ -154,7 +154,7 @@ class AuthScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ProfileScreen(),
+                      builder: (context) => HomePage(),
                     ),
                   );
                 },
