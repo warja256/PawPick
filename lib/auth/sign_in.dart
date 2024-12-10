@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../registration/registration_1.dart';
+import '../registration/sign_up.dart';
+import '../homescreen/homescreen.dart';
 import 'package:paw_pick/profile/profile.dart';
 import 'package:paw_pick/auth/change_password.dart';
 

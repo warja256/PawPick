@@ -1,19 +1,49 @@
 import 'package:flutter/material.dart';
 import '../auth/sign_in.dart';
+import 'sign_up.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
 
-class RegistrationScreen extends StatelessWidget {
-  const RegistrationScreen({super.key});
+class CodeScreen extends StatelessWidget {
+  const CodeScreen({super.key});
 
-  @override
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const SizedBox(height: 70),
+            const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const RegistrationScreen(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
+                child: Image.asset(
+                  'assets/btn_back.png',
+                  height: 52,
+                  width: 52,
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
               alignment: Alignment.centerLeft,
               child: Text("PAWPICK",
                   style: TextStyle(
@@ -24,37 +54,36 @@ class RegistrationScreen extends StatelessWidget {
                   )),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
               alignment: Alignment.centerLeft,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Регистрация",
-                    style: TextStyle(
-                      color: Color(0xFF000000),
-                      height: 1.5,
-                      fontSize: 34.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const Text(
-                    "Создайте аккаунт, чтобы продолжить",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 12.0,
-                    ),
-                  ),
-                ],
-              ),),
-            const SizedBox(height: 70),
+              child: const Text("Подтверждение регистрации",
+                  style: TextStyle(
+                    color: Color(0xFF000000),
+                    height: 1.5,
+                    fontSize: 34.0,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
+            const SizedBox(height: 35),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+              alignment: Alignment.centerLeft,
+              child: const Text(
+                  "Введите код, отправленный на указанный вами номер телефона/адрес электронной почты",
+                  style: TextStyle(
+                    color: Color(0xFF000000),
+                    height: 1.5,
+                    fontSize: 14.0,
+                  )),
+            ),
+            const SizedBox(height: 50),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Телефон или почта',
+                    'Введите полученный код',
                     style: TextStyle(
                       fontSize: 12.0,
                       color: Colors.black,
@@ -90,98 +119,21 @@ class RegistrationScreen extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(height: 5),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Пароль',
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Container(
-                    width: 335,
-                    height: 56,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: '',
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 0),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          borderSide: const BorderSide(color: Colors.grey),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          borderSide: const BorderSide(color: Colors.grey),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          borderSide:
-                              BorderSide(color: Theme.of(context).primaryColor),
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-                      ),
-                      keyboardType: TextInputType.text,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Подтвердите пароль',
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Container(
-                    width: 335,
-                    height: 56,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: '',
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 0),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          borderSide: const BorderSide(color: Colors.grey),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          borderSide: const BorderSide(color: Colors.grey),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          borderSide:
-                              BorderSide(color: Theme.of(context).primaryColor),
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-                      ),
-                      keyboardType: TextInputType.text,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left:40, right:40, top:187),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const RegistrationScreen(),
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
                     ),
                   );
                 },
@@ -193,7 +145,7 @@ class RegistrationScreen extends StatelessWidget {
                   minimumSize: const Size(double.infinity, 56),
                 ),
                 child: const Text(
-                  "Прололжить",
+                  "Проверить код",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -203,45 +155,37 @@ class RegistrationScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 26),
+            const SizedBox(height: 5),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AuthScreen()),
-                      );
-                    },
-                    child: Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: "Уже есть аккаунт? ",
-                            style: TextStyle(
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .labelMedium
-                                    ?.color),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) => const CodeScreen(),
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
+                            },
                           ),
-                          TextSpan(
-                            text: "Войти",
-                            style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
+                        );
+                      },
+                      child: Text(
+                        "Отправить код еще раз",
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
+                  ],
+                )),
           ]),
         ),
       ),

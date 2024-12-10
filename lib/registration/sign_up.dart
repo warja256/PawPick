@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/registration/code.dart';
 import '../auth/sign_in.dart';
 
 class RegistrationScreen extends StatelessWidget {
@@ -181,7 +182,7 @@ class RegistrationScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const RegistrationScreen(),
+                      builder: (context) => const CodeScreen(),
                     ),
                   );
                 },
