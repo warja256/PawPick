@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/homescreen/homescreen.dart';
 
-//добавить валидацию полей нового пароля если надо?
-//адаптив
-
 class NewPassword extends StatelessWidget {
   const NewPassword({super.key});
 
@@ -129,8 +126,14 @@ class NewPassword extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => HomePage(),
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
                     ),
                   );
                 },

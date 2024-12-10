@@ -64,29 +64,43 @@ class AiFirstOnboarding extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.centerRight,
                   children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const AiSecondOnboarding(),
-                          ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF54BCC3),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        minimumSize: const Size(double.infinity, 56),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF54BCC3),
+                        borderRadius: BorderRadius.circular(30),
                       ),
-                      child: const Text(
-                        'Продолжить',
-                        style: TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          height: 1.5,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation, secondaryAnimation) => const AiSecondOnboarding(),
+                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                return FadeTransition(
+                                  opacity: animation,
+                                  child: child,
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                          elevation: 0, // Убираем тень
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          minimumSize: const Size(double.infinity, 64),
+                        ),
+                        child: const Text(
+                          'Продолжить',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            height: 1.5,
+                          ),
                         ),
                       ),
                     ),
@@ -99,7 +113,7 @@ class AiFirstOnboarding extends StatelessWidget {
                       ),
                     ),
                   ],
-                ), 
+                ),
               ),
             ]
           ),
