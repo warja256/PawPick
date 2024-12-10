@@ -76,6 +76,8 @@ class _FiltersState extends State<Filters> {
         // Учитывает безопасную область
         child: Container(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.only(
@@ -174,6 +176,7 @@ class _FiltersState extends State<Filters> {
                       ),
                     ),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ElevatedButton(
                           onPressed: () {

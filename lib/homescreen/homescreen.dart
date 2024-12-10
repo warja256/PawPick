@@ -23,10 +23,9 @@ final pages = <HomeScreenPage>[
       height: 24,
     ),
     activeIcon: Image.asset(
-      'assets/menu/cards.png',
+      'assets/menu/cards_active.png',
       width: 24,
       height: 24,
-      color: Color.fromARGB(255, 255, 166, 0),
     ),
     widget: const FindScreen(), // Используйте HomeScreen для главной страницы
   ),
@@ -37,10 +36,9 @@ final pages = <HomeScreenPage>[
       height: 24,
     ),
     activeIcon: Image.asset(
-      'assets/menu/favs.png',
+      'assets/menu/favs_active.png',
       width: 24,
       height: 24,
-      color: Color.fromARGB(255, 255, 166, 0),
     ),
     widget: const FavScreen(), // Используйте FavScreen для страницы "Избранное"
   ),
@@ -51,12 +49,12 @@ final pages = <HomeScreenPage>[
       height: 24,
     ),
     activeIcon: Image.asset(
-      'assets/menu/profile.png',
+      'assets/menu/profile_active.png',
       width: 24,
       height: 24,
-      color: Color.fromARGB(255, 255, 166, 0),
     ),
-    widget: const ProfileScreen(), // Используйте ProfileScreen для страницы "Профиль"
+    widget:
+        const ProfileScreen(), // Используйте ProfileScreen для страницы "Профиль"
   ),
 ];
 
@@ -85,7 +83,22 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               height: 60, // Высота нижней панели навигации
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    spreadRadius: 10,
+                    blurRadius: 10,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+              ),
               child: BottomNavigationBar(
+                type: BottomNavigationBarType
+                    .fixed, // Фиксированный тип для равномерного распределения
+                backgroundColor: Colors.transparent, // Прозрачный фон
+                elevation: 0, // Убираем тень
                 items: pages.map((page) {
                   return BottomNavigationBarItem(
                     icon: page.icon,
@@ -95,6 +108,7 @@ class _HomePageState extends State<HomePage> {
                 }).toList(),
                 currentIndex: _selectedIndex,
                 selectedItemColor: Colors.amber[800],
+                unselectedItemColor: Colors.grey,
                 onTap: _onItemTapped,
                 showSelectedLabels: false, // Скрываем выбранные подписи
                 showUnselectedLabels: false, // Скрываем невыбранные подписи

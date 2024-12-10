@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class WhereAt extends StatefulWidget {
-  const WhereAt({super.key});
+class WhoScreen extends StatefulWidget {
+  const WhoScreen({super.key});
 
   @override
-  State<WhereAt> createState() => _WhereAtState();
+  State<WhoScreen> createState() => _WhereAtState();
 }
 
-class _WhereAtState extends State<WhereAt> {
+class _WhereAtState extends State<WhoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,7 +77,7 @@ class _WhereAtState extends State<WhereAt> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    'Откуда вы?',
+                    'Я...',
                     style: TextStyle(
                       fontSize: 34,
                       color: Colors.black,
@@ -88,54 +88,14 @@ class _WhereAtState extends State<WhereAt> {
                 ],
               )),
           SizedBox(
-            height: 73,
+            height: 91,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Укажите свой город',
-                  style: TextStyle(
-                    fontSize: 12.0,
-                    color: Colors.black,
-                    height: 1.5,
-                  ),
-                ),
-                Container(
-                  width: 335,
-                  height: 56,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: '',
-                      contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 0),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        borderSide: const BorderSide(color: Colors.grey),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        borderSide: const BorderSide(color: Colors.grey),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                        borderSide:
-                            BorderSide(color: Theme.of(context).primaryColor),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                    ),
-                    keyboardType: TextInputType.text,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 380,
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 40, right: 40),
+          //   child: Column(children: [
+          //     ElevatedButton(onPressed: onPressed, child: child)
+          //   ],),
+          // ),
           Padding(
             padding: const EdgeInsets.only(left: 40, right: 40),
             child: ElevatedButton(
