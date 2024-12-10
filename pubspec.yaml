@@ -71,6 +71,10 @@ flutter:
     - assets/menu/cards.png
     - assets/menu/favs.png
     - assets/menu/profile.png
+
+    - assets/menu/cards_active.png
+    - assets/menu/favs_active.png
+    - assets/menu/profile_active.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
