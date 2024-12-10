@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/ai_assistant/onboarding_ai_1.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
 
+//нижняя панель с меню
 //кастомный диалог для модального окна выхода из профиля
+//переход на аи
+//поля с данными поменять
+//адаптив
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -27,19 +33,241 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              const Center(
+              Center(
                 child: Column(
                   children: [
-                    Text('Здесь будет фото профиля'),
-                    Text('Даниил'),
-                    Text('Лебединский'),
+                    Image.asset(
+                      'assets/profile/photo.png',
+                      height: 100,
+                      width: 100,
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      'Даниил',
+                      style: TextStyle(
+                        color: const Color(0xFF000000).withOpacity(0.7),
+                        height: 1,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      'Иванов',
+                      style: TextStyle(
+                        color: const Color(0xFF000000).withOpacity(0.7),
+                        height: 1,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ],
                 ),
               ),
-              const SizedBox(height: 10),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
-                //alignment: Alignment.centerLeft,
+              const SizedBox(height: 20),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Телефон',
+                      style: TextStyle(
+                        color: Color(0xFF000000),
+                        height: 1,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10,),
+                    const Text(
+                      '+ 7 800 555 35 35',
+                      style: TextStyle(
+                        color: Color(0xFF000000),
+                        height: 1,
+                        fontSize: 18.0,
+                      ),
+                    ),
+                    const SizedBox(height: 10,),
+                    const Text(
+                      'Почта',
+                      style: TextStyle(
+                        color: Color(0xFF000000),
+                        height: 1,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10,),
+                    const Text(
+                      'не указано',
+                      style: TextStyle(
+                        color: Color(0xFF000000),
+                        height: 1,
+                        fontSize: 18.0,
+                      ),
+                    ),
+                    const SizedBox(height: 10,),
+                    const Text(
+                      'Дата рождения',
+                      style: TextStyle(
+                        color: Color(0xFF000000),
+                        height: 1,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10,),
+                    const Text(
+                      '31.08.2005',
+                      style: TextStyle(
+                        color: Color(0xFF000000),
+                        height: 1,
+                        fontSize: 18.0,
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ProfileScreen(),
+                            ),
+                          );
+                        },
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                        ),
+                        child: Text(
+                          'Изменить профиль',
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 30),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                child: Stack(
+                  alignment: Alignment.centerRight,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF54BCC3),
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xFF54BCC3).withOpacity(0.5),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation, secondaryAnimation) => const AiFirstOnboarding(),
+                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                return FadeTransition(
+                                  opacity: animation,
+                                  child: child,
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          minimumSize: const Size(double.infinity, 64),
+                        ),
+                        child: const Text(
+                          'AI ассистент',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            height: 1.5,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 16.0),
+                      child: Image.asset(
+                        'assets/ai_pics/robot_2.png',
+                        height: 35,
+                        width: 37,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 30),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 130),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFF853A),
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color(0xFFFF853A).withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                            return FadeTransition(
+                              opacity: animation,
+                              child: child,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      shadowColor: Colors.transparent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      minimumSize: const Size(double.infinity, 45),
+                    ),
+                    child: const Text(
+                      'Выход',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        height: 1.5,
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

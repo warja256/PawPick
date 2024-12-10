@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/auth/new_password.dart';
-import 'dart:async';
 
 //обработка введенного кода?
 //адаптив
@@ -100,8 +99,14 @@ class CodeInput extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const NewPassword(),
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) => const NewPassword(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
                     ),
                   );
                 },
@@ -133,8 +138,15 @@ class CodeInput extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => const CodeInput()),
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) => const CodeInput(),
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
+                            },
+                          ),
                         );
                       },
                       child: Text(
