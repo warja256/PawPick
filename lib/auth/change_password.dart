@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../registration/registration_1.dart';
+import '../registration/sign_up.dart';
 import 'package:paw_pick/auth/sign_in.dart';
 import 'package:paw_pick/auth/code_input_screen.dart';
 

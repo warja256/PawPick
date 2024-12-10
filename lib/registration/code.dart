@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-import '../registration/sign_up.dart';
-import 'package:paw_pick/profile/profile.dart';
-import 'package:paw_pick/auth/change_password.dart';
+import '../auth/sign_in.dart';
 
-//добавить проверку полей
-//добавить валидацию неправильных данных
-//адаптив
-
-class AuthScreen extends StatelessWidget {
-  const AuthScreen({super.key});
+class RegistrationScreen extends StatelessWidget {
+  const RegistrationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,14 +26,27 @@ class AuthScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               alignment: Alignment.centerLeft,
-              child: const Text("Войдите в свой аккаунт",
-                  style: TextStyle(
-                    color: Color(0xFF000000),
-                    height: 1.5,
-                    fontSize: 34.0,
-                    fontWeight: FontWeight.bold,
-                  )),
-            ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Регистрация",
+                    style: TextStyle(
+                      color: Color(0xFF000000),
+                      height: 1.5,
+                      fontSize: 34.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Text(
+                    "Создайте аккаунт, чтобы продолжить",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12.0,
+                    ),
+                  ),
+                ],
+              ),),
             const SizedBox(height: 70),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -125,36 +132,56 @@ class AuthScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 5),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ChangePasswordScreen()),
-                  );
-                },
-                child: Text(
-                  "Забыли пароль?",
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 5),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Подтвердите пароль',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Container(
+                    width: 335,
+                    height: 56,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: '',
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 0),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                          borderSide: const BorderSide(color: Colors.grey),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                          borderSide: const BorderSide(color: Colors.grey),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                          borderSide:
+                              BorderSide(color: Theme.of(context).primaryColor),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                      ),
+                      keyboardType: TextInputType.text,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left:40, right:40, top:187),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ProfileScreen(),
+                      builder: (context) => const RegistrationScreen(),
                     ),
                   );
                 },
@@ -166,7 +193,7 @@ class AuthScreen extends StatelessWidget {
                   minimumSize: const Size(double.infinity, 56),
                 ),
                 child: const Text(
-                  "Войти",
+                  "Прололжить",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -176,8 +203,7 @@ class AuthScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 193),
-            //  ПОМЕНЯТЬ КАК ТУТ НА ВСЕХ ФАЙЛАХ
+            const SizedBox(height: 26),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Row(
@@ -188,14 +214,14 @@ class AuthScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const RegistrationScreen()),
+                            builder: (context) => const AuthScreen()),
                       );
                     },
                     child: Text.rich(
                       TextSpan(
                         children: [
                           TextSpan(
-                            text: "Нет аккаунта? ",
+                            text: "Уже есть аккаунт? ",
                             style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme
@@ -203,7 +229,7 @@ class AuthScreen extends StatelessWidget {
                                     ?.color),
                           ),
                           TextSpan(
-                            text: "Создать",
+                            text: "Войти",
                             style: TextStyle(
                               color: Theme.of(context).primaryColor,
                               fontWeight: FontWeight.bold,
