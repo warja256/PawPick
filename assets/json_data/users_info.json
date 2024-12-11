@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "lastName": "Иванов",
+    "firstName": "Иван",
+    "phone": "+7 123 456 78 90",
+    "email": "",
+    "gender": "Мужской",
+    "birthDate": "1990-01-01",
+    "city": "Москва",
+    "password": "password1"
+  },
+  {
+    "id": 2,
+    "lastName": "Петров",
+    "firstName": "Петр",
+    "phone": "",
+    "email": "petr@example.com",
+    "gender": "Мужской",
+    "birthDate": "1985-05-15",
+    "city": "Санкт-Петербург",
+    "password": "password2"
+  },
+  {
+    "id": 3,
+    "lastName": "Сидоров",
+    "firstName": "Сидор",
+    "phone": "+7 987 654 32 10",
+    "email": "",
+    "gender": "Мужской",
+    "birthDate": "1992-08-22",
+    "city": "Новосибирск",
+    "password": "password3"
+  },
+  {
+    "id": 4,
+    "lastName": "Кузнецов",
+    "firstName": "Кузьма",
+    "phone": "",
+    "email": "kuzma@example.com",
+    "gender": "Мужской",
+    "birthDate": "1988-11-30",
+    "city": "Екатеринбург",
+    "password": "password4"
+  },
+  {
+    "id": 5,
+    "lastName": "Смирнов",
+    "firstName": "Смир",
+    "phone": "+7 456 789 12 34",
+    "email": "",
+    "gender": "Мужской",
+    "birthDate": "1995-03-14",
+    "city": "Казань",
+    "password": "password5"
+  },
+  {
+    "id": 6,
+    "lastName": "Васильев",
+    "firstName": "Василий",
+    "phone": "",
+    "email": "vasiliy@example.com",
+    "gender": "Мужской",
+    "birthDate": "1987-07-07",
+    "city": "Нижний Новгород",
+    "password": "password6"
+  },
+  {
+    "id": 7,
+    "lastName": "Попов",
+    "firstName": "Поп",
+    "phone": "+7 789 123 45 67",
+    "email": "",
+    "gender": "Мужской",
+    "birthDate": "1991-02-28",
+    "city": "Челябинск",
+    "password": "password7"
+  },
+  {
+    "id": 8,
+    "lastName": "Соколов",
+    "firstName": "Сокол",
+    "phone": "",
+    "email": "sokol@example.com",
+    "gender": "Мужской",
+    "birthDate": "1989-06-18",
+    "city": "Самара",
+    "password": "password8"
+  },
+  {
+    "id": 9,
+    "lastName": "Михайлов",
+    "firstName": "Михаил",
+    "phone": "+7 123 456 78 90",
+    "email": "",
+    "gender": "Мужской",
+    "birthDate": "1993-04-05",
+    "city": "Омск",
+    "password": "password9"
+  },
+  {
+    "id": 10,
+    "lastName": "Новиков",
+    "firstName": "Новик",
+    "phone": "",
+    "email": "novik@example.com",
+    "gender": "Мужской",
+    "birthDate": "1986-09-25",
+    "city": "Ростов-на-Дону",
+    "password": "password10"
+  }
+]

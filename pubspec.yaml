@@ -79,6 +79,9 @@ flutter:
     
     - assets/find_page/filter_button.png
 
+    - assets/json_data/pets_info.json
+    - assets/json_data/users_info.json
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
