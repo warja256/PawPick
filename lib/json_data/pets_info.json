@@ -1,0 +1,213 @@
+[
+    {
+      "type": "кошка",
+      "gender": "девочка",
+      "character": "спокойный",
+      "size": "m",
+      "age": 3,
+      "fur": "короткая",
+      "color": ["белый", "серый"],
+      "additionalInfo": ["для семьи с детьми", "ладит с животными", "есть прививки"],
+      "shelter": {
+        "name": "Приют для животных 'Дом'",
+        "phone": "+7 123 456 78 90",
+        "email": "home@shelter.com",
+        "mapLink": "https://maps.google.com/?q=Москва, ул. Приютная, д. 1"
+      },
+      "description": "Милая и ласковая кошка, любит играть и спать на коленях.",
+      "photos": [
+        "https://example.com/cat1.jpg",
+        "https://example.com/cat2.jpg"
+      ]
+    },
+    {
+      "type": "собака",
+      "gender": "мальчик",
+      "character": "активный",
+      "size": "l",
+      "age": 5,
+      "fur": "длинная",
+      "color": ["черный", "бежевый"],
+      "additionalInfo": ["ладит с животными", "есть прививки"],
+      "shelter": {
+        "name": "Приют для животных 'Друг'",
+        "phone": "+7 987 654 32 10",
+        "email": "friend@shelter.com",
+        "mapLink": "https://maps.google.com/?q=Санкт-Петербург, ул. Дружеская, д. 2"
+      },
+      "description": "Энергичный и дружелюбный пес, обожает прогулки и игры на свежем воздухе.",
+      "photos": [
+        "https://example.com/dog1.jpg",
+        "https://example.com/dog2.jpg"
+      ]
+    },
+    {
+      "type": "кошка",
+      "gender": "девочка",
+      "character": "спокойный",
+      "size": "s",
+      "age": 2,
+      "fur": "короткая",
+      "color": ["рыжий", "белый"],
+      "additionalInfo": ["для семьи с детьми", "есть прививки"],
+      "shelter": {
+        "name": "Приют для животных 'Лапа'",
+        "phone": "+7 456 789 12 34",
+        "email": "paw@shelter.com",
+        "mapLink": "https://maps.google.com/?q=Новосибирск, ул. Лаповая, д. 3"
+      },
+      "description": "Маленькая и милая кошка, любит сидеть на руках и мурлыкать.",
+      "photos": [
+        "https://example.com/cat3.jpg",
+        "https://example.com/cat4.jpg"
+      ]
+    },
+    {
+      "type": "собака",
+      "gender": "мальчик",
+      "character": "активный",
+      "size": "m",
+      "age": 4,
+      "fur": "короткая",
+      "color": ["коричневый", "белый"],
+      "additionalInfo": ["ладит с животными", "есть прививки"],
+      "shelter": {
+        "name": "Приют для животных 'Хвост'",
+        "phone": "+7 789 123 45 67",
+        "email": "tail@shelter.com",
+        "mapLink": "https://maps.google.com/?q=Екатеринбург, ул. Хвостовая, д. 4"
+      },
+      "description": "Среднего размера пес, любит бегать и играть с мячом.",
+      "photos": [
+        "https://example.com/dog3.jpg",
+        "https://example.com/dog4.jpg"
+      ]
+    },
+    {
+      "type": "кошка",
+      "gender": "девочка",
+      "character": "спокойный",
+      "size": "m",
+      "age": 1,
+      "fur": "длинная",
+      "color": ["серый", "белый"],
+      "additionalInfo": ["для семьи с детьми", "ладит с животными"],
+      "shelter": {
+        "name": "Приют для животных 'Мур'",
+        "phone": "+7 123 456 78 90",
+        "email": "mur@shelter.com",
+        "mapLink": "https://maps.google.com/?q=Казань, ул. Мурская, д. 5"
+      },
+      "description": "Милая и ласковая кошка, любит играть и спать на коленях.",
+      "photos": [
+        "https://example.com/cat5.jpg",
+        "https://example.com/cat6.jpg"
+      ]
+    },
+    {
+      "type": "собака",
+      "gender": "мальчик",
+      "character": "активный",
+      "size": "l",
+      "age": 3,
+      "fur": "короткая",
+      "color": ["черный", "белый"],
+      "additionalInfo": ["ладит с животными", "есть прививки"],
+      "shelter": {
+        "name": "Приют для животных 'Лай'",
+        "phone": "+7 987 654 32 10",
+        "email": "bark@shelter.com",
+        "mapLink": "https://maps.google.com/?q=Нижний Новгород, ул. Лайская, д. 6"
+      },
+      "description": "Энергичный и дружелюбный пес, обожает прогулки и игры на свежем воздухе.",
+      "photos": [
+        "https://example.com/dog5.jpg",
+        "https://example.com/dog6.jpg"
+      ]
+    },
+    {
+      "type": "кошка",
+      "gender": "девочка",
+      "character": "спокойный",
+      "size": "s",
+      "age": 2,
+      "fur": "длинная",
+      "color": ["бежевый", "белый"],
+      "additionalInfo": ["для семьи с детьми", "есть прививки"],
+      "shelter": {
+        "name": "Приют для животных 'Пушок'",
+        "phone": "+7 456 789 12 34",
+        "email": "fluff@shelter.com",
+        "mapLink": "https://maps.google.com/?q=Самара, ул. Пушистая, д. 7"
+      },
+      "description": "Маленькая и милая кошка, любит сидеть на руках и мурлыкать.",
+      "photos": [
+        "https://example.com/cat7.jpg",
+        "https://example.com/cat8.jpg"
+      ]
+    },
+    {
+      "type": "собака",
+      "gender": "мальчик",
+      "character": "активный",
+      "size": "m",
+      "age": 4,
+      "fur": "короткая",
+      "color": ["рыжий", "белый"],
+      "additionalInfo": ["ладит с животными", "есть прививки"],
+      "shelter": {
+        "name": "Приют для животных 'Гав'",
+        "phone": "+7 789 123 45 67",
+        "email": "woof@shelter.com",
+        "mapLink": "https://maps.google.com/?q=Омск, ул. Гавская, д. 8"
+      },
+      "description": "Среднего размера пес, любит бегать и играть с мячом.",
+      "photos": [
+        "https://example.com/dog7.jpg",
+        "https://example.com/dog8.jpg"
+      ]
+    },
+    {
+      "type": "кошка",
+      "gender": "девочка",
+      "character": "спокойный",
+      "size": "m",
+      "age": 1,
+      "fur": "длинная",
+      "color": ["серый", "белый"],
+      "additionalInfo": ["для семьи с детьми", "ладит с животными"],
+      "shelter": {
+        "name": "Приют для животных 'Мяу'",
+        "phone": "+7 123 456 78 90",
+        "email": "meow@shelter.com",
+        "mapLink": "https://maps.google.com/?q=Ростов-на-Дону, ул. Мяуская, д. 9"
+      },
+      "description": "Милая и ласковая кошка, любит играть и спать на коленях.",
+      "photos": [
+        "https://example.com/cat9.jpg",
+        "https://example.com/cat10.jpg"
+      ]
+    },
+    {
+      "type": "собака",
+      "gender": "мальчик",
+      "character": "активный",
+      "size": "l",
+      "age": 3,
+      "fur": "короткая",
+      "color": ["черный", "белый"],
+      "additionalInfo": ["ладит с животными", "есть прививки"],
+      "shelter": {
+        "name": "Приют для животных 'Тяв'",
+        "phone": "+7 987 654 32 10",
+        "email": "yap@shelter.com",
+        "mapLink": "https://maps.google.com/?q=Краснодар, ул. Тявская, д. 10"
+      },
+      "description": "Энергичный и дружелюбный пес, обожает прогулки и игры на свежем воздухе.",
+      "photos": [
+        "https://example.com/dog9.jpg",
+        "https://example.com/dog10.jpg"
+      ]
+    }
+  ]
+  
