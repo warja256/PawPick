@@ -3,9 +3,7 @@ import 'package:paw_pick/ai_assistant/onboarding_ai_1.dart';
 import 'package:paw_pick/profile/exit_dialog.dart';
 import 'package:paw_pick/onboarding/onboarding.dart';
 
-//нижняя панель с меню
-//кастомный диалог для модального окна выхода из профиля
-//переход на аи
+//диалог для модального окна выхода из профиля
 //поля с данными поменять
 //адаптив
 
