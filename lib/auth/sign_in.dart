@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:paw_pick/homescreen/homescreen.dart';
-import '../registration/registration_1.dart';
+import '../registration/sign_up.dart';
+import '../homescreen/homescreen.dart';
+import 'package:paw_pick/profile/profile.dart';
 import 'package:paw_pick/auth/change_password.dart';
 
 //добавить проверку полей
@@ -133,8 +134,15 @@ class AuthScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const ChangePasswordScreen()),
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) => const ChangePasswordScreen(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
+                    ),
                   );
                 },
                 child: Text(
@@ -153,8 +161,14 @@ class AuthScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => HomePage(),
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
                     ),
                   );
                 },
@@ -187,8 +201,15 @@ class AuthScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const RegistrationScreen()),
+                        PageRouteBuilder(
+                          pageBuilder: (context, animation, secondaryAnimation) => const RegistrationScreen(),
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                            return FadeTransition(
+                              opacity: animation,
+                              child: child,
+                            );
+                          },
+                        ),
                       );
                     },
                     child: Text.rich(

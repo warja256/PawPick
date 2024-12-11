@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/ai_assistant/onboarding_ai_1.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
+import 'package:paw_pick/onboarding/onboarding.dart';
 
 //нижняя панель с меню
 //кастомный диалог для модального окна выхода из профиля
@@ -176,8 +178,14 @@ class ProfileScreen extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                              builder: (context) => const AiFirstOnboarding(),
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation, secondaryAnimation) => const AiFirstOnboarding(),
+                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                return FadeTransition(
+                                  opacity: animation,
+                                  child: child,
+                                );
+                              },
                             ),
                           );
                         },
@@ -229,11 +237,54 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ProfileScreen(),
-                        ),
+                      showDialog(
+                        context: context,
+                        barrierDismissible: true,
+                        builder: (BuildContext context) {
+                          return Center(
+                            child: SizedBox(
+                              height: 270,
+                              width: 351,
+                              child: AlertDialog(
+                                content: const Center(
+                                  child: Text(
+                                    'Вы уверены, что хотите выйти?',
+                                    style: TextStyle(
+                                      fontSize: 34,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text('Нет'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                      Navigator.push(
+                                        context,
+                                        PageRouteBuilder(
+                                          pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
+                                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                            return FadeTransition(
+                                              opacity: animation,
+                                              child: child,
+                                            );
+                                          },
+                                        ),
+                                      );
+                                    },
+                                    child: const Text('Да'),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
                       );
                     },
                     style: ElevatedButton.styleFrom(

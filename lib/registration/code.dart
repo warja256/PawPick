@@ -1,19 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:paw_pick/auth/new_password.dart';
+import '../auth/sign_in.dart';
+import 'sign_up.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
 
-//обработка введенного кода?
-//адаптив
+class CodeScreen extends StatelessWidget {
+  const CodeScreen({super.key});
 
-class CodeInput extends StatelessWidget {
-  const CodeInput({super.key});
-
-  @override
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const RegistrationScreen(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
+                child: Image.asset(
+                  'assets/btn_back.png',
+                  height: 52,
+                  width: 52,
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
             const SizedBox(height: 20),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
@@ -29,7 +56,7 @@ class CodeInput extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
               alignment: Alignment.centerLeft,
-              child: const Text("Восстановление пароля",
+              child: const Text("Подтверждение регистрации",
                   style: TextStyle(
                     color: Color(0xFF000000),
                     height: 1.5,
@@ -100,7 +127,7 @@ class CodeInput extends StatelessWidget {
                   Navigator.push(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (context, animation, secondaryAnimation) => const NewPassword(),
+                      pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
                       transitionsBuilder: (context, animation, secondaryAnimation, child) {
                         return FadeTransition(
                           opacity: animation,
@@ -118,7 +145,7 @@ class CodeInput extends StatelessWidget {
                   minimumSize: const Size(double.infinity, 56),
                 ),
                 child: const Text(
-                  "Создать новый пароль",
+                  "Проверить код",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -139,7 +166,7 @@ class CodeInput extends StatelessWidget {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => const CodeInput(),
+                            pageBuilder: (context, animation, secondaryAnimation) => const CodeScreen(),
                             transitionsBuilder: (context, animation, secondaryAnimation, child) {
                               return FadeTransition(
                                 opacity: animation,

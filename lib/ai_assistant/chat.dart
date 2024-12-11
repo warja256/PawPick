@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:paw_pick/profile/profile.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
 
 //адаптив
 
@@ -58,8 +58,14 @@ class AiChat extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProfileScreen(),
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
                     ),
                   );
                 },
@@ -68,7 +74,7 @@ class AiChat extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  minimumSize: const Size(double.infinity, 56),
+                  minimumSize: const Size(double.infinity, 64),
                 ),
                 child: const Text(
                   'Вернуться в профиль',

@@ -4,11 +4,11 @@ import 'package:paw_pick/form/about1.dart';
 import 'package:paw_pick/form/about2.dart';
 import 'package:paw_pick/form/about3.dart';
 import 'package:paw_pick/onboarding/onboarding.dart';
-import 'package:paw_pick/registration/registration_1.dart';
+import 'package:paw_pick/registration/sign_up.dart';
 import 'auth/sign_in.dart';
 import 'theme/theme.dart';
 import 'filters/filters.dart';
-import 'registration/registration_1.dart';
+import 'registration/sign_up.dart';
 
 void main() {
   runApp(const MyApp());

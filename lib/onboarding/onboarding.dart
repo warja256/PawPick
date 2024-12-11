@@ -3,7 +3,7 @@ import 'onboarding1.dart';
 import 'onboarding2.dart';
 import 'onboarding3.dart';
 import '../auth/sign_in.dart';
-import '../registration/registration_1.dart';
+import '../registration/sign_up.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

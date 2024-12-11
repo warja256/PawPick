@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:paw_pick/homescreen/homescreen.dart';
+import 'package:paw_pick/registration/code.dart';
+import '../auth/sign_in.dart';
 
-class NewPassword extends StatelessWidget {
-  const NewPassword({super.key});
+class RegistrationScreen extends StatelessWidget {
+  const RegistrationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class NewPassword extends StatelessWidget {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const SizedBox(height: 70),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               alignment: Alignment.centerLeft,
               child: Text("PAWPICK",
                   style: TextStyle(
@@ -26,14 +27,27 @@ class NewPassword extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               alignment: Alignment.centerLeft,
-              child: const Text("Восстановление пароля",
-                  style: TextStyle(
-                    color: Color(0xFF000000),
-                    height: 1.5,
-                    fontSize: 34.0,
-                    fontWeight: FontWeight.bold,
-                  )),
-            ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Регистрация",
+                    style: TextStyle(
+                      color: Color(0xFF000000),
+                      height: 1.5,
+                      fontSize: 34.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Text(
+                    "Создайте аккаунт, чтобы продолжить",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12.0,
+                    ),
+                  ),
+                ],
+              ),),
             const SizedBox(height: 70),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -41,7 +55,49 @@ class NewPassword extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Новый пароль',
+                    'Телефон или почта',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Container(
+                    width: 335,
+                    height: 56,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: '',
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 0),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                          borderSide: const BorderSide(color: Colors.grey),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                          borderSide: const BorderSide(color: Colors.grey),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                          borderSide:
+                              BorderSide(color: Theme.of(context).primaryColor),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                      ),
+                      keyboardType: TextInputType.text,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Пароль',
                     style: TextStyle(
                       fontSize: 12.0,
                       color: Colors.black,
@@ -119,21 +175,14 @@ class NewPassword extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 30),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.only(left:40, right:40, top:187),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    PageRouteBuilder(
-                      pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
-                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                        return FadeTransition(
-                          opacity: animation,
-                          child: child,
-                        );
-                      },
+                    MaterialPageRoute(
+                      builder: (context) => const CodeScreen(),
                     ),
                   );
                 },
@@ -145,7 +194,7 @@ class NewPassword extends StatelessWidget {
                   minimumSize: const Size(double.infinity, 56),
                 ),
                 child: const Text(
-                  "Войти",
+                  "Прололжить",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -153,6 +202,45 @@ class NewPassword extends StatelessWidget {
                     height: 1.5,
                   ),
                 ),
+              ),
+            ),
+            const SizedBox(height: 26),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AuthScreen()),
+                      );
+                    },
+                    child: Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "Уже есть аккаунт? ",
+                            style: TextStyle(
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .labelMedium
+                                    ?.color),
+                          ),
+                          TextSpan(
+                            text: "Войти",
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ]),

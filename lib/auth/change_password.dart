@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../registration/registration_1.dart';
+import '../registration/sign_up.dart';
 import 'package:paw_pick/auth/sign_in.dart';
 import 'package:paw_pick/auth/code_input_screen.dart';
 
@@ -129,8 +129,14 @@ class ChangePasswordScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const CodeInput(),
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) => const CodeInput(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
                     ),
                   );
                 },
@@ -162,8 +168,15 @@ class ChangePasswordScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const RegistrationScreen()),
+                        PageRouteBuilder(
+                          pageBuilder: (context, animation, secondaryAnimation) => const RegistrationScreen(),
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                            return FadeTransition(
+                              opacity: animation,
+                              child: child,
+                            );
+                          },
+                        ),
                       );
                     },
                     child: Text.rich(
