@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import '../registration/sign_up.dart';
-import 'package:paw_pick/auth/sign_in.dart';
-import 'package:paw_pick/auth/code_input_screen.dart';
+import '../auth/sign_in.dart';
+import 'sign_up.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
 
-//валидация полей
-//адаптив
+class CodeScreen extends StatelessWidget {
+  const CodeScreen({super.key});
 
-class ChangePasswordScreen extends StatelessWidget {
-  const ChangePasswordScreen({super.key});
-
-  @override
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -25,7 +22,7 @@ class ChangePasswordScreen extends StatelessWidget {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation, secondaryAnimation) =>
-                          const AuthScreen(),
+                          const RegistrationScreen(),
                       transitionsBuilder:
                           (context, animation, secondaryAnimation, child) {
                         return FadeTransition(
@@ -57,9 +54,9 @@ class ChangePasswordScreen extends StatelessWidget {
                   )),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
               alignment: Alignment.centerLeft,
-              child: const Text("Восстановление пароля",
+              child: const Text("Подтверждение регистрации",
                   style: TextStyle(
                     color: Color(0xFF000000),
                     height: 1.5,
@@ -69,10 +66,10 @@ class ChangePasswordScreen extends StatelessWidget {
             ),
             const SizedBox(height: 35),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
               alignment: Alignment.centerLeft,
               child: const Text(
-                  "Укажите номер телефона или адрес электронной почты, используемые при создании вашего аккаунта",
+                  "Введите код, отправленный на указанный вами номер телефона/адрес электронной почты",
                   style: TextStyle(
                     color: Color(0xFF000000),
                     height: 1.5,
@@ -86,7 +83,7 @@ class ChangePasswordScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Телефон или почта',
+                    'Введите полученный код',
                     style: TextStyle(
                       fontSize: 12.0,
                       color: Colors.black,
@@ -124,13 +121,13 @@ class ChangePasswordScreen extends StatelessWidget {
             ),
             const SizedBox(height: 5),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (context, animation, secondaryAnimation) => const CodeInput(),
+                      pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
                       transitionsBuilder: (context, animation, secondaryAnimation, child) {
                         return FadeTransition(
                           opacity: animation,
@@ -148,7 +145,7 @@ class ChangePasswordScreen extends StatelessWidget {
                   minimumSize: const Size(double.infinity, 56),
                 ),
                 child: const Text(
-                  "Запросить код",
+                  "Проверить код",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -158,52 +155,37 @@ class ChangePasswordScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 193),
+            const SizedBox(height: 5),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) => const RegistrationScreen(),
-                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                            return FadeTransition(
-                              opacity: animation,
-                              child: child,
-                            );
-                          },
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) => const CodeScreen(),
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+                      },
+                      child: Text(
+                        "Отправить код еще раз",
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.bold,
                         ),
-                      );
-                    },
-                    child: Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: "Нет аккаунта? ",
-                            style: TextStyle(
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .labelMedium
-                                    ?.color),
-                          ),
-                          TextSpan(
-                            text: "Создать",
-                            style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
+                  ],
+                )),
           ]),
         ),
       ),
