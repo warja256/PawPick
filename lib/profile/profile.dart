@@ -3,9 +3,7 @@ import 'package:paw_pick/ai_assistant/onboarding_ai_1.dart';
 import 'package:paw_pick/profile/exit_dialog.dart';
 import 'package:paw_pick/onboarding/onboarding.dart';
 
-//нижняя панель с меню
-//кастомный диалог для модального окна выхода из профиля
-//переход на аи
+//диалог для модального окна выхода из профиля
 //поля с данными поменять
 //адаптив
 
@@ -166,14 +164,6 @@ class ProfileScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: const Color(0xFF54BCC3),
                           borderRadius: BorderRadius.circular(15),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0xFF54BCC3).withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: const Offset(0, 3),
-                            ),
-                          ],
                         ),
                         child: ElevatedButton(
                           onPressed: () {
@@ -229,14 +219,6 @@ class ProfileScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: const Color(0xFFFF853A),
                     borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0xFFFF853A).withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: const Offset(0, 3),
-                      ),
-                    ],
                   ),
                   child: ElevatedButton(
                     onPressed: () {
