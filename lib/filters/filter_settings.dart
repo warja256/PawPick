@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/find/find.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
 
 class FilterSettings extends StatefulWidget {
   const FilterSettings({super.key});
@@ -129,7 +131,7 @@ class _FilterSettingsState extends State<FilterSettings> {
                           PageRouteBuilder(
                             pageBuilder:
                                 (context, animation, secondaryAnimation) =>
-                                    const Placeholder(),
+                                    HomePage(),
                             transitionsBuilder: (context, animation,
                                 secondaryAnimation, child) {
                               return FadeTransition(
@@ -149,7 +151,7 @@ class _FilterSettingsState extends State<FilterSettings> {
                           height: 1.5,
                           color: Theme.of(context).primaryColor,
                         ),
-                      ))
+                      )),
                 ],
               ),
             ),
@@ -1470,8 +1472,16 @@ class _FilterSettingsState extends State<FilterSettings> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const Placeholder(),
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          HomePage(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
                     ),
                   );
                 },
@@ -1492,7 +1502,10 @@ class _FilterSettingsState extends State<FilterSettings> {
                   ),
                 ),
               ),
-            )
+            ),
+            const SizedBox(
+              height: 88,
+            ),
           ],
         )
       ])),

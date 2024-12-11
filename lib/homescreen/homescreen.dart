@@ -75,47 +75,45 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: pages[_selectedIndex].widget,
-            ),
-            Container(
-              height: 60, // Высота нижней панели навигации
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    spreadRadius: 10,
-                    blurRadius: 10,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ],
+      body: Stack(
+        children: [
+          Column(
+            children: [
+              Expanded(
+                child: pages[_selectedIndex].widget,
               ),
-              child: BottomNavigationBar(
-                type: BottomNavigationBarType
-                    .fixed, // Фиксированный тип для равномерного распределения
-                backgroundColor: Colors.transparent, // Прозрачный фон
-                elevation: 0, // Убираем тень
-                items: pages.map((page) {
-                  return BottomNavigationBarItem(
-                    icon: page.icon,
-                    activeIcon: page.activeIcon,
-                    label: '', // Удаляем подписи
-                  );
-                }).toList(),
-                currentIndex: _selectedIndex,
-                selectedItemColor: Colors.amber[800],
-                unselectedItemColor: Colors.grey,
-                onTap: _onItemTapped,
-                showSelectedLabels: false, // Скрываем выбранные подписи
-                showUnselectedLabels: false, // Скрываем невыбранные подписи
+              Container(
+                height: 60, // Высота нижней панели навигации
+                color: Color(0xffF3F3F3), // Цвет фона для нижней части экрана
               ),
+            ],
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType
+                  .fixed, // Фиксированный тип для равномерного распределения
+              backgroundColor:
+                  Color(0xffF3F3F3), // Цвет фона для нижней панели навигации
+              elevation: 0, // Убираем тень
+              items: pages.map((page) {
+                return BottomNavigationBarItem(
+                  icon: page.icon,
+                  activeIcon: page.activeIcon,
+                  label: '', // Удаляем подписи
+                );
+              }).toList(),
+              currentIndex: _selectedIndex,
+              selectedItemColor: Colors.amber[800],
+              unselectedItemColor: Colors.grey,
+              onTap: _onItemTapped,
+              showSelectedLabels: false, // Скрываем выбранные подписи
+              showUnselectedLabels: false, // Скрываем невыбранные подписи
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
