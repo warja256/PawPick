@@ -75,7 +75,10 @@ flutter:
     - assets/menu/cards_active.png
     - assets/menu/favs_active.png
     - assets/menu/profile_active.png
+    - assets/form/check.png
     
+    - assets/find_page/filter_button.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

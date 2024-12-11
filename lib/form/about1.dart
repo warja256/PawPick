@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/form/about2.dart';
 
 class TellAbout extends StatefulWidget {
   const TellAbout({super.key});
@@ -106,7 +107,7 @@ class _TellAboutState extends State<TellAbout> {
                   context,
                   PageRouteBuilder(
                     pageBuilder: (context, animation, secondaryAnimation) =>
-                        const Placeholder(),
+                        const WhereAt(),
                     transitionsBuilder:
                         (context, animation, secondaryAnimation, child) {
                       return FadeTransition(
