@@ -60,7 +60,7 @@ class AiSecondOnboarding extends StatelessWidget {
                     Container(
                       decoration: BoxDecoration(
                         color: const Color(0xFF54BCC3),
-                        borderRadius: BorderRadius.circular(30),
+                        borderRadius: BorderRadius.circular(15),
                       ),
                       child: ElevatedButton(
                         onPressed: () {

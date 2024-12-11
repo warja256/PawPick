@@ -72,7 +72,7 @@ class AiChat extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF54BCC3),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(15),
                   ),
                   minimumSize: const Size(double.infinity, 64),
                 ),
