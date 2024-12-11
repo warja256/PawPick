@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/auth/change_password.dart';
 import 'package:paw_pick/auth/new_password.dart';
 
 //обработка введенного кода?
@@ -14,6 +15,34 @@ class CodeInput extends StatelessWidget {
         child: SingleChildScrollView(
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const ChangePasswordScreen(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
+                child: Image.asset(
+                  'assets/btn_back.png',
+                  height: 52,
+                  width: 52,
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
             const SizedBox(height: 20),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
@@ -27,7 +56,7 @@ class CodeInput extends StatelessWidget {
                   )),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               alignment: Alignment.centerLeft,
               child: const Text("Восстановление пароля",
                   style: TextStyle(
