@@ -42,7 +42,7 @@ class CodeInput extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
               alignment: Alignment.centerLeft,
               child: const Text(
-                  "Введите код, отправленный на указанный вами номер телефона/адрес электронной почты",
+                  "Введите код, отправленный на указанный Вами адрес электронной почты",
                   style: TextStyle(
                     color: Color(0xFF000000),
                     height: 1.5,

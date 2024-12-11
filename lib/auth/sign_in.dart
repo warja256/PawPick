@@ -5,8 +5,6 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:paw_pick/auth/change_password.dart';
 
-//добавить проверку полей
-//добавить валидацию неправильных данных
 //адаптив
 
 class AuthScreen extends StatefulWidget {
@@ -17,12 +15,13 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
-  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _isPasswordVisible = false;
-  bool _isUsernameError = false;
+  bool _isEmailError = false;
   bool _isPasswordError = false;
-  String _errorMessage = '';
+  String _emailErrorMessage = '';
+  String _passwordErrorMessage = '';
   List<dynamic> _users = [];
 
   @override
@@ -40,22 +39,44 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   void _validateUser() {
-    final String username = _usernameController.text;
+    final String email = _emailController.text;
     final String password = _passwordController.text;
 
     bool userFound = false;
+    bool correctPassword = false;
+
     for (var user in _users) {
-      if ((user['phone'] == username || user['email'] == username) && user['password'] == password) {
+      if (user['email'] == email) {
         userFound = true;
-        break;
+        if (user['password'] == password) {
+          correctPassword = true;
+          break;
+        }
       }
     }
 
     setState(() {
-      if (userFound) {
-        _isUsernameError = false;
+      if (email.isEmpty) {
+        _isEmailError = true;
+        _emailErrorMessage = 'Введите адрес электронной почты';
+      } else {
+        _isEmailError = false;
+        _emailErrorMessage = '';
+      }
+
+      if (password.isEmpty) {
+        _isPasswordError = true;
+        _passwordErrorMessage = 'Введите пароль';
+      } else {
         _isPasswordError = false;
-        _errorMessage = '';
+        _passwordErrorMessage = '';
+      }
+
+      if (userFound && correctPassword) {
+        _isEmailError = false;
+        _isPasswordError = false;
+        _emailErrorMessage = '';
+        _passwordErrorMessage = '';
         // Переход на домашнюю страницу
         Navigator.push(
           context,
@@ -69,10 +90,14 @@ class _AuthScreenState extends State<AuthScreen> {
             },
           ),
         );
-      } else {
-        _isUsernameError = true;
+      } else if (userFound && !correctPassword) {
+        _isEmailError = false;
         _isPasswordError = true;
-        _errorMessage = 'Неверное имя пользователя или пароль';
+        _passwordErrorMessage = 'Неверный пароль';
+      } else {
+        _isEmailError = true;
+        _isPasswordError = true;
+        _passwordErrorMessage = 'Пользователь с такой почтой не найден';
       }
     });
   }
@@ -119,7 +144,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'Телефон или почта',
+                      'Электронная почта',
                       style: TextStyle(
                         fontSize: 12.0,
                         color: Colors.black,
@@ -129,9 +154,13 @@ class _AuthScreenState extends State<AuthScreen> {
                       width: 335,
                       height: 56,
                       child: TextField(
-                        controller: _usernameController,
+                        controller: _emailController,
                         decoration: InputDecoration(
-                          hintText: '',
+                          hintText: _emailController.text.isEmpty ? 'Например, example@mail.com' : '',
+                          hintStyle: TextStyle(
+                            color: Colors.grey.withOpacity(0.5),
+                            fontSize: 12.0,
+                          ),
                           contentPadding: const EdgeInsets.symmetric(
                               horizontal: 20, vertical: 0),
                           border: OutlineInputBorder(
@@ -141,13 +170,13 @@ class _AuthScreenState extends State<AuthScreen> {
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide: BorderSide(
-                              color: _isUsernameError ? Colors.red : Colors.grey,
+                              color: _isEmailError ? Colors.red : Colors.grey,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide: BorderSide(
-                              color: _isUsernameError
+                              color: _isEmailError
                                   ? Colors.red
                                   : Theme.of(context).primaryColor,
                             ),
@@ -155,12 +184,12 @@ class _AuthScreenState extends State<AuthScreen> {
                           filled: true,
                           fillColor: Colors.white,
                         ),
-                        keyboardType: TextInputType.text,
+                        keyboardType: TextInputType.emailAddress,
                       ),
                     ),
-                    if (_isUsernameError)
+                    if (_isEmailError)
                       Text(
-                        _errorMessage,
+                        _emailErrorMessage,
                         style: TextStyle(
                           fontSize: 12.0,
                           color: Colors.red,
@@ -229,7 +258,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                     if (_isPasswordError)
                       Text(
-                        _errorMessage,
+                        _passwordErrorMessage,
                         style: TextStyle(
                           fontSize: 12.0,
                           color: Colors.red,
