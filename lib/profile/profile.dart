@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/ai_assistant/onboarding_ai_1.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
 import 'package:paw_pick/profile/exit_dialog.dart';
 import 'package:paw_pick/onboarding/onboarding.dart';
 
@@ -133,7 +134,7 @@ class ProfileScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const ProfileScreen(),
+                              builder: (context) => HomePage(),
                             ),
                           );
                         },
