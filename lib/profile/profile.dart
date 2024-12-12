@@ -3,20 +3,47 @@ import 'package:paw_pick/ai_assistant/onboarding_ai_1.dart';
 import 'package:paw_pick/homescreen/homescreen.dart';
 import 'package:paw_pick/profile/exit_dialog.dart';
 import 'package:paw_pick/onboarding/onboarding.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
 
-//диалог для модального окна выхода из профиля
 //поля с данными поменять
 //адаптив
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  final int userId;
+
+  const ProfileScreen({super.key, required this.userId});
+
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  Map<String, dynamic>? _userData;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    final String response = await rootBundle.loadString('assets/json_data/users_info.json');
+    final List<dynamic> users = await json.decode(response);
+    final user = users.firstWhere((user) => user['id'] == widget.userId, orElse: () => null);
+
+    setState(() {
+      _userData = user;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start, 
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
               Container(
@@ -43,7 +70,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      'Даниил',
+                      _userData?['firstName'] ?? 'Не указано',
                       style: TextStyle(
                         color: const Color(0xFF000000).withOpacity(0.7),
                         height: 1,
@@ -53,7 +80,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      'Иванов',
+                      _userData?['lastName'] ?? 'Не указано',
                       style: TextStyle(
                         color: const Color(0xFF000000).withOpacity(0.7),
                         height: 1,
@@ -80,16 +107,16 @@ class ProfileScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 10,),
-                    const Text(
-                      'не указано',
-                      style: TextStyle(
+                    const SizedBox(height: 10),
+                    Text(
+                      _userData?['email'] ?? 'Не указано',
+                      style: const TextStyle(
                         color: Color(0xFF000000),
                         height: 1,
                         fontSize: 18.0,
                       ),
                     ),
-                    const SizedBox(height: 10,),
+                    const SizedBox(height: 10),
                     const Text(
                       'Дата рождения',
                       style: TextStyle(
@@ -99,10 +126,29 @@ class ProfileScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 10,),
+                    const SizedBox(height: 10),
+                    Text(
+                      _userData?['birthDate'] ?? 'Не указано',
+                      style: const TextStyle(
+                        color: Color(0xFF000000),
+                        height: 1,
+                        fontSize: 18.0,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
                     const Text(
-                      '31.08.2005',
+                      'Город',
                       style: TextStyle(
+                        color: Color(0xFF000000),
+                        height: 1,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      _userData?['city'] ?? 'Не указано',
+                      style: const TextStyle(
                         color: Color(0xFF000000),
                         height: 1,
                         fontSize: 18.0,
@@ -254,38 +300,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
-
-/*class ProfileScreen extends StatelessWidget {
-  final String name;
-
-  const ProfileScreen({super.key, required this.name});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start, 
-            children: [
-              const SizedBox(height: 20),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  name,
-                  style: TextStyle(
-                    color: Color(0xFF000000),
-                    height: 1.5,
-                    fontSize: 34.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}*/

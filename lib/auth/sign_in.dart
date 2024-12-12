@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
 import '../registration/sign_up.dart';
-import '../homescreen/homescreen.dart';
+import '../profile/profile.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:paw_pick/auth/change_password.dart';
@@ -44,12 +45,14 @@ class _AuthScreenState extends State<AuthScreen> {
 
     bool userFound = false;
     bool correctPassword = false;
+    int userId = -1;
 
     for (var user in _users) {
       if (user['email'] == email) {
         userFound = true;
         if (user['password'] == password) {
           correctPassword = true;
+          userId = user['id'];
           break;
         }
       }
@@ -77,11 +80,11 @@ class _AuthScreenState extends State<AuthScreen> {
         _isPasswordError = false;
         _emailErrorMessage = '';
         _passwordErrorMessage = '';
-        // Переход на домашнюю страницу
+        // Переход на страницу профиля с id пользователя
         Navigator.push(
           context,
           PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
+            pageBuilder: (context, animation, secondaryAnimation) => ProfileScreen(userId: userId),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               return FadeTransition(
                 opacity: animation,
@@ -94,10 +97,10 @@ class _AuthScreenState extends State<AuthScreen> {
         _isEmailError = false;
         _isPasswordError = true;
         _passwordErrorMessage = 'Неверный пароль';
-      } else {
+      } else if (!userFound && !email.isEmpty && !password.isEmpty) {
         _isEmailError = true;
-        _isPasswordError = true;
-        _passwordErrorMessage = 'Пользователь с такой почтой не найден';
+        _isPasswordError = false;
+        _emailErrorMessage = 'Пользователь с такой почтой не найден';
       }
     });
   }
@@ -156,7 +159,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       child: TextField(
                         controller: _emailController,
                         decoration: InputDecoration(
-                          hintText: _emailController.text.isEmpty ? 'Введите адрес электронной почты' : '',
+                          hintText: _emailController.text.isEmpty ? 'Например, example@mail.com' : '',
                           hintStyle: TextStyle(
                             color: Colors.grey.withOpacity(0.5),
                             fontSize: 12.0,
@@ -217,7 +220,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         controller: _passwordController,
                         obscureText: !_isPasswordVisible,
                         decoration: InputDecoration(
-                          hintText: 'Введите пароль',
+                          hintText: '',
                           hintStyle: TextStyle(
                             color: Colors.grey.withOpacity(0.5),
                             fontSize: 12.0,

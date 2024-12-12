@@ -54,7 +54,7 @@ final pages = <HomeScreenPage>[
       height: 24,
     ),
     widget:
-        const ProfileScreen(), // Используйте ProfileScreen для страницы "Профиль"
+        const FavScreen(), // Используйте ProfileScreen для страницы "Профиль" ПОМЕНЯТЬ НА ПРОФИЛЬ
   ),
 ];
 
