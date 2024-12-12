@@ -156,7 +156,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       child: TextField(
                         controller: _emailController,
                         decoration: InputDecoration(
-                          hintText: _emailController.text.isEmpty ? 'Например, example@mail.com' : '',
+                          hintText: _emailController.text.isEmpty ? 'Введите адрес электронной почты' : '',
                           hintStyle: TextStyle(
                             color: Colors.grey.withOpacity(0.5),
                             fontSize: 12.0,
@@ -217,7 +217,11 @@ class _AuthScreenState extends State<AuthScreen> {
                         controller: _passwordController,
                         obscureText: !_isPasswordVisible,
                         decoration: InputDecoration(
-                          hintText: '',
+                          hintText: 'Введите пароль',
+                          hintStyle: TextStyle(
+                            color: Colors.grey.withOpacity(0.5),
+                            fontSize: 12.0,
+                          ),
                           contentPadding: const EdgeInsets.symmetric(
                               horizontal: 20, vertical: 0),
                           border: OutlineInputBorder(

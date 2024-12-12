@@ -72,25 +72,6 @@ class ProfileScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'Телефон',
-                      style: TextStyle(
-                        color: Color(0xFF000000),
-                        height: 1,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 10,),
-                    const Text(
-                      '+ 7 800 555 35 35',
-                      style: TextStyle(
-                        color: Color(0xFF000000),
-                        height: 1,
-                        fontSize: 18.0,
-                      ),
-                    ),
-                    const SizedBox(height: 10,),
-                    const Text(
                       'Почта',
                       style: TextStyle(
                         color: Color(0xFF000000),

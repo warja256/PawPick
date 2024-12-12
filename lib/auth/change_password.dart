@@ -3,7 +3,7 @@ import '../registration/sign_up.dart';
 import 'package:paw_pick/auth/sign_in.dart';
 import 'package:paw_pick/auth/code_input_screen.dart';
 
-//валидация полей
+//добавление нового пароля в файл json
 //адаптив
 
 class ChangePasswordScreen extends StatelessWidget {
