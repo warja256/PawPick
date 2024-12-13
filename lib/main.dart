@@ -3,6 +3,7 @@ import 'package:paw_pick/filters/filter_settings.dart';
 import 'package:paw_pick/form/about1.dart';
 import 'package:paw_pick/form/about2.dart';
 import 'package:paw_pick/form/about3.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
 import 'package:paw_pick/onboarding/onboarding.dart';
 import 'package:paw_pick/registration/sign_up.dart';
 import 'auth/sign_in.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const OnboardingScreen(),
+      home: AuthScreen(),
       theme: AppTheme.lightTheme,
     );
   }
@@ -37,7 +38,7 @@ class FirstLaunchScreen extends StatelessWidget {
     if (isFirstLaunch) {
       return const OnboardingScreen();
     } else {
-      return const AuthScreen();
+      return AuthScreen();
     }
   }
 }

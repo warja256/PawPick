@@ -111,6 +111,8 @@ class _FilterSettingsState extends State<FilterSettings> {
             Padding(
               padding: const EdgeInsets.only(left: 40, right: 40, top: 16),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Text(
                     "Фильтр",
@@ -121,9 +123,7 @@ class _FilterSettingsState extends State<FilterSettings> {
                       height: 1.5,
                     ),
                   ),
-                  const SizedBox(
-                    width: 122,
-                  ),
+                  const Spacer(),
                   GestureDetector(
                       onTap: () {
                         Navigator.push(
@@ -157,7 +157,7 @@ class _FilterSettingsState extends State<FilterSettings> {
             ),
             const Padding(
                 padding: EdgeInsets.only(left: 40, right: 40),
-                child: const Text(
+                child: Text(
                     "Поставьте все настройки поиска, которые важны для вас. Это поможет быстрее найти идеального питомца.",
                     style: TextStyle(
                       fontSize: 14,
@@ -168,17 +168,26 @@ class _FilterSettingsState extends State<FilterSettings> {
               padding: const EdgeInsets.only(left: 40, right: 40),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    "Тип",
-                    style: TextStyle(
-                      color: Color(0xFF000000),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      height: 1.5,
+                  const SizedBox(height: 10),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Text(
+                        "Тип",
+                        style: TextStyle(
+                          color: Color(0xFF000000),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          height: 1.5,
+                        ),
+                      ),
                     ),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
                         onPressed: () {
@@ -304,16 +313,24 @@ class _FilterSettingsState extends State<FilterSettings> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Пол питомца",
-                    style: TextStyle(
-                      color: Color(0xFF000000),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      height: 1.5,
+                  const SizedBox(height: 10),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Text(
+                        "Пол питомца",
+                        style: TextStyle(
+                          color: Color(0xFF000000),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          height: 1.5,
+                        ),
+                      ),
                     ),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
                         onPressed: () {
@@ -443,16 +460,24 @@ class _FilterSettingsState extends State<FilterSettings> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Характер",
-                    style: TextStyle(
-                      color: Color(0xFF000000),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      height: 1.5,
+                  const SizedBox(height: 10),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Text(
+                        "Характер",
+                        style: TextStyle(
+                          color: Color(0xFF000000),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          height: 1.5,
+                        ),
+                      ),
                     ),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
                           onPressed: () {
@@ -597,16 +622,24 @@ class _FilterSettingsState extends State<FilterSettings> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Размер",
-                    style: TextStyle(
-                      color: Color(0xFF000000),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      height: 1.5,
+                  const SizedBox(height: 10),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Text(
+                        "Размер",
+                        style: TextStyle(
+                          color: Color(0xFF000000),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          height: 1.5,
+                        ),
+                      ),
                     ),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
                           onPressed: () {
@@ -822,16 +855,24 @@ class _FilterSettingsState extends State<FilterSettings> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Возраст",
-                    style: TextStyle(
-                      color: Color(0xFF000000),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      height: 1.5,
+                  const SizedBox(height: 10),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Text(
+                        "Возраст",
+                        style: TextStyle(
+                          color: Color(0xFF000000),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          height: 1.5,
+                        ),
+                      ),
                     ),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
                           onPressed: () {
@@ -975,17 +1016,25 @@ class _FilterSettingsState extends State<FilterSettings> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Шерсть',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        color: Color(0xFF000000),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        height: 1.5,
+                    const SizedBox(height: 10),
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 10),
+                        child: Text(
+                          'Шерсть',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: Color(0xFF000000),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            height: 1.5,
+                          ),
+                        ),
                       ),
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
                           onPressed: () {
@@ -1116,17 +1165,25 @@ class _FilterSettingsState extends State<FilterSettings> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Окрас',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        color: Color(0xFF000000),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        height: 1.5,
+                    const SizedBox(height: 10),
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 10),
+                        child: Text(
+                          'Окрас',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: Color(0xFF000000),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            height: 1.5,
+                          ),
+                        ),
                       ),
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
                             onPressed: () {
@@ -1218,6 +1275,7 @@ class _FilterSettingsState extends State<FilterSettings> {
                       height: 10,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
                             onPressed: () {
@@ -1315,17 +1373,25 @@ class _FilterSettingsState extends State<FilterSettings> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Дополнительно',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      color: Color(0xFF000000),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      height: 1.5,
+                  const SizedBox(height: 10),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Text(
+                        'Дополнительно',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          color: Color(0xFF000000),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          height: 1.5,
+                        ),
+                      ),
                     ),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
                         constraints: const BoxConstraints(
@@ -1372,6 +1438,7 @@ class _FilterSettingsState extends State<FilterSettings> {
                     height: 10,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
                         constraints: const BoxConstraints(
@@ -1418,6 +1485,7 @@ class _FilterSettingsState extends State<FilterSettings> {
                     height: 10,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
                         constraints: const BoxConstraints(
