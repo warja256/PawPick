@@ -59,7 +59,7 @@ flutter:
     - assets/filters_pics/filters_next/long_icon_white.png
     - assets/filters_pics/filters_next/long_icon_yellow.png
 
-    - assets/form/home_for_pets.png
+    
 
     - assets/ai_pics/robot_2.png
     - assets/ai_pics/pet_1.png
@@ -75,7 +75,11 @@ flutter:
     - assets/menu/cards_active.png
     - assets/menu/favs_active.png
     - assets/menu/profile_active.png
+
     - assets/form/check.png
+    - assets/form/user_photo.png
+    - assets/form/home_for_pets.png
+    - assets/form/calendar.png
     
     - assets/find_page/filter_button.png
 

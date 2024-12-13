@@ -73,10 +73,10 @@ class _TellAboutState extends State<TellAbout> {
             height: 32,
           ),
           const Padding(
-            padding: EdgeInsets.only(left: 40, right: 40),
+            padding: EdgeInsets.only(left: 0, right: 0),
             child: Text(
-              "Расскажите о себе",
-              textAlign: TextAlign.start,
+              "Расскажите \nо себе",
+              textAlign: TextAlign.left,
               style: TextStyle(
                   fontSize: 34,
                   color: Colors.black,

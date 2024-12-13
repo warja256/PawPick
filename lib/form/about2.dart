@@ -25,7 +25,7 @@ class _WhereAtState extends State<WhereAt> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
+            padding: const EdgeInsets.only(left: 40, right: 38, top: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -103,32 +103,36 @@ class _WhereAtState extends State<WhereAt> {
                   onChanged: (value) => _validateCity(),
                   decoration: InputDecoration(
                     hintText: 'Ваш город',
+                    hintStyle: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 14.0,
+                    ),
                     contentPadding:
                         const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15.0),
                       borderSide: BorderSide(
-                        color: _isCityError ? Colors.red : Colors.grey,
+                        color: _isCityError ? Color(0xFFE94057) : Colors.grey,
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15.0),
                       borderSide: BorderSide(
-                        color: _isCityError ? Colors.red : Colors.grey,
+                        color: _isCityError ? Color(0xFFE94057) : Colors.grey,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15.0),
                       borderSide: BorderSide(
                         color: _isCityError
-                            ? Colors.red
+                            ? Color(0xFFE94057)
                             : Theme.of(context).primaryColor,
                       ),
                     ),
                     errorText: _isCityError ? 'Необходимо ввести город' : null,
                     errorStyle: const TextStyle(
                       fontSize: 12.0,
-                      color: Colors.red,
+                      color: Color(0xFFE94057),
                     ),
                     filled: true,
                     fillColor: Colors.white,
