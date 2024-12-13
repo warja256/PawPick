@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/filters/filters.dart';
 import 'package:paw_pick/filters/filters_next.dart';
+import 'package:paw_pick/form/about1.dart';
 
 class Filters extends StatefulWidget {
   const Filters({super.key});
@@ -76,7 +77,7 @@ class _FiltersState extends State<Filters> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(top: 44), // Отступ сверху
+            padding: const EdgeInsets.only(top: 16), // Отступ сверху
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -93,7 +94,7 @@ class _FiltersState extends State<Filters> {
                             PageRouteBuilder(
                               pageBuilder:
                                   (context, animation, secondaryAnimation) =>
-                                      const Filters(),
+                                      const TellAbout(),
                               transitionsBuilder: (context, animation,
                                   secondaryAnimation, child) {
                                 return FadeTransition(
@@ -115,8 +116,17 @@ class _FiltersState extends State<Filters> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                              builder: (context) => const Placeholder(),
+                            PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) =>
+                                      const FiltersNext(),
+                              transitionsBuilder: (context, animation,
+                                  secondaryAnimation, child) {
+                                return FadeTransition(
+                                  opacity: animation,
+                                  child: child,
+                                );
+                              },
                             ),
                           );
                         },

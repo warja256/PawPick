@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/filters/filters.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
 
 class FiltersNext extends StatefulWidget {
   const FiltersNext({super.key});
@@ -52,7 +53,7 @@ class _FiltersNextState extends State<FiltersNext> {
                 padding: const EdgeInsets.only(
                     left: 40,
                     right: 38,
-                    top: 44), // Минимальный top, SafeArea добавит остальное
+                    top: 16), // Минимальный top, SafeArea добавит остальное
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -85,8 +86,17 @@ class _FiltersNextState extends State<FiltersNext> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => const Placeholder(),
+                          PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) =>
+                                    HomePage(),
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
+                            },
                           ),
                         );
                       },
