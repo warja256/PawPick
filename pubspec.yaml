@@ -13,6 +13,7 @@ dependencies:
   flutter_svg: ^2.0.15
   introduction_screen: ^3.0.3
   carousel_slider: ^4.2.0
+  flutter_screenutil: ^5.0.0+2
 
 dev_dependencies:
   flutter_test:
@@ -26,6 +27,7 @@ flutter:
     - 'assets/dog3.png'
     - 'assets/dog1.png'
     - 'assets/btn_back.png'
+
     - assets/filters_pics/cat_icon_white.png
     - assets/filters_pics/cat_icon_yellow.png
     - assets/filters_pics/dog_icon_white.png
@@ -76,6 +78,9 @@ flutter:
     - assets/menu/favs_active.png
     - assets/menu/profile_active.png
     - assets/form/check.png
+
+    - 'assets/donation/sbp_logo.png'
+    - 'assets/donation/back.png'
     
 
 

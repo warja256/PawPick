@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/registration/code.dart';
 import '../auth/sign_in.dart';
+import 'code.dart';
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({super.key});
@@ -27,6 +28,7 @@ class RegistrationScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               alignment: Alignment.centerLeft,
+              // ignore: prefer_const_constructors
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -39,26 +41,27 @@ class RegistrationScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const Text(
+                  Text(
                     "Создайте аккаунт, чтобы продолжить",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.black.withOpacity(0.7),
                       fontSize: 12.0,
                     ),
                   ),
                 ],
-              ),),
-            const SizedBox(height: 70),
+              ),
+            ),
+            const SizedBox(height: 49),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Телефон или почта',
                     style: TextStyle(
                       fontSize: 12.0,
-                      color: Colors.black,
+                      color: Colors.black.withOpacity(0.7),
                     ),
                   ),
                   Container(
@@ -96,11 +99,11 @@ class RegistrationScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Пароль',
                     style: TextStyle(
                       fontSize: 12.0,
-                      color: Colors.black,
+                      color: Colors.black.withOpacity(0.7),
                     ),
                   ),
                   Container(
@@ -138,11 +141,11 @@ class RegistrationScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Подтвердите пароль',
                     style: TextStyle(
                       fontSize: 12.0,
-                      color: Colors.black,
+                      color: Colors.black.withOpacity(0.7),
                     ),
                   ),
                   Container(
@@ -176,13 +179,21 @@ class RegistrationScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left:40, right:40, top:187),
+              padding: const EdgeInsets.only(left: 40, right: 40, top: 187),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const CodeScreen(),
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const CodeScreen(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
                     ),
                   );
                 },
@@ -194,7 +205,7 @@ class RegistrationScreen extends StatelessWidget {
                   minimumSize: const Size(double.infinity, 56),
                 ),
                 child: const Text(
-                  "Прололжить",
+                  "Продолжить",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -214,8 +225,18 @@ class RegistrationScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const AuthScreen()),
+                        PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  const AuthScreen(),
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            return FadeTransition(
+                              opacity: animation,
+                              child: child,
+                            );
+                          },
+                        ),
                       );
                     },
                     child: Text.rich(

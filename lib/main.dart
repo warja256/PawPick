@@ -8,7 +8,7 @@ import 'package:paw_pick/registration/sign_up.dart';
 import 'auth/sign_in.dart';
 import 'theme/theme.dart';
 import 'filters/filters.dart';
-import 'registration/sign_up.dart';
+import 'donation/donate.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const OnboardingScreen(),
+      home: const DonateScreen(),
       theme: AppTheme.lightTheme,
     );
   }
@@ -35,7 +35,7 @@ class FirstLaunchScreen extends StatelessWidget {
     bool isFirstLaunch = true;
 
     if (isFirstLaunch) {
-      return const OnboardingScreen();
+      return const DonateScreen();
     } else {
       return const AuthScreen();
     }
