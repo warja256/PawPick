@@ -82,16 +82,23 @@ class _CodeScreenState extends State<CodeScreen> {
                     height: 1.5,
                   ),
                 ),
-                const SizedBox(height: 73),
                 const Text(
                   'Введите код, отправленный на указанный вами номер телефона/адрес электронной почты',
                   style: TextStyle(
                     fontSize: 12.0,
-                    color: Colors.black,
+                    color: Color.fromRGBO(0, 0, 0, 0.7),
                     height: 1.5,
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 77),
+                const Text(
+                  'Введите полученный код:',
+                  style: TextStyle(
+                    fontSize: 12.0,
+                    color: Color.fromRGBO(0, 0, 0, 0.7),
+                    height: 1.5,
+                  ),
+                ),
                 TextField(
                   controller: _cityController,
                   onChanged: (value) => _validateCity(),
@@ -102,13 +109,13 @@ class _CodeScreenState extends State<CodeScreen> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15.0),
                       borderSide: BorderSide(
-                        color: _isCityError ? Colors.red : Colors.grey,
+                        color: _isCityError ? Colors.red : Color.fromRGBO(132, 132, 132, 1),
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15.0),
                       borderSide: BorderSide(
-                        color: _isCityError ? Colors.red : Colors.grey,
+                        color: _isCityError ? Colors.red : Color.fromRGBO(132, 132, 132, 1),
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
@@ -129,7 +136,7 @@ class _CodeScreenState extends State<CodeScreen> {
                   ),
                   keyboardType: TextInputType.text,
                 ),
-                const SizedBox(height: 380),
+                const SizedBox(height: 69),
                 ElevatedButton(
                   onPressed: () {
                     _validateCity();
@@ -170,7 +177,6 @@ class _CodeScreenState extends State<CodeScreen> {
                 ),
               ],
             ),
-            
           ),
         ),
       ),

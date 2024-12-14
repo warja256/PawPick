@@ -12,44 +12,40 @@ class DonateScreen extends StatefulWidget {
 }
 
 class _DonateScreenState extends State<DonateScreen> {
-  bool _isButton1Selected = false;
-  bool _isButton2Selected = false;
-  bool _isButton3Selected = false;
-  bool _isTextFieldSelected = false;
+  Color btn1Color = Colors.white;
+  Color btn2Color = Colors.white;
+  Color btn3Color = Colors.white;
+  bool isTextFieldSelected = false;
 
-  void _toggleButton1() {
+  void _onButtonPressed(String cost) {
     setState(() {
-      _isButton1Selected = !_isButton1Selected;
-      _isButton2Selected = false;
-      _isButton3Selected = false;
-      _isTextFieldSelected = false;
-    });
-  }
-
-  void _toggleButton2() {
-    setState(() {
-      _isButton2Selected = !_isButton2Selected;
-      _isButton1Selected = false;
-      _isButton3Selected = false;
-      _isTextFieldSelected = false;
-    });
-  }
-
-  void _toggleButton3() {
-    setState(() {
-      _isButton3Selected = !_isButton3Selected;
-      _isButton2Selected = false;
-      _isButton1Selected = false;
-      _isTextFieldSelected = false;
+      if (cost == '50') {
+        btn1Color = Theme.of(context).primaryColor;
+        btn2Color = Colors.white;
+        btn3Color = Colors.white;
+        isTextFieldSelected = false;
+      } else if (cost == '100') {
+        btn2Color = Theme.of(context).primaryColor;
+        btn1Color = Colors.white;
+        btn3Color = Colors.white;
+        isTextFieldSelected = false;
+      } else if (cost == '200') {
+        btn3Color = Theme.of(context).primaryColor;
+        btn1Color = Colors.white;
+        btn2Color = Colors.white;
+        isTextFieldSelected = false;
+      }
     });
   }
 
   void _toggleTextField() {
     setState(() {
-      _isTextFieldSelected = !_isTextFieldSelected;
-      _isButton1Selected = false;
-      _isButton2Selected = false;
-      _isButton3Selected = false;
+      isTextFieldSelected = !isTextFieldSelected;
+      if (isTextFieldSelected) {
+        btn1Color = Colors.white;
+        btn2Color = Colors.white;
+        btn3Color = Colors.white;
+      }
     });
   }
 
@@ -147,21 +143,17 @@ class _DonateScreenState extends State<DonateScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
-                      onPressed: _toggleButton1,
+                      onPressed: () => _onButtonPressed('50'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: _isButton1Selected
-                            ? Theme.of(context).primaryColor
-                            : Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          side: BorderSide(
-                            color: _isButton1Selected
-                                ? Theme.of(context).primaryColor
-                                : Color.fromRGBO(232, 230, 234, 1),
-                            width: 1,
-                          ),
+                        backgroundColor: btn1Color,
+                        fixedSize: const Size(89, 45),
+                        side: const BorderSide(
+                          color: Color(0xffE8E6EA), // Цвет границы
+                          width: 1, // Толщина границы
                         ),
-                        minimumSize: Size(89, 45),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15), // Радиус скругления
+                        ),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -171,9 +163,9 @@ class _DonateScreenState extends State<DonateScreen> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 14,
-                              color: _isButton1Selected
-                                  ? Colors.white
-                                  : Colors.black,
+                              color: btn1Color == Colors.white
+                                  ? Colors.black
+                                  : Colors.white,
                             ),
                           ),
                           Text(
@@ -181,9 +173,9 @@ class _DonateScreenState extends State<DonateScreen> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 10,
-                              color: _isButton1Selected
-                                  ? Colors.white
-                                  : Color.fromRGBO(132, 132, 132, 1),
+                              color: btn1Color == Colors.white
+                                  ? Color.fromRGBO(132, 132, 132, 1)
+                                  : Colors.white,
                             ),
                           ),
                         ],
@@ -191,21 +183,17 @@ class _DonateScreenState extends State<DonateScreen> {
                     ),
                     const SizedBox(width: 14),
                     ElevatedButton(
-                      onPressed: _toggleButton2,
+                      onPressed: () => _onButtonPressed('100'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: _isButton2Selected
-                            ? Theme.of(context).primaryColor
-                            : Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          side: BorderSide(
-                            color: _isButton2Selected
-                                ? Theme.of(context).primaryColor
-                                : Color.fromRGBO(232, 230, 234, 1),
-                            width: 1,
-                          ),
+                        backgroundColor: btn2Color,
+                        fixedSize: const Size(89, 45),
+                        side: const BorderSide(
+                          color: Color(0xffE8E6EA), // Цвет границы
+                          width: 1, // Толщина границы
                         ),
-                        minimumSize: Size(89, 45),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15), // Радиус скругления
+                        ),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -215,9 +203,9 @@ class _DonateScreenState extends State<DonateScreen> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 14,
-                              color: _isButton2Selected
-                                  ? Colors.white
-                                  : Colors.black,
+                              color: btn2Color == Colors.white
+                                  ? Colors.black
+                                  : Colors.white,
                             ),
                           ),
                           Text(
@@ -225,9 +213,9 @@ class _DonateScreenState extends State<DonateScreen> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 10,
-                              color: _isButton2Selected
-                                  ? Colors.white
-                                  : Color.fromRGBO(132, 132, 132, 1),
+                              color: btn2Color == Colors.white
+                                  ? Color.fromRGBO(132, 132, 132, 1)
+                                  : Colors.white,
                             ),
                           ),
                         ],
@@ -235,21 +223,17 @@ class _DonateScreenState extends State<DonateScreen> {
                     ),
                     const SizedBox(width: 14),
                     ElevatedButton(
-                      onPressed: _toggleButton3,
+                      onPressed: () => _onButtonPressed('200'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: _isButton3Selected
-                            ? Theme.of(context).primaryColor
-                            : Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          side: BorderSide(
-                            color: _isButton3Selected
-                                ? Theme.of(context).primaryColor
-                                : Color.fromRGBO(232, 230, 234, 1),
-                            width: 1,
-                          ),
+                        backgroundColor: btn3Color,
+                        fixedSize: const Size(89, 45),
+                        side: const BorderSide(
+                          color: Color(0xffE8E6EA), // Цвет границы
+                          width: 1, // Толщина границы
                         ),
-                        minimumSize: Size(89, 45),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15), // Радиус скругления
+                        ),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -259,9 +243,9 @@ class _DonateScreenState extends State<DonateScreen> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 14,
-                              color: _isButton3Selected
-                                  ? Colors.white
-                                  : Colors.black,
+                              color: btn3Color == Colors.white
+                                  ? Colors.black
+                                  : Colors.white,
                             ),
                           ),
                           Text(
@@ -269,9 +253,9 @@ class _DonateScreenState extends State<DonateScreen> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 10,
-                              color: _isButton3Selected
-                                  ? Colors.white
-                                  : Color.fromRGBO(132, 132, 132, 1),
+                              color: btn3Color == Colors.white
+                                  ? Color.fromRGBO(132, 132, 132, 1)
+                                  : Colors.white,
                             ),
                           ),
                         ],
@@ -294,23 +278,23 @@ class _DonateScreenState extends State<DonateScreen> {
                     ),
                     const SizedBox(width: 24),
                     Container(
-                      width: 160,
+                      width: 140,
                       height: 45,
                       child: TextField(
                         onTap: _toggleTextField,
-                        textAlign: TextAlign.center,
+                        textAlign: TextAlign.center, // Выравнивание текста по центру
                         decoration: InputDecoration(
                           hintText: '',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
-                            borderSide: const BorderSide(color: Color.fromRGBO(232, 230, 234, 1)),
+                            borderSide: const BorderSide(color: Colors.grey),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide: BorderSide(
-                              color: _isTextFieldSelected
+                              color: isTextFieldSelected
                                   ? Theme.of(context).primaryColor
-                                  : Color.fromRGBO(232, 230, 234, 1),
+                                  : Colors.grey,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
@@ -332,9 +316,8 @@ class _DonateScreenState extends State<DonateScreen> {
                     Navigator.push(
                       context,
                       PageRouteBuilder(
-                        pageBuilder:
-                            (context, animation, secondaryAnimation) =>
-                                const DonateSucseedScreen(),
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            const DonateSucseedScreen(),
                         transitionsBuilder:
                             (context, animation, secondaryAnimation, child) {
                           return FadeTransition(
