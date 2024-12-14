@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/filters/filters.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
 
 class FiltersNext extends StatefulWidget {
   const FiltersNext({super.key});
@@ -85,8 +86,17 @@ class _FiltersNextState extends State<FiltersNext> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => const Placeholder(),
+                          PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) =>
+                                    HomePage(),
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
+                            },
                           ),
                         );
                       },
@@ -131,24 +141,31 @@ class _FiltersNextState extends State<FiltersNext> {
                 ),
               ),
               const SizedBox(
-                height: 15,
+                height: 10,
               ),
               Padding(
                   padding: const EdgeInsets.only(left: 40, right: 40),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Шерсть',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: Color(0xFF000000),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          height: 1.5,
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 10),
+                          child: Text(
+                            'Шерсть',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              color: Color(0xFF000000),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              height: 1.5,
+                            ),
+                          ),
                         ),
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ElevatedButton(
                             onPressed: () {
@@ -281,17 +298,25 @@ class _FiltersNextState extends State<FiltersNext> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Окрас',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: Color(0xFF000000),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          height: 1.5,
+                      const SizedBox(height: 10),
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 10),
+                          child: Text(
+                            'Окрас',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              color: Color(0xFF000000),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              height: 1.5,
+                            ),
+                          ),
                         ),
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ElevatedButton(
                               onPressed: () {
@@ -383,6 +408,7 @@ class _FiltersNextState extends State<FiltersNext> {
                         height: 10,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ElevatedButton(
                               onPressed: () {
@@ -480,17 +506,25 @@ class _FiltersNextState extends State<FiltersNext> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Дополнительно',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        color: Color(0xFF000000),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        height: 1.5,
+                    const SizedBox(height: 10),
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 10),
+                        child: Text(
+                          'Дополнительно',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: Color(0xFF000000),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            height: 1.5,
+                          ),
+                        ),
                       ),
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Container(
                           constraints: const BoxConstraints(
@@ -537,6 +571,7 @@ class _FiltersNextState extends State<FiltersNext> {
                       height: 10,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Container(
                           constraints: const BoxConstraints(
@@ -583,6 +618,7 @@ class _FiltersNextState extends State<FiltersNext> {
                       height: 10,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Container(
                           constraints: const BoxConstraints(
@@ -629,7 +665,7 @@ class _FiltersNextState extends State<FiltersNext> {
                 ),
               ),
               const SizedBox(
-                height: 54,
+                height: 50,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 40, right: 40),

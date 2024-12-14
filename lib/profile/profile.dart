@@ -1,23 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/ai_assistant/onboarding_ai_1.dart';
 import 'package:paw_pick/homescreen/homescreen.dart';
+import 'package:paw_pick/profile/exit_dialog.dart';
 import 'package:paw_pick/onboarding/onboarding.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
 
-//нижняя панель с меню
-//кастомный диалог для модального окна выхода из профиля
-//переход на аи
 //поля с данными поменять
 //адаптив
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  final int userId;
+
+  const ProfileScreen({super.key, required this.userId});
+
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  Map<String, dynamic>? _userData;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    final String response = await rootBundle.loadString('assets/json_data/users_info.json');
+    final List<dynamic> users = await json.decode(response);
+    final user = users.firstWhere((user) => user['id'] == widget.userId, orElse: () => null);
+
+    setState(() {
+      _userData = user;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start, 
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
               Container(
@@ -44,7 +70,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      'Даниил',
+                      _userData?['firstName'] ?? 'Не указано',
                       style: TextStyle(
                         color: const Color(0xFF000000).withOpacity(0.7),
                         height: 1,
@@ -54,7 +80,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      'Иванов',
+                      _userData?['lastName'] ?? 'Не указано',
                       style: TextStyle(
                         color: const Color(0xFF000000).withOpacity(0.7),
                         height: 1,
@@ -73,25 +99,6 @@ class ProfileScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'Телефон',
-                      style: TextStyle(
-                        color: Color(0xFF000000),
-                        height: 1,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 10,),
-                    const Text(
-                      '+ 7 800 555 35 35',
-                      style: TextStyle(
-                        color: Color(0xFF000000),
-                        height: 1,
-                        fontSize: 18.0,
-                      ),
-                    ),
-                    const SizedBox(height: 10,),
-                    const Text(
                       'Почта',
                       style: TextStyle(
                         color: Color(0xFF000000),
@@ -100,16 +107,16 @@ class ProfileScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 10,),
-                    const Text(
-                      'не указано',
-                      style: TextStyle(
+                    const SizedBox(height: 10),
+                    Text(
+                      _userData?['email'] ?? 'Не указано',
+                      style: const TextStyle(
                         color: Color(0xFF000000),
                         height: 1,
                         fontSize: 18.0,
                       ),
                     ),
-                    const SizedBox(height: 10,),
+                    const SizedBox(height: 10),
                     const Text(
                       'Дата рождения',
                       style: TextStyle(
@@ -119,10 +126,29 @@ class ProfileScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 10,),
+                    const SizedBox(height: 10),
+                    Text(
+                      _userData?['birthDate'] ?? 'Не указано',
+                      style: const TextStyle(
+                        color: Color(0xFF000000),
+                        height: 1,
+                        fontSize: 18.0,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
                     const Text(
-                      '31.08.2005',
+                      'Город',
                       style: TextStyle(
+                        color: Color(0xFF000000),
+                        height: 1,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      _userData?['city'] ?? 'Не указано',
+                      style: const TextStyle(
                         color: Color(0xFF000000),
                         height: 1,
                         fontSize: 18.0,
@@ -135,7 +161,7 @@ class ProfileScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const ProfileScreen(),
+                              builder: (context) => HomePage(),
                             ),
                           );
                         },
@@ -156,84 +182,71 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: Stack(
-                  alignment: Alignment.centerRight,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF54BCC3),
-                        borderRadius: BorderRadius.circular(15),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(0xFF54BCC3).withOpacity(0.5),
-                            spreadRadius: 2,
-                            blurRadius: 5,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => const AiFirstOnboarding(),
-                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                return FadeTransition(
-                                  opacity: animation,
-                                  child: child,
-                                );
-                              },
+              Center(
+                child: Container(
+                  width: 230,
+                  child: Stack(
+                    alignment: Alignment.centerRight,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF54BCC3),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                pageBuilder: (context, animation, secondaryAnimation) => const AiFirstOnboarding(),
+                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                  return FadeTransition(
+                                    opacity: animation,
+                                    child: child,
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.transparent,
+                            shadowColor: Colors.transparent,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
                             ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.transparent,
-                          shadowColor: Colors.transparent,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
+                            minimumSize: const Size(double.infinity, 64),
                           ),
-                          minimumSize: const Size(double.infinity, 64),
-                        ),
-                        child: const Text(
-                          'AI ассистент',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            height: 1.5,
+                          child: const Text(
+                            'AI ассистент',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              height: 1.5,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 16.0),
-                      child: Image.asset(
-                        'assets/ai_pics/robot_2.png',
-                        height: 35,
-                        width: 37,
+                      Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
+                        child: Image.asset(
+                          'assets/ai_pics/robot_2.png',
+                          height: 35,
+                          width: 37,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 130),
+              Center(
                 child: Container(
+                  width: 140,
+                  height: 45,
                   decoration: BoxDecoration(
                     color: const Color(0xFFFF853A),
                     borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0xFFFF853A).withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: const Offset(0, 3),
-                      ),
-                    ],
                   ),
                   child: ElevatedButton(
                     onPressed: () {
@@ -241,48 +254,21 @@ class ProfileScreen extends StatelessWidget {
                         context: context,
                         barrierDismissible: true,
                         builder: (BuildContext context) {
-                          return Center(
-                            child: SizedBox(
-                              height: 270,
-                              width: 351,
-                              child: AlertDialog(
-                                content: const Center(
-                                  child: Text(
-                                    'Вы уверены, что хотите выйти?',
-                                    style: TextStyle(
-                                      fontSize: 34,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
+                          return ExitDialog(
+                            onConfirm: () {
+                              Navigator.push(
+                                context,
+                                PageRouteBuilder(
+                                  pageBuilder: (context, animation, secondaryAnimation) => const OnboardingScreen(),
+                                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                    return FadeTransition(
+                                      opacity: animation,
+                                      child: child,
+                                    );
+                                  },
                                 ),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                    child: const Text('Нет'),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                      Navigator.push(
-                                        context,
-                                        PageRouteBuilder(
-                                          pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
-                                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                            return FadeTransition(
-                                              opacity: animation,
-                                              child: child,
-                                            );
-                                          },
-                                        ),
-                                      );
-                                    },
-                                    child: const Text('Да'),
-                                  ),
-                                ],
-                              ),
-                            ),
+                              );
+                            },
                           );
                         },
                       );
@@ -314,38 +300,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
-
-/*class ProfileScreen extends StatelessWidget {
-  final String name;
-
-  const ProfileScreen({super.key, required this.name});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start, 
-            children: [
-              const SizedBox(height: 20),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  name,
-                  style: TextStyle(
-                    color: Color(0xFF000000),
-                    height: 1.5,
-                    fontSize: 34.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}*/

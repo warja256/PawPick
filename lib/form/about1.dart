@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/filters/filters.dart';
 import 'package:paw_pick/form/about2.dart';
+import 'package:paw_pick/registration/sign_up.dart';
 
 class TellAbout extends StatefulWidget {
   const TellAbout({super.key});
@@ -29,7 +31,7 @@ class _TellAboutState extends State<TellAbout> {
                       context,
                       PageRouteBuilder(
                         pageBuilder: (context, animation, secondaryAnimation) =>
-                            const Placeholder(),
+                            const RegistrationScreen(),
                         transitionsBuilder:
                             (context, animation, secondaryAnimation, child) {
                           return FadeTransition(
@@ -51,8 +53,16 @@ class _TellAboutState extends State<TellAbout> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const Placeholder(),
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            const Filters(),
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          return FadeTransition(
+                            opacity: animation,
+                            child: child,
+                          );
+                        },
                       ),
                     );
                   },
@@ -73,10 +83,10 @@ class _TellAboutState extends State<TellAbout> {
             height: 32,
           ),
           const Padding(
-            padding: EdgeInsets.only(left: 40, right: 40),
+            padding: EdgeInsets.only(left: 0, right: 0),
             child: Text(
-              "Расскажите о себе",
-              textAlign: TextAlign.start,
+              "Расскажите \nо себе",
+              textAlign: TextAlign.left,
               style: TextStyle(
                   fontSize: 34,
                   color: Colors.black,

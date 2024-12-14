@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/homescreen/homescreen.dart';
 
+//адаптив
+//добавить проверку нового кода на корректность
+
 class NewPassword extends StatelessWidget {
   const NewPassword({super.key});
 

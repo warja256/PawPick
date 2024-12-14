@@ -3,6 +3,8 @@ import 'package:paw_pick/filters/filter_settings.dart';
 import 'package:paw_pick/form/about1.dart';
 import 'package:paw_pick/form/about2.dart';
 import 'package:paw_pick/form/about3.dart';
+import 'package:paw_pick/form/about4.dart';
+import 'package:paw_pick/homescreen/homescreen.dart';
 import 'package:paw_pick/onboarding/onboarding.dart';
 import 'package:paw_pick/registration/sign_up.dart';
 import 'auth/sign_in.dart';
@@ -37,7 +39,7 @@ class FirstLaunchScreen extends StatelessWidget {
     if (isFirstLaunch) {
       return const DonateScreen();
     } else {
-      return const AuthScreen();
+      return AuthScreen();
     }
   }
 }

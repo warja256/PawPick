@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/form/about2.dart';
+import 'package:paw_pick/form/about4.dart';
 
 class WhoScreen extends StatefulWidget {
   const WhoScreen({super.key});
@@ -96,8 +97,17 @@ class _WhereAtState extends State<WhoScreen> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => const Placeholder(),
+                          PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) =>
+                                    const NamedDate(),
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
+                            },
                           ),
                         );
                       },
@@ -200,7 +210,7 @@ class _WhereAtState extends State<WhoScreen> {
                       context,
                       PageRouteBuilder(
                         pageBuilder: (context, animation, secondaryAnimation) =>
-                            const Placeholder(),
+                            const NamedDate(),
                         transitionsBuilder:
                             (context, animation, secondaryAnimation, child) {
                           return FadeTransition(

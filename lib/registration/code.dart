@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/form/about1.dart';
 import '../auth/sign_in.dart';
 import 'sign_up.dart';
 import 'package:paw_pick/form/about1.dart';
@@ -158,7 +159,7 @@ class _CodeScreenState extends State<CodeScreen> {
                     minimumSize: const Size(double.infinity, 56),
                   ),
                   child: const Text(
-                    "Продолжить",
+                    "Проверить код",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -169,6 +170,7 @@ class _CodeScreenState extends State<CodeScreen> {
                 ),
               ],
             ),
+            
           ),
         ),
       ),

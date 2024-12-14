@@ -3,7 +3,7 @@ import '../registration/sign_up.dart';
 import 'package:paw_pick/auth/sign_in.dart';
 import 'package:paw_pick/auth/code_input_screen.dart';
 
-//валидация полей
+//добавление нового пароля в файл json
 //адаптив
 
 class ChangePasswordScreen extends StatelessWidget {
@@ -72,7 +72,7 @@ class ChangePasswordScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 40),
               alignment: Alignment.centerLeft,
               child: const Text(
-                  "Укажите номер телефона или адрес электронной почты, используемые при создании вашего аккаунта",
+                  "Укажите адрес электронной почты, использованный при создании вашего аккаунта",
                   style: TextStyle(
                     color: Color(0xFF000000),
                     height: 1.5,
@@ -86,7 +86,7 @@ class ChangePasswordScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Телефон или почта',
+                    'Электронная почта',
                     style: TextStyle(
                       fontSize: 12.0,
                       color: Colors.black,
