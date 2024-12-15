@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/registration/code.dart';
 import '../auth/sign_in.dart';
+import 'code.dart';
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({super.key});
@@ -204,7 +205,7 @@ class RegistrationScreen extends StatelessWidget {
                   minimumSize: const Size(double.infinity, 56),
                 ),
                 child: const Text(
-                  "Прололжить",
+                  "Продолжить",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
