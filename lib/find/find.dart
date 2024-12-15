@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:paw_pick/donation/donate.dart';
 import 'package:paw_pick/filters/filter_settings.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
@@ -414,7 +415,7 @@ class _FindScreenState extends State<FindScreen> {
                           PageRouteBuilder(
                             pageBuilder:
                                 (context, animation, secondaryAnimation) =>
-                                    const Placeholder(),
+                                    const DonateScreen(),
                             transitionsBuilder: (context, animation,
                                 secondaryAnimation, child) {
                               return FadeTransition(

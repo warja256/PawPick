@@ -1,5 +1,31 @@
 [
   {
+    "name": "Мурка",
+    "type": "кошка",
+    "breed": "Сибирская кошка",
+    "gender": "девочка",
+    "character": "спокойный",
+    "size": "s",
+    "age": 2,
+    "fur": "длинная",
+    "color": ["рыжий", "белый"],
+    "additionalInfo": ["для семьи с детьми", "есть прививки"],
+    "shelter": {
+      "name": "Приют для животных 'Лапа'",
+      "phone": "+7 456 789 12 34",
+      "email": "paw@shelter.com",
+      "mapLink": "https://maps.google.com/?q=Новосибирск, ул. Лаповая, д. 3"
+    },
+    "description": "Маленькая и милая кошка, любит сидеть на руках и мурлыкать.",
+    "photos": [
+      "assets/pets_photos/DSC09826 1.png",
+"assets/pets_photos/DSC09830 1.png",
+"assets/pets_photos/DSC09836 (1) 1.png",
+"assets/pets_photos/DSC09842 1.png",
+"assets/pets_photos/DSC09844 1.png"
+    ]
+  },
+  {
     "name": "Белочка",
     "breed": "Беспородная кошка",
     "type": "кошка",
@@ -51,32 +77,7 @@
       "assets/pets_photos/DSC_5476 1.png"
     ]
   },
-  {
-    "name": "Мурка",
-    "type": "кошка",
-    "breed": "Сибирская кошка",
-    "gender": "девочка",
-    "character": "спокойный",
-    "size": "s",
-    "age": 2,
-    "fur": "длинная",
-    "color": ["рыжий", "белый"],
-    "additionalInfo": ["для семьи с детьми", "есть прививки"],
-    "shelter": {
-      "name": "Приют для животных 'Лапа'",
-      "phone": "+7 456 789 12 34",
-      "email": "paw@shelter.com",
-      "mapLink": "https://maps.google.com/?q=Новосибирск, ул. Лаповая, д. 3"
-    },
-    "description": "Маленькая и милая кошка, любит сидеть на руках и мурлыкать.",
-    "photos": [
-      "assets/pets_photos/DSC09826 1.png",
-"assets/pets_photos/DSC09830 1.png",
-"assets/pets_photos/DSC09836 (1) 1.png",
-"assets/pets_photos/DSC09842 1.png",
-"assets/pets_photos/DSC09844 1.png"
-    ]
-  },
+  
   {
     "name": "Шерлок",
     "breed": "Джек-рассел-терьер",

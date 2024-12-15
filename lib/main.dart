@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TellAbout(),
+      home: HomePage(),
       theme: AppTheme.lightTheme,
     );
   }
@@ -38,7 +38,7 @@ class FirstLaunchScreen extends StatelessWidget {
     bool isFirstLaunch = true;
 
     if (isFirstLaunch) {
-      return const TellAbout();
+      return HomePage();
     } else {
       return AuthScreen();
     }

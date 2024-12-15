@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/find/find.dart';
 import '../auth/sign_in.dart';
 import '../registration/sign_up.dart';
 import 'package:paw_pick/homescreen/homescreen.dart';
@@ -69,7 +70,7 @@ class _DonateScreenState extends State<DonateScreen> {
                           PageRouteBuilder(
                             pageBuilder:
                                 (context, animation, secondaryAnimation) =>
-                                    RegistrationScreen(),
+                                    HomePage(),
                             transitionsBuilder: (context, animation,
                                 secondaryAnimation, child) {
                               return FadeTransition(
@@ -152,7 +153,8 @@ class _DonateScreenState extends State<DonateScreen> {
                           width: 1, // Толщина границы
                         ),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15), // Радиус скругления
+                          borderRadius:
+                              BorderRadius.circular(15), // Радиус скругления
                         ),
                       ),
                       child: Column(
@@ -192,7 +194,8 @@ class _DonateScreenState extends State<DonateScreen> {
                           width: 1, // Толщина границы
                         ),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15), // Радиус скругления
+                          borderRadius:
+                              BorderRadius.circular(15), // Радиус скругления
                         ),
                       ),
                       child: Column(
@@ -232,7 +235,8 @@ class _DonateScreenState extends State<DonateScreen> {
                           width: 1, // Толщина границы
                         ),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15), // Радиус скругления
+                          borderRadius:
+                              BorderRadius.circular(15), // Радиус скругления
                         ),
                       ),
                       child: Column(
@@ -282,7 +286,8 @@ class _DonateScreenState extends State<DonateScreen> {
                       height: 45,
                       child: TextField(
                         onTap: _toggleTextField,
-                        textAlign: TextAlign.center, // Выравнивание текста по центру
+                        textAlign:
+                            TextAlign.center, // Выравнивание текста по центру
                         decoration: InputDecoration(
                           hintText: '',
                           border: OutlineInputBorder(
