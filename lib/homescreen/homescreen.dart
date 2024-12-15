@@ -27,7 +27,7 @@ final pages = <HomeScreenPage>[
       width: 24,
       height: 24,
     ),
-    widget: const FindScreen(), // Используйте HomeScreen для главной страницы
+    widget: FindScreen(), // Используйте HomeScreen для главной страницы
   ),
   HomeScreenPage(
     icon: Image.asset(

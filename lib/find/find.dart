@@ -1,8 +1,131 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:paw_pick/filters/filter_settings.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:convert';
+import 'dart:ui'; // Для BackdropFilter
 
-class FindScreen extends StatelessWidget {
+Future<List<Animal>> fetchAnimalsFromJson() async {
+  try {
+    final String response =
+        await rootBundle.loadString('assets/json_data/pets_info.json');
+    final List<dynamic> data = json.decode(response);
+    return data.map((item) => Animal.fromJson(item)).toList();
+  } catch (e) {
+    print('Error loading animals from JSON: $e');
+    return [];
+  }
+}
+
+// Класс Animal для хранения информации о животном
+class Animal {
+  final String name;
+  final String breed;
+  final String type;
+  final String gender;
+  final String character;
+  final String size;
+  final int age;
+  final String fur;
+  final List<String> color;
+  final List<String> additionalInfo;
+  final Shelter shelter;
+  final String description;
+  final List<String> photos;
+
+  Animal({
+    required this.name,
+    required this.breed,
+    required this.type,
+    required this.gender,
+    required this.character,
+    required this.size,
+    required this.age,
+    required this.fur,
+    required this.color,
+    required this.additionalInfo,
+    required this.shelter,
+    required this.description,
+    required this.photos,
+  });
+
+  factory Animal.fromJson(Map<String, dynamic> json) {
+    return Animal(
+      name: json['name'] ?? '',
+      breed: json['breed'] ?? '',
+      type: json['type'] ?? '',
+      gender: json['gender'] ?? '',
+      character: json['character'] ?? '',
+      size: json['size'] ?? '',
+      age: json['age'] ?? 0,
+      fur: json['fur'] ?? '',
+      color: List<String>.from(json['color'] ?? []),
+      additionalInfo: List<String>.from(json['additionalInfo'] ?? []),
+      shelter: Shelter.fromJson(json['shelter'] ?? {}),
+      description: json['description'] ?? '',
+      photos: List<String>.from(json['photos'] ?? []),
+    );
+  }
+}
+
+// Класс Shelter для хранения информации о приюте
+class Shelter {
+  final String name;
+  final String phone;
+  final String email;
+  final String mapLink;
+
+  Shelter({
+    required this.name,
+    required this.phone,
+    required this.email,
+    required this.mapLink,
+  });
+
+  factory Shelter.fromJson(Map<String, dynamic> json) {
+    return Shelter(
+      name: json['name'] ?? '',
+      phone: json['phone'] ?? '',
+      email: json['email'] ?? '',
+      mapLink: json['mapLink'] ?? '',
+    );
+  }
+}
+
+class FindScreen extends StatefulWidget {
   const FindScreen({super.key});
+
+  @override
+  State<FindScreen> createState() => _FindScreenState();
+}
+
+class _FindScreenState extends State<FindScreen> {
+  final CardSwiperController controller = CardSwiperController();
+  List<Animal> animals = [];
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchAnimalsFromJson().then((loadedAnimals) {
+      setState(() {
+        animals = loadedAnimals;
+        isLoading = false;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  void _swipeWithAnimation(CardSwiperDirection direction, Duration duration) {
+    Future.delayed(duration, () {
+      controller.swipe(direction);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +136,11 @@ class FindScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 44),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(
-                    width: 112,
-                  ),
+                  const SizedBox(width: 112),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -34,14 +155,11 @@ class FindScreen extends StatelessWidget {
                       Text(
                         'город',
                         style: TextStyle(
-                          color: Color(0xFF000000).withOpacity(0.7),
+                          color: const Color(0xFF000000).withOpacity(0.7),
                           fontSize: 12.0,
                         ),
                       ),
                     ],
-                  ),
-                  SizedBox(
-                    height: 20,
                   ),
                   GestureDetector(
                     onTap: () {
@@ -68,15 +186,305 @@ class FindScreen extends StatelessWidget {
                       fit: BoxFit.contain,
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
                 ],
+              ),
+              Expanded(
+                child: isLoading
+                    ? Center(child: CircularProgressIndicator())
+                    : animals.isEmpty
+                        ? Center(child: Text('No animals available'))
+                        : Padding(
+                            padding: const EdgeInsets.only(
+                              left: 40,
+                              right: 40,
+                              top: 40,
+                            ),
+                            child: LayoutBuilder(
+                              builder: (context, constraints) {
+                                final screenWidth =
+                                    MediaQuery.of(context).size.width;
+                                final screenHeight =
+                                    MediaQuery.of(context).size.height;
+
+                                final cardWidth = screenWidth * 0.7867;
+                                final cardHeight = screenHeight * 0.5542;
+
+                                return SizedBox(
+                                  height: cardHeight,
+                                  child: CardSwiper(
+                                    controller: controller,
+                                    cardsCount: animals.length,
+                                    numberOfCardsDisplayed: 1,
+                                    backCardOffset: const Offset(0, 0),
+                                    padding: const EdgeInsets.only(bottom: 32),
+                                    onSwipe: _onSwipe,
+                                    onUndo: _onUndo,
+                                    cardBuilder: (
+                                      context,
+                                      index,
+                                      horizontalThresholdPercentage,
+                                      verticalThresholdPercentage,
+                                    ) {
+                                      final animal = animals[index];
+
+                                      // Вычисляем изменения для эффекта затемнения или подсветки
+                                      Color overlayColor = Colors.transparent;
+                                      Widget? icon = null;
+
+                                      if (horizontalThresholdPercentage < 0) {
+                                        // Свайп влево - затемняем
+                                        overlayColor =
+                                            Colors.black.withOpacity(0.4);
+                                        icon = Image.asset(
+                                          'assets/find/dislike.png',
+                                          width: 50,
+                                          height: 50,
+                                        );
+                                      } else if (horizontalThresholdPercentage >
+                                          0) {
+                                        // Свайп вправо - подсвечиваем жёлтым
+                                        overlayColor = Theme.of(context)
+                                            .primaryColor
+                                            .withOpacity(0.4);
+                                        icon = Image.asset(
+                                          'assets/find/like.png',
+                                          width: 50,
+                                          height: 50,
+                                        );
+                                      }
+
+                                      return Transform(
+                                        transform: Matrix4.identity()
+                                          ..rotateZ(
+                                              horizontalThresholdPercentage /
+                                                  200 *
+                                                  0.1),
+                                        child: Center(
+                                          child: Container(
+                                            margin: const EdgeInsets.symmetric(
+                                                horizontal: 16.0),
+                                            width: cardWidth,
+                                            height: cardHeight,
+                                            child: Stack(
+                                              children: [
+                                                // Фон-картинка с цветом, который будет применяться ко всей картинке
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15.0),
+                                                  child: Stack(
+                                                    children: [
+                                                      // Базовая картинка
+                                                      Image.asset(
+                                                        animal.photos.isNotEmpty
+                                                            ? animal.photos[0]
+                                                            : 'assets/find/default_pet.png',
+                                                        fit: BoxFit.cover,
+                                                        width: double.infinity,
+                                                        height: double.infinity,
+                                                      ),
+                                                      // Полупрозрачный слой цвета поверх всей картинки
+                                                      Positioned.fill(
+                                                        child: Container(
+                                                          color:
+                                                              overlayColor, // Применяем цвет в зависимости от свайпа
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                // Блюр в нижней части экрана
+                                                Positioned(
+                                                  bottom: 0,
+                                                  left: 0,
+                                                  right: 0,
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        const BorderRadius.only(
+                                                      bottomLeft:
+                                                          Radius.circular(15.0),
+                                                      bottomRight:
+                                                          Radius.circular(15.0),
+                                                    ),
+                                                    child: BackdropFilter(
+                                                      filter: ImageFilter.blur(
+                                                          sigmaX: 10.0,
+                                                          sigmaY: 10.0),
+                                                      child: Container(
+                                                        height:
+                                                            cardHeight * 0.2,
+                                                        color:
+                                                            overlayColor, // Применяем цвет в зависимости от свайпа
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                // Иконка в центре
+                                                if (icon != null)
+                                                  Positioned(
+                                                    top: cardHeight *
+                                                        0.40, // Центр по вертикали
+                                                    left: cardWidth *
+                                                        0.40, // Центр по горизонтали
+                                                    child: Transform.scale(
+                                                      scale: 1.5,
+                                                      child: icon!,
+                                                    ),
+                                                  ),
+                                                // Текстовая информация
+                                                Positioned(
+                                                  bottom: 16,
+                                                  left: 16,
+                                                  right: 16,
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        '${animal.name}, ${animal.age} ${animal.age > 1 ? 'года' : 'год'}',
+                                                        style: const TextStyle(
+                                                          fontSize: 24.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.white,
+                                                          height: 1.5,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        animal.breed,
+                                                        textAlign:
+                                                            TextAlign.left,
+                                                        style: const TextStyle(
+                                                          fontSize: 14.0,
+                                                          color: Colors.white,
+                                                          height: 1.5,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+              ),
+              // Нижняя панель с кнопками
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 46, right: 46, bottom: 33, top: 33),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    RawMaterialButton(
+                      onPressed: () => _swipeWithAnimation(
+                          CardSwiperDirection.left,
+                          Duration(milliseconds: 1000)),
+                      shape: CircleBorder(),
+                      padding: EdgeInsets.all(0),
+                      child: Image.asset(
+                        'assets/find/dislike.png',
+                        width: 66,
+                        height: 66,
+                      ),
+                    ),
+                    Builder(
+                      builder: (context) {
+                        final screenWidth = MediaQuery.of(context).size.width;
+                        return SizedBox(
+                          width: screenWidth * (25 / 375),
+                        );
+                      },
+                    ),
+                    RawMaterialButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) =>
+                                    const Placeholder(),
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+                      },
+                      shape: CircleBorder(),
+                      padding: EdgeInsets.all(0),
+                      child: Image.asset(
+                        'assets/find/star.png',
+                        width: 78,
+                        height: 78,
+                      ),
+                    ),
+                    Builder(
+                      builder: (context) {
+                        final screenWidth = MediaQuery.of(context).size.width;
+                        return SizedBox(
+                          width: screenWidth * (25 / 375),
+                        );
+                      },
+                    ),
+                    RawMaterialButton(
+                      onPressed: () => _swipeWithAnimation(
+                          CardSwiperDirection.right,
+                          Duration(milliseconds: 500)),
+                      shape: CircleBorder(),
+                      padding: EdgeInsets.all(0),
+                      child: Image.asset(
+                        'assets/find/like.png',
+                        width: 66,
+                        height: 66,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  bool _onSwipe(
+    int previousIndex,
+    int? currentIndex,
+    CardSwiperDirection direction,
+  ) {
+    if (direction == CardSwiperDirection.left ||
+        direction == CardSwiperDirection.right) {
+      debugPrint(
+        'The card at index $previousIndex has been swiped to the ${direction == CardSwiperDirection.left ? "left" : "right"}',
+      );
+    }
+    return true;
+  }
+
+  bool _onUndo(
+    int? previousIndex,
+    int currentIndex,
+    CardSwiperDirection direction,
+  ) {
+    debugPrint(
+      'The card $currentIndex was undod from the ${direction.name}',
+    );
+    return true;
   }
 }
