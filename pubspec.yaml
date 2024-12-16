@@ -88,6 +88,10 @@ flutter:
     
     - assets/find_page/filter_button.png
 
+    - assets/favs/close-small.png
+    - assets/favs/star.png
+    - assets/favs/divider.png
+
     - assets/json_data/pets_info.json
     - assets/json_data/users_info.json
 

@@ -98,7 +98,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     const SizedBox(height: 10),
                     Text(
                       _profileData.email,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Color(0xFF000000),
                         height: 1,
                         fontSize: 18.0,
@@ -117,7 +117,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     const SizedBox(height: 10),
                     Text(
                       _profileData.birthDate,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Color(0xFF000000),
                         height: 1,
                         fontSize: 18.0,
@@ -136,7 +136,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     const SizedBox(height: 10),
                     Text(
                       _profileData.city,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Color(0xFF000000),
                         height: 1,
                         fontSize: 18.0,
