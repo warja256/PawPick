@@ -97,7 +97,11 @@ class ChangePasswordScreen extends StatelessWidget {
                     height: 56,
                     child: TextField(
                       decoration: InputDecoration(
-                        hintText: '',
+                        hintText: 'Например, example@mail.com',
+                        hintStyle: TextStyle(
+                          color: Colors.grey.withOpacity(0.5),
+                          fontSize: 12.0,
+                        ),
                         contentPadding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 0),
                         border: OutlineInputBorder(
