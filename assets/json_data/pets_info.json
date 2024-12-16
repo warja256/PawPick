@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "Мурка",
     "type": "кошка",
     "breed": "Сибирская кошка",
@@ -25,33 +26,9 @@
 "assets/pets_photos/DSC09844 1.png"
     ]
   },
+  
   {
-    "name": "Белочка",
-    "breed": "Беспородная кошка",
-    "type": "кошка",
-    "gender": "девочка",
-    "character": "спокойный",
-    "size": "m",
-    "age": 3,
-    "fur": "короткая",
-    "color": ["белый", "серый"],
-    "additionalInfo": ["для семьи с детьми", "ладит с животными", "есть прививки"],
-    "shelter": {
-      "name": "Приют для животных 'Дом'",
-      "phone": "+7 123 456 78 90",
-      "email": "home@shelter.com",
-      "mapLink": "https://maps.google.com/?q=Москва, ул. Приютная, д. 1"
-    },
-    "description": "Милая и ласковая кошка, любит играть и спать на коленях.",
-    "photos": [
-      "assets/pets_photos/IMG_9083 1.png",
-      "assets/pets_photos/IMG_9077 1.png",
-      "assets/pets_photos/IMG_9089 1.png",
-      "assets/pets_photos/IMG_9106 1.png",
-      "assets/pets_photos/IMG_9114 1.png"
-    ]
-  },
-  {
+    "id": 2,
     "name": "Рекс",
     "breed": "Метис",
     "type": "собака",
@@ -79,6 +56,7 @@
   },
   
   {
+    "id": 3,
     "name": "Шерлок",
     "breed": "Джек-рассел-терьер",
     "type": "собака",
@@ -106,6 +84,7 @@
     ]
   },
   {
+    "id": 4,
     "name": "Софи",
     "breed": "Европейская короткошёрстная",
     "type": "кошка",
@@ -133,6 +112,7 @@
     ]
   },
   {
+    "id": 5,
     "name": "Бакс",
     "breed": "Метис с чертами питбультерьера",
     "type": "собака",
@@ -161,6 +141,7 @@
     ]
   },
   {
+    "id": 6,
     "name": "Пух",
     "type": "кошка",
     "breed": "Домашний короткошёрстный",
@@ -189,6 +170,7 @@
     ]
   },
   {
+    "id": 7,
     "name": "Майло",
     "breed": "Лайка",
     "type": "собака",
@@ -216,6 +198,7 @@
     ]
   },
   {
+    "id": 8,
     "name": "Тимка",
     "type": "кошка",
     "breed": "Турецкая ангора",
@@ -243,6 +226,7 @@
     ]
   },
   {
+    "id": 9,
     "name": "Барсик",
     "type": "собака",
     "breed": "Метис пастушьих пород",
@@ -267,6 +251,33 @@
 "assets/pets_photos/5713 (1) 1.png",
 "assets/pets_photos/5718 (1) 1.png",
 "assets/pets_photos/5722 (1) 1.png"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Белочка",
+    "breed": "Беспородная кошка",
+    "type": "кошка",
+    "gender": "девочка",
+    "character": "спокойный",
+    "size": "m",
+    "age": 3,
+    "fur": "короткая",
+    "color": ["белый", "серый"],
+    "additionalInfo": ["для семьи с детьми", "ладит с животными", "есть прививки"],
+    "shelter": {
+      "name": "Приют для животных 'Дом'",
+      "phone": "+7 123 456 78 90",
+      "email": "home@shelter.com",
+      "mapLink": "https://maps.google.com/?q=Москва, ул. Приютная, д. 1"
+    },
+    "description": "Милая и ласковая кошка, любит играть и спать на коленях.",
+    "photos": [
+      "assets/pets_photos/IMG_9083 1.png",
+      "assets/pets_photos/IMG_9077 1.png",
+      "assets/pets_photos/IMG_9089 1.png",
+      "assets/pets_photos/IMG_9106 1.png",
+      "assets/pets_photos/IMG_9114 1.png"
     ]
   }
 ]
