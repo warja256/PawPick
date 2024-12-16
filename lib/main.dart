@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: OnboardingScreen(),
       theme: AppTheme.lightTheme,
     );
   }
@@ -38,7 +38,7 @@ class FirstLaunchScreen extends StatelessWidget {
     bool isFirstLaunch = true;
 
     if (isFirstLaunch) {
-      return HomePage();
+      return OnboardingScreen();
     } else {
       return AuthScreen();
     }

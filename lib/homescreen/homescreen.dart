@@ -53,18 +53,27 @@ final pages = <HomeScreenPage>[
       width: 24,
       height: 24,
     ),
-    widget:
-        const FavScreen(), // Используйте ProfileScreen для страницы "Профиль" ПОМЕНЯТЬ НА ПРОФИЛЬ
+    widget: const ProfileScreen(), // Используйте ProfileScreen для страницы "Профиль" ПОМЕНЯТЬ НА ПРОФИЛЬ
   ),
 ];
 
 class HomePage extends StatefulWidget {
+  final int initialIndex;
+
+  HomePage({this.initialIndex = 0});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
+  late int _selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.initialIndex;
+  }
 
   void _onItemTapped(int index) {
     setState(() {
