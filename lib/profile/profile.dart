@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/ai_assistant/onboarding_ai_1.dart';
 import 'package:paw_pick/homescreen/homescreen.dart';
+import 'package:paw_pick/profile/profile_edit.dart';
 import 'package:paw_pick/profile/exit_dialog.dart';
 import 'package:paw_pick/onboarding/onboarding.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:paw_pick/profile/profile_data.dart';
 
-//адаптив
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
+
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  ProfileData _profileData = ProfileData(
+    firstName: 'Иван',
+    lastName: 'Иванов',
+    email: 'ivanov@example.com',
+    city: 'Москва',
+    birthDate: '01.01.1990',
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +58,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      'Иван',
+                      _profileData.firstName,
                       style: TextStyle(
                         color: const Color(0xFF000000).withOpacity(0.7),
                         height: 1,
@@ -54,7 +68,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      'Иванов',
+                      _profileData.lastName,
                       style: TextStyle(
                         color: const Color(0xFF000000).withOpacity(0.7),
                         height: 1,
@@ -82,9 +96,9 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    const Text(
-                      'ivanov@example.com',
-                      style: const TextStyle(
+                    Text(
+                      _profileData.email,
+                      style: TextStyle(
                         color: Color(0xFF000000),
                         height: 1,
                         fontSize: 18.0,
@@ -101,9 +115,9 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    const Text(
-                      '01.01.1990',
-                      style: const TextStyle(
+                    Text(
+                      _profileData.birthDate,
+                      style: TextStyle(
                         color: Color(0xFF000000),
                         height: 1,
                         fontSize: 18.0,
@@ -120,9 +134,9 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    const Text(
-                      'Москва',
-                      style: const TextStyle(
+                    Text(
+                      _profileData.city,
+                      style: TextStyle(
                         color: Color(0xFF000000),
                         height: 1,
                         fontSize: 18.0,
@@ -134,8 +148,21 @@ class ProfileScreen extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                              builder: (context) => HomePage(initialIndex: 2),
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation, secondaryAnimation) => ProfileEditScreen(
+                                profileData: _profileData,
+                                onSave: (updatedProfileData) {
+                                  setState(() {
+                                    _profileData = updatedProfileData;
+                                  });
+                                },
+                              ),
+                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                return FadeTransition(
+                                  opacity: animation,
+                                  child: child,
+                                );
+                              },
                             ),
                           );
                         },

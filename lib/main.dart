@@ -7,6 +7,7 @@ import 'package:paw_pick/form/about3.dart';
 import 'package:paw_pick/form/about4.dart';
 import 'package:paw_pick/homescreen/homescreen.dart';
 import 'package:paw_pick/onboarding/onboarding.dart';
+import 'package:paw_pick/profile/profile.dart';
 import 'package:paw_pick/registration/sign_up.dart';
 import 'auth/sign_in.dart';
 import 'theme/theme.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnboardingScreen(),
+      home: ProfileScreen(),
       theme: AppTheme.lightTheme,
     );
   }
