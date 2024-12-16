@@ -6,36 +6,10 @@ import 'package:paw_pick/onboarding/onboarding.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
-//поля с данными поменять
 //адаптив
 
-class ProfileScreen extends StatefulWidget {
-  final int userId;
-
-  const ProfileScreen({super.key, required this.userId});
-
-  @override
-  _ProfileScreenState createState() => _ProfileScreenState();
-}
-
-class _ProfileScreenState extends State<ProfileScreen> {
-  Map<String, dynamic>? _userData;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadUserData();
-  }
-
-  Future<void> _loadUserData() async {
-    final String response = await rootBundle.loadString('assets/json_data/users_info.json');
-    final List<dynamic> users = await json.decode(response);
-    final user = users.firstWhere((user) => user['id'] == widget.userId, orElse: () => null);
-
-    setState(() {
-      _userData = user;
-    });
-  }
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      _userData?['firstName'] ?? 'Не указано',
+                      'Иван',
                       style: TextStyle(
                         color: const Color(0xFF000000).withOpacity(0.7),
                         height: 1,
@@ -80,7 +54,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      _userData?['lastName'] ?? 'Не указано',
+                      'Иванов',
                       style: TextStyle(
                         color: const Color(0xFF000000).withOpacity(0.7),
                         height: 1,
@@ -108,8 +82,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Text(
-                      _userData?['email'] ?? 'Не указано',
+                    const Text(
+                      'ivanov@example.com',
                       style: const TextStyle(
                         color: Color(0xFF000000),
                         height: 1,
@@ -127,8 +101,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Text(
-                      _userData?['birthDate'] ?? 'Не указано',
+                    const Text(
+                      '01.01.1990',
                       style: const TextStyle(
                         color: Color(0xFF000000),
                         height: 1,
@@ -146,8 +120,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Text(
-                      _userData?['city'] ?? 'Не указано',
+                    const Text(
+                      'Москва',
                       style: const TextStyle(
                         color: Color(0xFF000000),
                         height: 1,
@@ -161,7 +135,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomePage(),
+                              builder: (context) => HomePage(initialIndex: 2),
                             ),
                           );
                         },

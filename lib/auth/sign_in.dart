@@ -84,7 +84,7 @@ class _AuthScreenState extends State<AuthScreen> {
         Navigator.push(
           context,
           PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) => ProfileScreen(userId: userId),
+            pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               return FadeTransition(
                 opacity: animation,
