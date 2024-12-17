@@ -32,7 +32,7 @@ class ExitDialog extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 145,
+                  width: 125,
                   height: 56,
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -59,7 +59,7 @@ class ExitDialog extends StatelessWidget {
                 ),
                 const SizedBox(width: 13),
                 Container(
-                  width: 145,
+                  width: 125,
                   height: 56,
                   decoration: BoxDecoration(
                     color: Theme.of(context).primaryColor,

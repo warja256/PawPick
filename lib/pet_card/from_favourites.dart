@@ -48,33 +48,33 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                       ),
                       Container(
                         padding: const EdgeInsets.only(
-                            top: 54, left: 40, right: 40, bottom: 40),
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(255, 255, 255, 1),
+                            top: 54, left: 40, right: 0, bottom: 40),
+                        decoration: const BoxDecoration(
+                          color: Color.fromRGBO(255, 255, 255, 1),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               '${widget.animal.name}, ${widget.animal.age} года',
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 24, fontWeight: FontWeight.bold),
                             ),
                             Text(
                               widget.animal.breed,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 14,
                                   color: Color.fromRGBO(0, 0, 0, 0.7)),
                             ),
-                            SizedBox(height: 30),
-                            Text(
+                            const SizedBox(height: 30),
+                            const Text(
                               'Приют',
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                             Text(
                               widget.animal.shelter.name,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 14,
                                   color: Color.fromRGBO(0, 0, 0, 0.7)),
                             ),
@@ -84,16 +84,16 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                               height: 21,
                               fit: BoxFit.cover,
                             ),
-                            SizedBox(height: 15),
-                            Text(
+                            const SizedBox(height: 15),
+                            const Text(
                               'Описание',
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                             Text(widget.animal.description,
-                                style: TextStyle(fontSize: 14)),
-                            SizedBox(height: 30),
-                            Text(
+                                style: const TextStyle(fontSize: 14)),
+                            const SizedBox(height: 30),
+                            const Text(
                               'Характеристики',
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
@@ -112,7 +112,7 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                                     ),
                                   ),
                                   backgroundColor: Colors.white,
-                                  padding: EdgeInsets.all(6.0),
+                                  padding: const EdgeInsets.all(6.0),
                                   shape: RoundedRectangleBorder(
                                     side: BorderSide(
                                       color: Theme.of(context).primaryColor,
@@ -123,24 +123,16 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                                 );
                               }).toList(),
                             ),
-                            SizedBox(height: 30),
-                            Row(children: [
+                            const SizedBox(height: 30),
+                            const Row(children: [
                               Text(
                                 'Галерея',
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               SizedBox(width: 170),
-                              Text(
-                                'Смотреть все',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                              ),
                             ]),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Row(
                               children: [
                                 ClipRRect(
@@ -152,7 +144,7 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                                     height: 210,
                                   ),
                                 ),
-                                SizedBox(width: 10),
+                                const SizedBox(width: 10),
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(
                                       6.0), // Закругление углов
@@ -165,7 +157,7 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Row(
                               children: [
                                 ClipRRect(
@@ -178,7 +170,7 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                                     height: 132,
                                   ),
                                 ),
-                                SizedBox(width: 10),
+                                const SizedBox(width: 10),
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(
                                       6.0), // Закругление углов
@@ -189,7 +181,7 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                                     height: 132,
                                   ),
                                 ),
-                                SizedBox(width: 10),
+                                const SizedBox(width: 10),
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(
                                       6.0), // Закругление углов
@@ -202,23 +194,23 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 29),
+                            const SizedBox(height: 29),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                const Text(
                                   'Связь с приютом:',
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                SizedBox(height: 5),
+                                const SizedBox(height: 5),
                                 Row(
                                   children: [
-                                    Icon(Icons.phone,
+                                    const Icon(Icons.phone,
                                         size: 17, color: Colors.black),
-                                    SizedBox(width: 6),
+                                    const SizedBox(width: 6),
                                     Text(
                                       widget.animal.shelter.phone,
                                       style: TextStyle(
@@ -230,9 +222,9 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                                 ),
                                 Row(
                                   children: [
-                                    Icon(Icons.email,
+                                    const Icon(Icons.email,
                                         size: 17, color: Colors.black),
-                                    SizedBox(width: 6),
+                                    const SizedBox(width: 6),
                                     Text(
                                       widget.animal.shelter.email,
                                       style: TextStyle(
@@ -259,7 +251,7 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                           PageRouteBuilder(
                             pageBuilder:
                                 (context, animation, secondaryAnimation) =>
-                                    HomePage(initialIndex : 1),
+                                    HomePage(initialIndex: 1),
                             transitionsBuilder: (context, animation,
                                 secondaryAnimation, child) {
                               return FadeTransition(
@@ -305,7 +297,7 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                               PageRouteBuilder(
                                 pageBuilder:
                                     (context, animation, secondaryAnimation) =>
-                                        HomePage(initialIndex : 1),
+                                        HomePage(initialIndex: 1),
                                 transitionsBuilder: (context, animation,
                                     secondaryAnimation, child) {
                                   return FadeTransition(
@@ -316,8 +308,8 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                               ),
                             );
                           },
-                          shape: CircleBorder(),
-                          padding: EdgeInsets.all(0),
+                          shape: const CircleBorder(),
+                          padding: const EdgeInsets.all(0),
                           child: Image.asset(
                             'assets/find/dislike.png',
                             width: 66,
@@ -351,8 +343,8 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                               ),
                             );
                           },
-                          shape: CircleBorder(),
-                          padding: EdgeInsets.all(0),
+                          shape: const CircleBorder(),
+                          padding: const EdgeInsets.all(0),
                           child: Image.asset(
                             'assets/find/star.png',
                             width: 78,
@@ -375,7 +367,7 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                               PageRouteBuilder(
                                 pageBuilder:
                                     (context, animation, secondaryAnimation) =>
-                                        HomePage(initialIndex : 1),
+                                        HomePage(initialIndex: 1),
                                 transitionsBuilder: (context, animation,
                                     secondaryAnimation, child) {
                                   return FadeTransition(
@@ -386,8 +378,8 @@ class _PetCardFavouritesState extends State<PetCardFavourites> {
                               ),
                             );
                           },
-                          shape: CircleBorder(),
-                          padding: EdgeInsets.all(0),
+                          shape: const CircleBorder(),
+                          padding: const EdgeInsets.all(0),
                           child: Image.asset(
                             'assets/find/like.png',
                             width: 66,

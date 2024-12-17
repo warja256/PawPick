@@ -49,7 +49,7 @@ class _PetCardFindState extends State<PetCardFind> {
                       ),
                       Container(
                         padding: const EdgeInsets.only(
-                            top: 54, left: 40, right: 40, bottom: 40),
+                            top: 54, left: 40, right: 0, bottom: 40),
                         decoration: BoxDecoration(
                           color: const Color.fromRGBO(255, 255, 255, 1),
                         ),
@@ -132,14 +132,6 @@ class _PetCardFindState extends State<PetCardFind> {
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               SizedBox(width: 170),
-                              Text(
-                                'Смотреть все',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                              ),
                             ]),
                             SizedBox(height: 10),
                             Row(
