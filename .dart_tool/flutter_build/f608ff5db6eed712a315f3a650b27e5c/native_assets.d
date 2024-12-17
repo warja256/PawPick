@@ -1,0 +1,1 @@
+ /Users/varvarakusaeva/Documents/appPawPick/PawPick/.dart_tool/flutter_build/f608ff5db6eed712a315f3a650b27e5c/native_assets.yaml: 

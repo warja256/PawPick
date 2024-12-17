@@ -1,0 +1,283 @@
+[
+  {
+    "id": 1,
+    "name": "Мурка",
+    "type": "кошка",
+    "breed": "Сибирская кошка",
+    "gender": "девочка",
+    "character": "спокойный",
+    "size": "s",
+    "age": 2,
+    "fur": "длинная",
+    "color": ["рыжий", "белый"],
+    "additionalInfo": ["для семьи с детьми", "есть прививки"],
+    "shelter": {
+      "name": "Приют для животных 'Лапа'",
+      "phone": "+7 456 789 12 34",
+      "email": "paw@shelter.com",
+      "mapLink": "https://maps.google.com/?q=Новосибирск, ул. Лаповая, д. 3"
+    },
+    "description": "Маленькая и милая кошка, любит сидеть на руках и мурлыкать.",
+    "photos": [
+      "assets/pets_photos/DSC09826 1.png",
+"assets/pets_photos/DSC09830 1.png",
+"assets/pets_photos/DSC09836 (1) 1.png",
+"assets/pets_photos/DSC09842 1.png",
+"assets/pets_photos/DSC09844 1.png"
+    ]
+  },
+  
+  {
+    "id": 2,
+    "name": "Рекс",
+    "breed": "Метис",
+    "type": "собака",
+    "gender": "мальчик",
+    "character": "активный",
+    "size": "l",
+    "age": 5,
+    "fur": "длинная",
+    "color": ["черный", "бежевый"],
+    "additionalInfo": ["ладит с животными", "есть прививки"],
+    "shelter": {
+      "name": "Приют для животных 'Друг'",
+      "phone": "+7 987 654 32 10",
+      "email": "friend@shelter.com",
+      "mapLink": "https://maps.google.com/?q=Санкт-Петербург, ул. Дружеская, д. 2"
+    },
+    "description": "Энергичный и дружелюбный пес, обожает прогулки и игры на свежем воздухе.",
+    "photos": [
+      "assets/pets_photos/DSC_5476 1.png",
+      "assets/pets_photos/DSC_5391_1-min 1.png",
+      "assets/pets_photos/DSC_5410 1.png",
+      "assets/pets_photos/DSC_5464-min 1.png",
+      "assets/pets_photos/DSC_5476 1.png"
+    ]
+  },
+  
+  {
+    "id": 3,
+    "name": "Шерлок",
+    "breed": "Джек-рассел-терьер",
+    "type": "собака",
+    "gender": "мальчик",
+    "character": "активный",
+    "size": "m",
+    "age": 4,
+    "fur": "короткая",
+    "color": ["коричневый", "белый"],
+    "additionalInfo": ["ладит с животными", "есть прививки"],
+    "shelter": {
+      "name": "Приют для животных 'Хвост'",
+      "phone": "+7 789 123 45 67",
+      "email": "tail@shelter.com",
+      "mapLink": "https://maps.google.com/?q=Екатеринбург, ул. Хвостовая, д. 4"
+    },
+    "description": "Среднего размера пес, любит бегать и играть с мячом.",
+    "photos": [
+      "assets/pets_photos/6c394443-a53f-47b9-a 1.png",
+      "assets/pets_photos/5ac178cf-1dde-42a5-9 1.png",
+"assets/pets_photos/5d273ed7-731c-4d97-8 1.png",
+
+"assets/pets_photos/800fed39-3291-4c1d-b 1.png",
+"assets/pets_photos/e30a7a2c-40a7-407f-a 1.png"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Софи",
+    "breed": "Европейская короткошёрстная",
+    "type": "кошка",
+    "gender": "девочка",
+    "character": "спокойный",
+    "size": "m",
+    "age": 1,
+    "fur": "длинная",
+    "color": ["серый", "белый"],
+    "additionalInfo": ["для семьи с детьми", "ладит с животными"],
+    "shelter": {
+      "name": "Приют для животных 'Мур'",
+      "phone": "+7 123 456 78 90",
+      "email": "mur@shelter.com",
+      "mapLink": "https://maps.google.com/?q=Казань, ул. Мурская, д. 5"
+    },
+    "description": "Милая и ласковая кошка, любит играть и спать на коленях.",
+    "photos": [
+      "assets/pets_photos/IMG_6130 1.png",
+"assets/pets_photos/IMG_5841 1.png",
+"assets/pets_photos/IMG_5880 1.png",
+"assets/pets_photos/IMG_5914 1.png",
+
+"assets/pets_photos/IMG_6161 1.png"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Бакс",
+    "breed": "Метис с чертами питбультерьера",
+    "type": "собака",
+    "gender": "мальчик",
+    "character": "активный",
+    "size": "l",
+    "age": 3,
+    "fur": "короткая",
+    "color": ["черный", "белый"],
+    "additionalInfo": ["ладит с животными", "есть прививки"],
+    "shelter": {
+      "name": "Приют для животных 'Лай'",
+      "phone": "+7 987 654 32 10",
+      "email": "bark@shelter.com",
+      "mapLink": "https://maps.google.com/?q=Нижний Новгород, ул. Лайская, д. 6"
+    },
+    "description": "Энергичный и дружелюбный пес, обожает прогулки и игры на свежем воздухе.",
+    "photos": [
+      "assets/pets_photos/8W7A7459 1.png",
+      "assets/pets_photos/8W7A7390 1.png",
+"assets/pets_photos/8W7A7392 1.png",
+"assets/pets_photos/8W7A7422 1.png",
+"assets/pets_photos/8W7A7437 1.png",
+
+"assets/pets_photos/8W7A7479 1.png"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Пух",
+    "type": "кошка",
+    "breed": "Домашний короткошёрстный",
+    "gender": "мальчик",
+    "character": "спокойный",
+    "size": "s",
+    "age": 2,
+    "fur": "длинная",
+    "color": ["бежевый", "белый"],
+    "additionalInfo": ["для семьи с детьми", "есть прививки"],
+    "shelter": {
+      "name": "Приют для животных 'Пушок'",
+      "phone": "+7 456 789 12 34",
+      "email": "fluff@shelter.com",
+      "mapLink": "https://maps.google.com/?q=Самара, ул. Пушистая, д. 7"
+    },
+    "description": "Маленький и милый котёнок, любит сидеть на руках и мурлыкать.",
+    "photos": [
+      "assets/pets_photos/IMG_5767 1.png",
+"assets/pets_photos/IMG_5773 1.png",
+"assets/pets_photos/IMG_5779 1.png",
+"assets/pets_photos/IMG_5782 1.png",
+"assets/pets_photos/IMG_5805 1.png",
+"assets/pets_photos/IMG_5816 1.png"
+      
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Майло",
+    "breed": "Лайка",
+    "type": "собака",
+    "gender": "мальчик",
+    "character": "активный",
+    "size": "m",
+    "age": 4,
+    "fur": "короткая",
+    "color": ["рыжий", "белый"],
+    "additionalInfo": ["ладит с животными", "есть прививки"],
+    "shelter": {
+      "name": "Приют для животных 'Гав'",
+      "phone": "+7 789 123 45 67",
+      "email": "woof@shelter.com",
+      "mapLink": "https://maps.google.com/?q=Омск, ул. Гавская, д. 8"
+    },
+    "description": "Среднего размера пес, любит бегать и играть с мячом.",
+    "photos": [
+      "assets/pets_photos/DSC_8628 1.png",
+      "assets/pets_photos/DSC_8563 1.png",
+"assets/pets_photos/DSC_8564 1.png",
+
+"assets/pets_photos/DSC_8643 1.png",
+"assets/pets_photos/DSC_8651 1.png"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Тимка",
+    "type": "кошка",
+    "breed": "Турецкая ангора",
+    "gender": "девочка",
+    "character": "спокойный",
+    "size": "m",
+    "age": 1,
+    "fur": "длинная",
+    "color": ["серый", "белый"],
+    "additionalInfo": ["для семьи с детьми", "ладит с животными"],
+    "shelter": {
+      "name": "Приют для животных 'Мяу'",
+      "phone": "+7 123 456 78 90",
+      "email": "meow@shelter.com",
+      "mapLink": "https://maps.google.com/?q=Ростов-на-Дону, ул. Мяуская, д. 9"
+    },
+    "description": "Милая и ласковая кошка, любит играть и спать на коленях.",
+    "photos": [
+      "assets/pets_photos/IMG_2275 1.png",
+"assets/pets_photos/IMG_2268 1.png",
+"assets/pets_photos/IMG_2263 1.png",
+"assets/pets_photos/IMG_2254 1.png",
+"assets/pets_photos/IMG_2247 1.png",
+"assets/pets_photos/IMG_2241 1.png"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Барсик",
+    "type": "собака",
+    "breed": "Метис пастушьих пород",
+    "gender": "мальчик",
+    "character": "активный",
+    "size": "l",
+    "age": 3,
+    "fur": "короткая",
+    "color": ["черный", "бежевый"],
+    "additionalInfo": ["ладит с животными", "есть прививки"],
+    "shelter": {
+      "name": "Приют для животных 'Песик'",
+      "phone": "+7 987 654 32 10",
+      "email": "doggy@shelter.com",
+      "mapLink": "https://maps.google.com/?q=Волгоград, ул. Песиковая, д. 10"
+    },
+    "description": "Энергичный и дружелюбный пес, обожает прогулки и игры на свежем воздухе.",
+    "photos": [
+      "assets/pets_photos/5711 (1) 1.png",
+      "assets/pets_photos/e90e36aa-b208-49a7-a (1) 1.png",
+
+"assets/pets_photos/5713 (1) 1.png",
+"assets/pets_photos/5718 (1) 1.png",
+"assets/pets_photos/5722 (1) 1.png"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Белочка",
+    "breed": "Беспородная кошка",
+    "type": "кошка",
+    "gender": "девочка",
+    "character": "спокойный",
+    "size": "m",
+    "age": 3,
+    "fur": "короткая",
+    "color": ["белый", "серый"],
+    "additionalInfo": ["для семьи с детьми", "ладит с животными", "есть прививки"],
+    "shelter": {
+      "name": "Приют для животных 'Дом'",
+      "phone": "+7 123 456 78 90",
+      "email": "home@shelter.com",
+      "mapLink": "https://maps.google.com/?q=Москва, ул. Приютная, д. 1"
+    },
+    "description": "Милая и ласковая кошка, любит играть и спать на коленях.",
+    "photos": [
+      "assets/pets_photos/IMG_9083 1.png",
+      "assets/pets_photos/IMG_9077 1.png",
+      "assets/pets_photos/IMG_9089 1.png",
+      "assets/pets_photos/IMG_9106 1.png",
+      "assets/pets_photos/IMG_9114 1.png"
+    ]
+  }
+]
