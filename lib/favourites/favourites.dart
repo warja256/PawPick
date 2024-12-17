@@ -7,6 +7,10 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'dart:ui';
 
 //стрелка в донате
+//при установке нужных паддингов по 40 не влезает в экран
+//фотография сердечка
+//белый текст видно не на всех фотках
+//карточка усыновленного питомца
 
 Future<List<Animal>> fetchAnimalsFromJson() async {
   try {
@@ -32,11 +36,11 @@ class BottomIcons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50, // Высота контейнера с иконками
+      height: 50,
       decoration: const BoxDecoration(
-        color: Color.fromRGBO(82, 79, 79, 1), // Цвет фона
+        color: Color.fromRGBO(82, 79, 79, 1),
         borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(15.0), // Скругленные нижние углы
+          bottom: Radius.circular(15.0),
         ),
       ),
       child: Row(
@@ -47,7 +51,7 @@ class BottomIcons extends StatelessWidget {
             shape: CircleBorder(),
             padding: EdgeInsets.all(0),
             child: Image.asset(
-              'assets/favs/close-small.png', // Путь к изображению "не нравится"
+              'assets/favs/close-small.png',
               width: 20,
               height: 20,
             ),
@@ -62,7 +66,7 @@ class BottomIcons extends StatelessWidget {
             shape: CircleBorder(),
             padding: EdgeInsets.all(0),
             child: Image.asset(
-              'assets/favs/star.png', // Путь к изображению "звезда"
+              'assets/favs/star.png',
               width: 20,
               height: 20,
             ),
@@ -209,10 +213,85 @@ class _FavScreenState extends State<FavScreen> {
                 ),
               ),
               const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: 1.0,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        'Сегодня',
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: 1.0,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 10),
               isLoading
                   ? const Center(child: CircularProgressIndicator())
                   : animals.isEmpty
-                      ? const Center(child: Text('No animals available'))
+                      ? Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 40),
+                        child:
+                          Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const SizedBox(height: 74),
+                              const Text(
+                                'Здесь пока пусто',
+                                style: TextStyle(
+                                  color: Color(0xFF000000),
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const Text(
+                                'Добавляйте понравившихся животных в избранное, чтобы не потерять их из виду',
+                                style: TextStyle(
+                                  color: Color(0xFF000000),
+                                  fontSize: 18.0,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(height: 16),
+                              Center(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      'assets/favs/Subtract.png',
+                                      width: 50,
+                                      height: 40,
+                                    ),
+                                    Image.asset(
+                                      'assets/favs/Intersect.png',
+                                      width: 50,
+                                      height: 40,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      )
                       : Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: GridView.builder(

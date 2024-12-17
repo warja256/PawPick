@@ -14,7 +14,7 @@ class AiSecondOnboarding extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start, 
             children: [
-              const SizedBox(height: 90),
+              const SizedBox(height: 60),
               Center(
                 child: Image.asset(
                   'assets/ai_pics/pet_1.png',

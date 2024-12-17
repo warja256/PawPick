@@ -220,7 +220,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         controller: _passwordController,
                         obscureText: !_isPasswordVisible,
                         decoration: InputDecoration(
-                          hintText: '',
+                          hintText: 'Введите пароль',
                           hintStyle: TextStyle(
                             color: Colors.grey.withOpacity(0.5),
                             fontSize: 12.0,
@@ -266,7 +266,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     if (_isPasswordError)
                       Text(
                         _passwordErrorMessage,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 12.0,
                           color: Colors.red,
                         ),
