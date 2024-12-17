@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paw_pick/favourites/favourites.dart';
 import 'package:paw_pick/filters/filter_settings.dart';
 import 'package:paw_pick/find/find.dart';
 import 'package:paw_pick/form/about1.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnboardingScreen(),
+      home: HomePage(),
       theme: AppTheme.lightTheme,
     );
   }
@@ -39,7 +40,7 @@ class FirstLaunchScreen extends StatelessWidget {
     bool isFirstLaunch = true;
 
     if (isFirstLaunch) {
-      return OnboardingScreen();
+      return HomePage();
     } else {
       return AuthScreen();
     }

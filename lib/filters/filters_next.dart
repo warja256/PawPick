@@ -674,7 +674,7 @@ class _FiltersNextState extends State<FiltersNext> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Placeholder(),
+                        builder: (context) => HomePage(),
                       ),
                     );
                   },

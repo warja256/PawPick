@@ -62,7 +62,7 @@ class BottomIcons extends StatelessWidget {
             padding: EdgeInsets.all(0),
             child: Image.asset(
               'assets/favs/star.png',
-              width: 20,
+              width: 18,
               height: 20,
             ),
           ),
@@ -181,7 +181,8 @@ class _FavScreenState extends State<FavScreen> {
             children: [
               const SizedBox(height: 20),
               Container(
-                padding: const EdgeInsets.only(left: 40, right: 40, top: 20, bottom: 0),
+                padding: const EdgeInsets.only(
+                    left: 40, right: 40, top: 20, bottom: 0),
                 alignment: Alignment.centerLeft,
                 child: const Text(
                   'Избранное',
@@ -241,57 +242,55 @@ class _FavScreenState extends State<FavScreen> {
                   ? const Center(child: CircularProgressIndicator())
                   : animals.isEmpty
                       ? Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 40),
-                        child:
-                          Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const SizedBox(height: 74),
-                              const Text(
-                                'Здесь пока пусто',
-                                style: TextStyle(
-                                  color: Color(0xFF000000),
-                                  fontSize: 24.0,
-                                  fontWeight: FontWeight.bold,
+                          padding: const EdgeInsets.symmetric(horizontal: 40),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const SizedBox(height: 74),
+                                const Text(
+                                  'Здесь пока пусто',
+                                  style: TextStyle(
+                                    color: Color(0xFF000000),
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              const Text(
-                                'Добавляйте понравившихся животных в избранное, чтобы не потерять их из виду',
-                                style: TextStyle(
-                                  color: Color(0xFF000000),
-                                  fontSize: 18.0,
+                                const Text(
+                                  'Добавляйте понравившихся животных в избранное, чтобы не потерять их из виду',
+                                  style: TextStyle(
+                                    color: Color(0xFF000000),
+                                    fontSize: 18.0,
+                                  ),
+                                  textAlign: TextAlign.center,
                                 ),
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 16),
-                              Center(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Image.asset(
-                                      'assets/favs/broken heart.png',
-                                      width: 50,
-                                      height: 40,
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      )
+                                const SizedBox(height: 16),
+                                Center(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        'assets/favs/broken heart.png',
+                                        width: 50,
+                                        height: 40,
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ))
                       : Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.symmetric(horizontal: 13),
                           child: GridView.builder(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             gridDelegate:
                                 const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
-                              crossAxisSpacing: 15.0,
+                              crossAxisSpacing: 10.0,
                               mainAxisSpacing: 10.0,
-                              childAspectRatio: 140 / 200,
+                              childAspectRatio: 1 / 1.4,
                             ),
                             itemCount: animals.length,
                             itemBuilder: (context, index) {
@@ -314,8 +313,11 @@ class _FavScreenState extends State<FavScreen> {
                                   Navigator.push(
                                     context,
                                     PageRouteBuilder(
-                                      pageBuilder: (context, animation, secondaryAnimation) => PetCardFavourites(animal: animal),
-                                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          PetCardFavourites(animal: animal),
+                                      transitionsBuilder: (context, animation,
+                                          secondaryAnimation, child) {
                                         return FadeTransition(
                                           opacity: animation,
                                           child: child,
@@ -335,4 +337,3 @@ class _FavScreenState extends State<FavScreen> {
     );
   }
 }
-
