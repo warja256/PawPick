@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/ai_assistant/chat.dart';
 
-//адаптив
-
 class AiSecondOnboarding extends StatelessWidget {
   const AiSecondOnboarding({super.key});
 
