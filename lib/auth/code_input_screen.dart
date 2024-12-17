@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:paw_pick/auth/change_password.dart';
 import 'package:paw_pick/auth/new_password.dart';
 
-//обработка введенного кода?
-//адаптив
-
 class CodeInput extends StatelessWidget {
   const CodeInput({super.key});
 

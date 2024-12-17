@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/ai_assistant/onboarding_ai_2.dart';
 
-//адаптив
-
 class AiFirstOnboarding extends StatelessWidget {
   const AiFirstOnboarding({super.key});
 

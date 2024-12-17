@@ -5,12 +5,7 @@ import 'package:paw_pick/pet_card/from_favourites.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:ui';
-
-//стрелка в донате
-//при установке нужных паддингов по 40 не влезает в экран
-//фотография сердечка
-//белый текст видно не на всех фотках
-//карточка усыновленного питомца
+import 'package:paw_pick/favourites/favs.dart';
 
 Future<List<Animal>> fetchAnimalsFromJson() async {
   try {
@@ -163,17 +158,16 @@ class _FavScreenState extends State<FavScreen> {
   @override
   void initState() {
     super.initState();
-    fetchAnimalsFromJson().then((loadedAnimals) {
-      setState(() {
-        animals = loadedAnimals;
-        isLoading = false;
-      });
+    setState(() {
+      animals = Favorites().favoriteAnimals;
+      isLoading = false;
     });
   }
 
   void removeAnimal(Animal animal) {
     setState(() {
       animals.remove(animal);
+      Favorites().favoriteAnimals.remove(animal);
     });
   }
 
@@ -276,12 +270,7 @@ class _FavScreenState extends State<FavScreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Image.asset(
-                                      'assets/favs/Subtract.png',
-                                      width: 50,
-                                      height: 40,
-                                    ),
-                                    Image.asset(
-                                      'assets/favs/Intersect.png',
+                                      'assets/favs/broken heart.png',
                                       width: 50,
                                       height: 40,
                                     ),

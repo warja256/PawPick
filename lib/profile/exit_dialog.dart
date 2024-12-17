@@ -32,13 +32,13 @@ class ExitDialog extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 145, // Уменьшили ширину кнопки
+                  width: 145,
                   height: 56,
                   decoration: BoxDecoration(
-                    color: Colors.white, // Цвет внутренней заливки
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
-                      color: const Color(0xFFF3F3F3), // Цвет границы
+                      color: const Color(0xFFF3F3F3),
                       width: 2,
                     ),
                   ),
@@ -52,20 +52,20 @@ class ExitDialog extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Theme.of(context).primaryColor, // Цвет текста
+                        color: Theme.of(context).primaryColor,
                       ),
                     ),
                   ),
                 ),
                 const SizedBox(width: 13),
                 Container(
-                  width: 145, // Уменьшили ширину кнопки
+                  width: 145,
                   height: 56,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor, // Цвет внутренней заливки
+                    color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
-                      color: Theme.of(context).primaryColor, // Цвет границы
+                      color: Theme.of(context).primaryColor,
                       width: 2,
                     ),
                   ),
@@ -78,7 +78,7 @@ class ExitDialog extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white, // Цвет текста
+                        color: Colors.white,
                       ),
                     ),
                   ),

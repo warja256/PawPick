@@ -89,8 +89,7 @@ flutter:
     - assets/favs/close-small.png
     - assets/favs/star.png
     - assets/favs/divider.png
-    - assets/favs/Intersect.png
-    - assets/favs/Subtract.png
+    - assets/favs/broken heart.png
 
     - assets/json_data/pets_info.json
     - assets/json_data/users_info.json

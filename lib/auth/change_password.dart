@@ -4,8 +4,6 @@ import 'package:paw_pick/auth/sign_in.dart';
 import 'package:paw_pick/auth/code_input_screen.dart';
 
 //добавление нового пароля в файл json
-//адаптив
-
 class ChangePasswordScreen extends StatelessWidget {
   const ChangePasswordScreen({super.key});
 
