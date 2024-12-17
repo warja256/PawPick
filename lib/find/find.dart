@@ -5,9 +5,8 @@ import 'package:paw_pick/filters/filter_settings.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 import 'dart:ui';
-
 import 'package:paw_pick/models/animal.dart'; // Импортируем модель Animal
-import 'package:paw_pick/pet_card/pet_card.dart'; // Импортируем PetCard
+import 'package:paw_pick/pet_card/from_find.dart';
 
 Future<List<Animal>> fetchAnimalsFromJson() async {
   try {
@@ -286,7 +285,7 @@ class _FindScreenState extends State<FindScreen> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          PetCard(
+                                                          PetCardFind(
                                                               animal: animal),
                                                     ),
                                                   );

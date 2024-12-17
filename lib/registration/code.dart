@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:paw_pick/form/about1.dart';
 import '../auth/sign_in.dart';
 import 'sign_up.dart';
-import 'package:paw_pick/form/about1.dart';
 
 class CodeScreen extends StatefulWidget {
   const CodeScreen({super.key});
@@ -104,6 +103,10 @@ class _CodeScreenState extends State<CodeScreen> {
                   onChanged: (value) => _validateCity(),
                   decoration: InputDecoration(
                     hintText: 'Код подтверждения',
+                    hintStyle: TextStyle(
+                      color: Colors.grey.withOpacity(0.5),
+                      fontSize: 12.0
+                      ),
                     contentPadding:
                         const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                     border: OutlineInputBorder(

@@ -68,7 +68,7 @@ class DonateSucseedScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 183),
+                  const SizedBox(height: 200),
                   const Text(
                     'Спасибо!',
                     style: TextStyle(
