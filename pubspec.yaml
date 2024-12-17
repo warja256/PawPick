@@ -1,0 +1,189 @@
+name: paw_pick
+description: Mobile app for Pet shelters and Pet lovers
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_svg: ^2.0.15
+  introduction_screen: ^3.0.3
+  carousel_slider: ^4.2.0
+  flutter_card_swiper: ^7.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  
+flutter:
+  uses-material-design: true
+  assets:
+    - 'assets/dog2.png'
+    - 'assets/dog3.png'
+    - 'assets/dog1.png'
+    - 'assets/btn_back.png'
+
+    - assets/filters_pics/cat_icon_white.png
+    - assets/filters_pics/cat_icon_yellow.png
+    - assets/filters_pics/dog_icon_white.png
+    - assets/filters_pics/dog_icon_yellow.png
+
+    - assets/filters_pics/male_icon_white.png
+    - assets/filters_pics/male_icon_yellow.png
+    - assets/filters_pics/female_icon_white.png
+    - assets/filters_pics/female_icon_yellow.png
+
+    - assets/filters_pics/calm_icon_white.png
+    - assets/filters_pics/calm_icon_yellow.png
+    - assets/filters_pics/active_icon_white.png
+    - assets/filters_pics/active_icon_yellow.png
+
+    - assets/filters_pics/small_icon_white.png
+    - assets/filters_pics/small_icon_yellow.png
+    - assets/filters_pics/medium_icon_white.png
+    - assets/filters_pics/medium_icon_yellow.png
+    - assets/filters_pics/large_icon_white.png
+    - assets/filters_pics/large_icon_yellow.png
+
+    - assets/filters_pics/young_icon_white.png
+    - assets/filters_pics/young_icon_black.png
+    - assets/filters_pics/adult_icon_white.png
+    - assets/filters_pics/adult_icon_black.png
+    - assets/filters_pics/old_icon_white.png
+    - assets/filters_pics/old_icon_black.png
+    - assets/filters_pics/filters_next/short_icon_white.png
+    - assets/filters_pics/filters_next/short_icon_yellow.png
+    - assets/filters_pics/filters_next/long_icon_white.png
+    - assets/filters_pics/filters_next/long_icon_yellow.png
+
+    - assets/ai_pics/robot_2.png
+    - assets/ai_pics/pet_1.png
+    - assets/ai_pics/dog_2.png
+    - assets/ai_pics/arrow-right.png
+
+    - assets/profile/photo.png
+
+    - assets/menu/cards.png
+    - assets/menu/favs.png
+    - assets/menu/profile.png
+
+    - assets/menu/cards_active.png
+    - assets/menu/favs_active.png
+    - assets/menu/profile_active.png
+
+    - assets/form/check.png
+    - assets/form/user_photo.png
+    - assets/form/home_for_pets.png
+    - assets/form/calendar.png
+
+    - 'assets/donation/sbp_logo.png'
+    - 'assets/donation/back.png'
+    
+    - assets/find_page/filter_button.png
+
+    - assets/favs/close-small.png
+    - assets/favs/star.png
+    - assets/favs/divider.png
+    - assets/favs/broken heart.png
+
+    - assets/json_data/pets_info.json
+    - assets/json_data/users_info.json
+
+    - assets/find/dog1.png
+    - assets/find/default_pet.png
+    - assets/find/dislike.png
+    - assets/find/like.png
+    - assets/find/star.png
+
+
+    # PETS PHOTOS
+    - assets/pets_photos/IMG_9077 1.png
+    - assets/pets_photos/IMG_9083 1.png
+    - assets/pets_photos/IMG_9089 1.png
+    - assets/pets_photos/IMG_9106 1.png
+    - assets/pets_photos/IMG_9114 1.png
+
+    - assets/pets_photos/DSC_5476 1.png
+    - assets/pets_photos/DSC_5391_1-min 1.png
+    - assets/pets_photos/DSC_5410 1.png
+    - assets/pets_photos/DSC_5464-min 1.png
+    - assets/pets_photos/DSC_5476 1.png
+
+    - assets/pets_photos/DSC09826 1.png
+    - assets/pets_photos/DSC09830 1.png
+    -  assets/pets_photos/DSC09836 (1) 1.png
+    -  assets/pets_photos/DSC09842 1.png
+    -  assets/pets_photos/DSC09844 1.png
+
+    - assets/pets_photos/5ac178cf-1dde-42a5-9 1.png
+    - assets/pets_photos/5d273ed7-731c-4d97-8 1.png
+    - assets/pets_photos/6c394443-a53f-47b9-a 1.png
+    - assets/pets_photos/800fed39-3291-4c1d-b 1.png
+    - assets/pets_photos/e30a7a2c-40a7-407f-a 1.png
+
+
+    - assets/pets_photos/IMG_5841 1.png
+    - assets/pets_photos/IMG_5880 1.png
+    - assets/pets_photos/IMG_5914 1.png
+    - assets/pets_photos/IMG_6130 1.png
+    - assets/pets_photos/IMG_6161 1.png
+
+    - assets/pets_photos/8W7A7390 1.png
+    - assets/pets_photos/8W7A7392 1.png
+    - assets/pets_photos/8W7A7422 1.png
+    - assets/pets_photos/8W7A7437 1.png
+    - assets/pets_photos/8W7A7459 1.png
+    - assets/pets_photos/8W7A7479 1.png
+
+    - assets/pets_photos/IMG_5767 1.png
+    - assets/pets_photos/IMG_5773 1.png
+    - assets/pets_photos/IMG_5779 1.png
+    - assets/pets_photos/IMG_5782 1.png
+    - assets/pets_photos/IMG_5805 1.png
+    - assets/pets_photos/IMG_5816 1.png
+
+    - assets/pets_photos/DSC_8563 1.png
+    - assets/pets_photos/DSC_8564 1.png
+    - assets/pets_photos/DSC_8628 1.png
+    - assets/pets_photos/DSC_8643 1.png
+    - assets/pets_photos/DSC_8651 1.png
+
+    - assets/pets_photos/IMG_2275 1.png
+    - assets/pets_photos/IMG_2268 1.png
+    - assets/pets_photos/IMG_2263 1.png
+    - assets/pets_photos/IMG_2254 1.png
+    - assets/pets_photos/IMG_2247 1.png
+    - assets/pets_photos/IMG_2241 1.png
+
+    - assets/pets_photos/e90e36aa-b208-49a7-a (1) 1.png
+    - assets/pets_photos/5711 (1) 1.png
+    - assets/pets_photos/5713 (1) 1.png
+    - assets/pets_photos/5718 (1) 1.png
+    - assets/pets_photos/5722 (1) 1.png
+
+    - assets/pet_card/map.png
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package

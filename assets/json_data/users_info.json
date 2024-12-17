@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "lastName": "Иванов",
+    "firstName": "Иван",
+    "email": "ivanov@example.com",
+    "gender": "Мужской",
+    "birthDate": "01.01.1990",
+    "city": "Москва",
+    "password": "password1"
+  },
+  {
+    "id": 2,
+    "lastName": "Петров",
+    "firstName": "Петр",
+    "email": "petr@example.com",
+    "gender": "Мужской",
+    "birthDate": "15.05.1985",
+    "city": "Санкт-Петербург",
+    "password": "password2"
+  },
+  {
+    "id": 3,
+    "lastName": "Сидоров",
+    "firstName": "Сидор",
+    "email": "sidorov@example.com",
+    "gender": "Мужской",
+    "birthDate": "22.08.1992",
+    "city": "Новосибирск",
+    "password": "password3"
+  },
+  {
+    "id": 4,
+    "lastName": "Кузнецов",
+    "firstName": "Кузьма",
+    "email": "kuzma@example.com",
+    "gender": "Мужской",
+    "birthDate": "30.11.1988",
+    "city": "Екатеринбург",
+    "password": "password4"
+  },
+  {
+    "id": 5,
+    "lastName": "Смирнов",
+    "firstName": "Смир",
+    "email": "smirnov@example.com",
+    "gender": "Мужской",
+    "birthDate": "14.03.1995",
+    "city": "Казань",
+    "password": "password5"
+  },
+  {
+    "id": 6,
+    "lastName": "Васильев",
+    "firstName": "Василий",
+    "email": "vasiliy@example.com",
+    "gender": "Мужской",
+    "birthDate": "07.07.1987",
+    "city": "Нижний Новгород",
+    "password": "password6"
+  },
+  {
+    "id": 7,
+    "lastName": "Попов",
+    "firstName": "Поп",
+    "email": "popov@example.com",
+    "gender": "Мужской",
+    "birthDate": "28.02.1991",
+    "city": "Челябинск",
+    "password": "password7"
+  },
+  {
+    "id": 8,
+    "lastName": "Соколов",
+    "firstName": "Сокол",
+    "email": "sokol@example.com",
+    "gender": "Мужской",
+    "birthDate": "18.06.1989",
+    "city": "Самара",
+    "password": "password8"
+  },
+  {
+    "id": 9,
+    "lastName": "Михайлов",
+    "firstName": "Михаил",
+    "email": "mikhailov@example.com",
+    "gender": "Мужской",
+    "birthDate": "05.04.1993",
+    "city": "Омск",
+    "password": "password9"
+  },
+  {
+    "id": 10,
+    "lastName": "Новиков",
+    "firstName": "Новик",
+    "email": "novik@example.com",
+    "gender": "Мужской",
+    "birthDate": "25.09.1986",
+    "city": "Ростов-на-Дону",
+    "password": "password10"
+  }
+]
