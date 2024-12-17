@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/homescreen/homescreen.dart';
 
-//адаптив
-
 class AiChat extends StatelessWidget {
   const AiChat({super.key});
 

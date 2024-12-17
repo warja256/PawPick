@@ -27,6 +27,7 @@ class DonateSucseedScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  const SizedBox(height: 40),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -68,7 +69,7 @@ class DonateSucseedScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 200),
+                  const SizedBox(height: 183),
                   const Text(
                     'Спасибо!',
                     style: TextStyle(

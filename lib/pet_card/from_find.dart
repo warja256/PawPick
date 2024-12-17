@@ -43,7 +43,7 @@ class _PetCardFindState extends State<PetCardFind> {
                     children: [
                       Image.asset(
                         widget.animal.photos[0],
-                        height: 415,
+                        height: 420,
                         width: double.infinity,
                         fit: BoxFit.cover,
                       ),

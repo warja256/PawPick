@@ -6,8 +6,6 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:paw_pick/auth/change_password.dart';
 
-//адаптив
-
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
 
