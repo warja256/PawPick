@@ -58,7 +58,7 @@ class RegistrationScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Телефон или почта',
+                    'Электронная почта',
                     style: TextStyle(
                       fontSize: 12.0,
                       color: Colors.black.withOpacity(0.7),

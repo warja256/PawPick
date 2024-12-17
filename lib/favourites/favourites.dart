@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paw_pick/models/animal.dart';
 import 'package:paw_pick/donation/donate.dart';
-import 'package:paw_pick/pet_card/pet_card.dart';
+import 'package:paw_pick/pet_card/from_favourites.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:ui';
@@ -303,7 +303,7 @@ class _FavScreenState extends State<FavScreen> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          PetCard(animal: animal),
+                                          PetCardFavourites(animal: animal),
                                     ),
                                   );
                                 },
@@ -314,7 +314,7 @@ class _FavScreenState extends State<FavScreen> {
                                   Navigator.push(
                                     context,
                                     PageRouteBuilder(
-                                      pageBuilder: (context, animation, secondaryAnimation) => const DonateScreen(),
+                                      pageBuilder: (context, animation, secondaryAnimation) => PetCardFavourites(animal: animal),
                                       transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                         return FadeTransition(
                                           opacity: animation,

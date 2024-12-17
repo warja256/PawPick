@@ -17,9 +17,13 @@ class _DonateScreenState extends State<DonateScreen> {
   Color btn2Color = Colors.white;
   Color btn3Color = Colors.white;
   bool isTextFieldSelected = false;
+  String? selectedAmount;
+  String? errorMessage;
+  final TextEditingController _textController = TextEditingController();
 
   void _onButtonPressed(String cost) {
     setState(() {
+      selectedAmount = cost;
       if (cost == '50') {
         btn1Color = Theme.of(context).primaryColor;
         btn2Color = Colors.white;
@@ -36,6 +40,7 @@ class _DonateScreenState extends State<DonateScreen> {
         btn2Color = Colors.white;
         isTextFieldSelected = false;
       }
+      errorMessage = null;
     });
   }
 
@@ -46,6 +51,30 @@ class _DonateScreenState extends State<DonateScreen> {
         btn1Color = Colors.white;
         btn2Color = Colors.white;
         btn3Color = Colors.white;
+        selectedAmount = null;
+      }
+    });
+  }
+
+  void _validateAndProceed() {
+    setState(() {
+      if (selectedAmount == null && _textController.text.isEmpty) {
+        errorMessage = 'Пожалуйста, выберите сумму или введите свою сумму.';
+      } else {
+        errorMessage = null;
+        Navigator.push(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                const DonateSucseedScreen(),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              return FadeTransition(
+                opacity: animation,
+                child: child,
+              );
+            },
+          ),
+        );
       }
     });
   }
@@ -149,12 +178,12 @@ class _DonateScreenState extends State<DonateScreen> {
                         backgroundColor: btn1Color,
                         fixedSize: const Size(89, 45),
                         side: const BorderSide(
-                          color: Color(0xffE8E6EA), // Цвет границы
-                          width: 1, // Толщина границы
+                          color: Color(0xffE8E6EA),
+                          width: 1,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius:
-                              BorderRadius.circular(15), // Радиус скругления
+                              BorderRadius.circular(15),
                         ),
                       ),
                       child: Column(
@@ -190,12 +219,12 @@ class _DonateScreenState extends State<DonateScreen> {
                         backgroundColor: btn2Color,
                         fixedSize: const Size(89, 45),
                         side: const BorderSide(
-                          color: Color(0xffE8E6EA), // Цвет границы
-                          width: 1, // Толщина границы
+                          color: Color(0xffE8E6EA),
+                          width: 1,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius:
-                              BorderRadius.circular(15), // Радиус скругления
+                              BorderRadius.circular(15),
                         ),
                       ),
                       child: Column(
@@ -231,12 +260,12 @@ class _DonateScreenState extends State<DonateScreen> {
                         backgroundColor: btn3Color,
                         fixedSize: const Size(89, 45),
                         side: const BorderSide(
-                          color: Color(0xffE8E6EA), // Цвет границы
-                          width: 1, // Толщина границы
+                          color: Color(0xffE8E6EA),
+                          width: 1,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius:
-                              BorderRadius.circular(15), // Радиус скругления
+                              BorderRadius.circular(15),
                         ),
                       ),
                       child: Column(
@@ -285,9 +314,9 @@ class _DonateScreenState extends State<DonateScreen> {
                       width: 140,
                       height: 45,
                       child: TextField(
+                        controller: _textController,
                         onTap: _toggleTextField,
-                        textAlign:
-                            TextAlign.center, // Выравнивание текста по центру
+                        textAlign: TextAlign.center,
                         decoration: InputDecoration(
                           hintText: '',
                           border: OutlineInputBorder(
@@ -317,22 +346,7 @@ class _DonateScreenState extends State<DonateScreen> {
                 ),
                 const SizedBox(height: 22),
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) =>
-                            const DonateSucseedScreen(),
-                        transitionsBuilder:
-                            (context, animation, secondaryAnimation, child) {
-                          return FadeTransition(
-                            opacity: animation,
-                            child: child,
-                          );
-                        },
-                      ),
-                    );
-                  },
+                  onPressed: _validateAndProceed,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Theme.of(context).primaryColor,
                     shape: RoundedRectangleBorder(
@@ -360,6 +374,18 @@ class _DonateScreenState extends State<DonateScreen> {
                     ],
                   ),
                 ),
+                if (errorMessage != null)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 7),
+                    child: Text(
+                      errorMessage!,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),
