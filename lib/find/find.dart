@@ -5,6 +5,7 @@ import 'package:paw_pick/filters/filter_settings.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 import 'dart:ui';
+import 'package:paw_pick/favourites/favs.dart';
 
 import 'package:paw_pick/models/animal.dart'; // Импортируем модель Animal
 import 'package:paw_pick/pet_card/pet_card.dart'; // Импортируем PetCard
@@ -413,11 +414,10 @@ class _FindScreenState extends State<FindScreen> {
     int? currentIndex,
     CardSwiperDirection direction,
   ) {
-    if (direction == CardSwiperDirection.left ||
-        direction == CardSwiperDirection.right) {
-      debugPrint(
-        'The card at index $previousIndex has been swiped to the ${direction == CardSwiperDirection.left ? "left" : "right"}',
-      );
+    if (direction == CardSwiperDirection.right) {
+      final animal = animals[previousIndex];
+      Favorites().favoriteAnimals.add(animal);
+      debugPrint('The card at index $previousIndex has been swiped to the right and added to favorites');
     }
     return true;
   }
